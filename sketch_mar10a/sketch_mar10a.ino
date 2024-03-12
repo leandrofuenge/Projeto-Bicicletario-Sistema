@@ -115,7 +115,7 @@ void loop()
 
      digitalWrite(LedVerde, HIGH);            // ligamos o led verde
       lcd.clear();                             // limpamos oque havia sido escrito no lcd
-      lcd.print("Acesso Liberado");            // informamos pelo lcd que a tranca foi aberta
+      Serial.print("Acesso Liberado");            // informamos pelo lcd que a tranca foi aberta
  
       digitalWrite(tranca, HIGH);              //abrimos a tranca por 5 segundos
 
