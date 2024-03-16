@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UsuarioController {
+public class CartaoController {
 
    private final UsuarioService usuarioService;
 
@@ -26,7 +26,7 @@ public class UsuarioController {
    private int PLANO_500;
 
    @Autowired
-   public UsuarioController(UsuarioService usuarioService) {
+   public CartaoController(UsuarioService usuarioService) {
       this.usuarioService = usuarioService;
    }
 
