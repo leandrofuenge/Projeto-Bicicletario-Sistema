@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    boolean existsByNumeroDoCartao(String numeroDoCartao);
+    // Aqui você pode adicionar métodos personalizados de consulta, se necessário
 }
