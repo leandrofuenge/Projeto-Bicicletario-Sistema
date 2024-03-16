@@ -1,6 +1,6 @@
 package com.example.bici.controller;
 
-import com.example.bici.service.UsuarioService;
+import com.example.bici.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CartaoController {
 
-   private final UsuarioService usuarioService;
+   private final CartaoService usuarioService;
 
    @Value("${usuario.plano.200}") // Injeta o valor do plano 200 do arquivo de propriedades
    private int PLANO_200;
@@ -26,7 +26,7 @@ public class CartaoController {
    private int PLANO_500;
 
    @Autowired
-   public CartaoController(UsuarioService usuarioService) {
+   public CartaoController(CartaoService usuarioService) {
       this.usuarioService = usuarioService;
    }
 

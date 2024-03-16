@@ -3,7 +3,7 @@ package com.example.bici.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioService {
+public class CartaoService {
 
     // Método para autenticar o usuário por número do cartão
     public boolean autenticarUsuarioPorNumeroDoCartao(String numeroDoCartao) {
