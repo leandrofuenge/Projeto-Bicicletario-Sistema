@@ -99,6 +99,6 @@ public class Usuario {
     }
 
     public int getCreditos() {
-        return 0; // Implemente a lógica para obter os créditos do usuário, se necessário
+        return 100; // Implemente a lógica para obter os créditos do usuário, se necessário
     }
 }
