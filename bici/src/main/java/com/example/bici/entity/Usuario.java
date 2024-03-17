@@ -15,59 +15,64 @@ public class Usuario {
     private Long id;
 
     @Column(nullable = false)
-    private String nomeCompleto; // Tipo String
-
-    @Column(nullable = false)
-    private String numeroDoCartao; // Tipo String
-
-    private int creditos; // Tipo int
-
-    private String valorDoPlano; // Tipo String
+    private String nomeCompleto;
 
     @Column(nullable = false, unique = true)
-    private String cpf; // Tipo String
+    private String numeroDoCartao;
 
     @Column(nullable = false)
-    private String rg; // Tipo String
+    private int creditos;
 
     @Column(nullable = false)
-    private String dataDeNascimento; // Tipo String
+    private int creditosRestantes;
 
     @Column(nullable = false)
-    private String sexo; // Tipo String
-
-    @Column(nullable = false)
-    private String cep; // Tipo String
-
-    @Column(nullable = false)
-    private String endereco; // Tipo String
-
-    @Column(nullable = false)
-    private String numero; // Tipo String
-
-    @Column(nullable = false)
-    private String bairro; // Tipo String
-
-    @Column(nullable = false)
-    private String cidade; // Tipo String
-
-    @Column(nullable = false)
-    private String estado; // Tipo String
+    private String valorDoPlano;
 
     @Column(nullable = false, unique = true)
-    private String email; // Tipo String
+    private String cpf;
+
+    @Column(nullable = false, unique = true)
+    private String rg;
 
     @Column(nullable = false)
-    private String senha; // Tipo String
+    private String dataDeNascimento;
 
     @Column(nullable = false)
-    private String celular; // Tipo String
+    private String sexo;
+
+    @Column(nullable = false)
+    private String cep;
+
+    @Column(nullable = false)
+    private String endereco;
+
+    @Column(nullable = false)
+    private String numero;
+
+    @Column(nullable = false)
+    private String bairro;
+
+    @Column(nullable = false)
+    private String cidade;
+
+    @Column(nullable = false)
+    private String estado;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String senha;
+
+    @Column(nullable = false)
+    private String celular;
 
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
 
-    // Construtor com todos os campos
+    // Construtor com os campos necessários, sem creditosRestantes
     public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditos, String valorDoPlano,
                    String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String senha, String celular) {
@@ -88,11 +93,13 @@ public class Usuario {
         this.estado = estado;
         this.senha = senha;
         this.celular = celular;
+        this.creditosRestantes = creditos; // creditosRestantes inicializado com os créditos
     }
 
     // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
         creditos--; // Por exemplo, apenas decrementa o número de créditos
+        creditosRestantes--; // Atualiza a quantidade restante de créditos
     }
 }
