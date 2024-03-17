@@ -101,5 +101,7 @@ public class CartaoController {
       usuarioService.consumirCreditoDeTodosUsuarios();
    }
 
+
+
    // Outros métodos podem ser adicionados aqui conforme necessário
 }

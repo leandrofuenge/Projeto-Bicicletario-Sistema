@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @Entity
 @Table(name = "USUARIO")
 public class Usuario {
@@ -14,22 +14,24 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nomecompleto;
+    @Column(nullable = false)
+    private String nomeCompleto;
 
+    @Column(nullable = false)
     private String numeroDoCartao;
 
     private int creditos;
 
     private String valorDoPlano;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String cpf;
 
     @Column(nullable = false)
     private String rg;
 
     @Column(nullable = false)
-    private String datadenascimento;
+    private String dataDeNascimento;
 
     @Column(nullable = false)
     private String sexo;
@@ -59,23 +61,23 @@ public class Usuario {
     private String senha;
 
     @Column(nullable = false)
-    private String celular; // Corrigido para começar com letra minúscula
+    private String celular;
 
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
 
-    public Usuario(String nomecompleto, String email, String numeroDoCartao, int creditos, String valorDoPlano,
-                   String cpf, String rg, String datadenascimento, String sexo, String cep, String endereco,
+    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditos, String valorDoPlano,
+                   String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String senha, String celular) {
-        this.nomecompleto = nomecompleto;
+        this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.numeroDoCartao = numeroDoCartao;
         this.creditos = creditos;
         this.valorDoPlano = valorDoPlano;
         this.cpf = cpf;
         this.rg = rg;
-        this.datadenascimento = datadenascimento;
+        this.dataDeNascimento = dataDeNascimento;
         this.sexo = sexo;
         this.cep = cep;
         this.endereco = endereco;
@@ -90,9 +92,5 @@ public class Usuario {
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
         creditos--; // Por exemplo, apenas decrementa o número de créditos
-    }
-
-    public Object nome() {
-        return null;
     }
 }

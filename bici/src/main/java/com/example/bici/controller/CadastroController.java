@@ -20,39 +20,43 @@ public class CadastroController {
         this.cadastroService = cadastroService;
     }
 
-    // Método para criar um novo usuário
+    // Criar um novo usuário
     @PostMapping("/criar")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
 
-    // Método para recuperar todos os usuários
+    // Obter todos os usuários
     @GetMapping("/todos")
     public ResponseEntity<List<Usuario>> obterTodosUsuarios() {
         List<Usuario> usuarios = cadastroService.obterTodosUsuarios();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
-    // Método para recuperar um usuário pelo ID
+    // Obter um usuário pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> obterUsuarioPorId(@PathVariable Long id) {
         Usuario usuario = cadastroService.obterUsuarioPorId(id);
-        return usuario != null ?
-                new ResponseEntity<>(usuario, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (usuario != null) {
+            return new ResponseEntity<>(usuario, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
-    // Método para atualizar um usuário existente
+    // Atualizar um usuário existente
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         Usuario usuarioAtualizado = cadastroService.atualizarUsuario(id, usuario);
-        return usuarioAtualizado != null ?
-                new ResponseEntity<>(usuarioAtualizado, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (usuarioAtualizado != null) {
+            return new ResponseEntity<>(usuarioAtualizado, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
-    // Método para excluir um usuário pelo ID
+    // Excluir um usuário pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) {
         cadastroService.excluirUsuario(id);
