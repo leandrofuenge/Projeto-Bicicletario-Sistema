@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class CartaoController {
 
@@ -19,35 +22,42 @@ public class CartaoController {
 
    // Método para autenticar usuário por número do cartão
    @GetMapping("/usuarios/autenticar")
-   public String autenticarUsuarioPorNumeroDoCartao(@RequestParam String numeroDoCartao,
-                                                    @RequestParam int valorDoPlano) {
+   public Map<String, Object> autenticarUsuarioPorNumeroDoCartao(@RequestParam String numeroDoCartao,
+                                                                 @RequestParam int valorDoPlano) {
+
+      Map<String, Object> response = new HashMap<>();
 
       // Verifica se o usuário está autenticado
       boolean autenticado = cartaoService.autenticarUsuarioPorNumeroDoCartao(numeroDoCartao);
       if (!autenticado) {
-         return "Falha na autenticação do usuário.";
+         response.put("status", "Falha na autenticação do usuário.");
+         return response;
       }
 
       // Verifica se há bicicleta no bicicletário
       boolean bicicletaPresente = verificarBicicletaPresente();
       if (!bicicletaPresente) {
-         return "Insira a bicicleta no bicicletário.";
+         response.put("status", "Insira a bicicleta no bicicletário.");
+         return response;
       }
 
       // Verifica se o usuário tem créditos suficientes conforme o plano
       int creditosNecessarios = obterCreditosNecessarios(valorDoPlano);
-      if (cartaoService.verificarCreditosSuficientes(numeroDoCartao, creditosNecessarios)) {
-         // Se o usuário tem créditos suficientes, deduz o valor do plano dos créditos do cartão
-         cartaoService.deduzirCreditos(numeroDoCartao, creditosNecessarios);
+       if (cartaoService.verificarCreditosSuficientes(numeroDoCartao,
+               creditosNecessarios)) {
+                  response.put("status", "Créditos insuficientes. Recarregue seu cartão.");
+               } else {
+          // Se o usuário tem créditos suficientes, deduz o valor do plano dos créditos do cartão
+          cartaoService.deduzirCreditos(numeroDoCartao, creditosNecessarios);
 
-         // Obtém a quantidade restante de créditos no cartão
-         int creditosRestantes = cartaoService.obterCreditosRestantes(numeroDoCartao);
+          // Obtém a quantidade restante de créditos no cartão
+          int creditosRestantes = cartaoService.obterCreditosRestantes(numeroDoCartao);
 
-         // Retorna a mensagem de autenticação com a quantidade de créditos restantes
-         return "Usuário autenticado com sucesso! Cartão identificado. Acesso liberado. Créditos restantes: " + creditosRestantes;
-      } else {
-         return "Créditos insuficientes. Recarregue seu cartão.";
-      }
+          // Retorna a mensagem de autenticação com a quantidade de créditos restantes
+          response.put("status", "Usuário autenticado com sucesso! Cartão identificado. Acesso liberado.");
+          response.put("creditosRestantes", creditosRestantes);
+       }
+       return response;
    }
 
    // Método para verificar se há bicicleta presente no bicicletário

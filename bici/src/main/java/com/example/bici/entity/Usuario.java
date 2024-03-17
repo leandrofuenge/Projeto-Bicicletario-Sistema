@@ -15,58 +15,59 @@ public class Usuario {
     private Long id;
 
     @Column(nullable = false)
-    private String nomeCompleto;
+    private String nomeCompleto; // Tipo String
 
     @Column(nullable = false)
-    private String numeroDoCartao;
+    private String numeroDoCartao; // Tipo String
 
-    private int creditos;
+    private int creditos; // Tipo int
 
-    private String valorDoPlano;
+    private String valorDoPlano; // Tipo String
 
     @Column(nullable = false, unique = true)
-    private String cpf;
+    private String cpf; // Tipo String
 
     @Column(nullable = false)
-    private String rg;
+    private String rg; // Tipo String
 
     @Column(nullable = false)
-    private String dataDeNascimento;
+    private String dataDeNascimento; // Tipo String
 
     @Column(nullable = false)
-    private String sexo;
+    private String sexo; // Tipo String
 
     @Column(nullable = false)
-    private String cep;
+    private String cep; // Tipo String
 
     @Column(nullable = false)
-    private String endereco;
+    private String endereco; // Tipo String
 
     @Column(nullable = false)
-    private String numero;
+    private String numero; // Tipo String
 
     @Column(nullable = false)
-    private String bairro;
+    private String bairro; // Tipo String
 
     @Column(nullable = false)
-    private String cidade;
+    private String cidade; // Tipo String
 
     @Column(nullable = false)
-    private String estado;
+    private String estado; // Tipo String
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String email; // Tipo String
 
     @Column(nullable = false)
-    private String senha;
+    private String senha; // Tipo String
 
     @Column(nullable = false)
-    private String celular;
+    private String celular; // Tipo String
 
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
 
+    // Construtor com todos os campos
     public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditos, String valorDoPlano,
                    String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String senha, String celular) {
@@ -89,6 +90,7 @@ public class Usuario {
         this.celular = celular;
     }
 
+    // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
         creditos--; // Por exemplo, apenas decrementa o número de créditos
