@@ -92,7 +92,7 @@ public class Usuario {
         creditos--; // Por exemplo, apenas decrementa o número de créditos
     }
 
-    public Object getNome() {
+    public Object nome() {
         return null;
     }
 }

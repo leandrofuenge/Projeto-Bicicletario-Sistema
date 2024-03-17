@@ -35,6 +35,12 @@ public class CartaoController {
    public String autenticarUsuarioPorNumeroDoCartao(@RequestParam String numeroDoCartao,
                                                     @RequestParam int valorDoPlano) {
 
+      // Verifica se o cartão está registrado no sistema
+      boolean cartaoRegistrado = usuarioService.verificarCartaoRegistrado(numeroDoCartao);
+      if (!cartaoRegistrado) {
+         return "Cartão não identificado. Por favor, entre em contato com o suporte.";
+      }
+
       // Verifica se o usuário está autenticado
       boolean autenticado = usuarioService.autenticarUsuarioPorNumeroDoCartao(numeroDoCartao);
       if (!autenticado) {
