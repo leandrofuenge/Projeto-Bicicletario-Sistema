@@ -21,9 +21,6 @@ public class Usuario {
     private String numeroDoCartao;
 
     @Column(nullable = false)
-    private int creditos;
-
-    @Column(nullable = false)
     private int creditosRestantes;
 
     @Column(nullable = false)
@@ -72,14 +69,14 @@ public class Usuario {
         // Construtor padrão necessário para JPA
     }
 
-    // Construtor com os campos necessários, sem creditosRestantes
-    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditos, String valorDoPlano,
+    // Construtor com os campos necessários
+    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditosRestantes, String valorDoPlano,
                    String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String senha, String celular) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.numeroDoCartao = numeroDoCartao;
-        this.creditos = creditos;
+        this.creditosRestantes = creditosRestantes;
         this.valorDoPlano = valorDoPlano;
         this.cpf = cpf;
         this.rg = rg;
@@ -93,13 +90,15 @@ public class Usuario {
         this.estado = estado;
         this.senha = senha;
         this.celular = celular;
-        this.creditosRestantes = creditos; // creditosRestantes inicializado com os créditos
     }
 
     // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
-        creditos--; // Por exemplo, apenas decrementa o número de créditos
         creditosRestantes--; // Atualiza a quantidade restante de créditos
+    }
+
+    public int getCreditos() {
+        return 0; // Implemente a lógica para obter os créditos do usuário, se necessário
     }
 }

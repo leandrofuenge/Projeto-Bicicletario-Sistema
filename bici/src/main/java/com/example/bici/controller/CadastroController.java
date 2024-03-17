@@ -23,6 +23,8 @@ public class CadastroController {
     // Criar um novo usuário
     @PostMapping("/criar")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
+        // Definir o valor inicial de creditosRestantes, por exemplo, como o número total de créditos
+        usuario.setCreditosRestantes(usuario.getCreditos());
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
@@ -61,5 +63,22 @@ public class CadastroController {
     public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) {
         cadastroService.excluirUsuario(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Consumir crédito quando um post é executado
+    @PostMapping("/post")
+    public ResponseEntity<Void> executarPost(@RequestParam Long userId) {
+        // Obter o usuário pelo ID
+        Usuario usuario = cadastroService.obterUsuarioPorId(userId);
+        if (usuario != null) {
+            // Se o usuário existir, consumir um crédito
+            usuario.consumirCredito();
+            // Atualizar o usuário no banco de dados
+            cadastroService.atualizarUsuario(usuario.getId(), usuario);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            // Se o usuário não existir, retornar not found
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
