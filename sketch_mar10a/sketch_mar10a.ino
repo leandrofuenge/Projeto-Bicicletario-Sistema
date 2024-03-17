@@ -1,16 +1,17 @@
 #include <WiFi.h>
 #include <MFRC522.h>
 #include <SPI.h>
-#include <Wire.h>
 #include <HTTPClient.h> // Adicionado
-#include <LiquidCrystal_I2C.h> // Adicionado
 
 // Definições de pinos e outras variáveis globais
 const char* ssid = "LEANDRO";
 const char* password = "32867393";
+
+
 const char* host = "192.168.1.3"; // Endereço IP do servidor Java
 const int httpPort = 8080; // Porta HTTP do servidor Java
-const char* javaEndpoint = "/autenticar/validacao"; // URL Java
+
+const char* javaEndpoint = "/usuarios/autenticar"; // URL Java
 
 #define SS_PIN 21
 #define RST_PIN 22
@@ -121,4 +122,5 @@ String leituraDados() {
     conteudo.remove(2, 1);
     conteudo.remove(4, 1);
     conteudo.remove(6, 1);
-    return conteudo
+    return conteudo;
+}

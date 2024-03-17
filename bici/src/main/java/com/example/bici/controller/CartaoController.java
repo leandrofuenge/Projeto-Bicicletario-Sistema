@@ -2,12 +2,11 @@ package com.example.bici.controller;
 
 import com.example.bici.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 public class CartaoController {
@@ -19,24 +18,23 @@ public class CartaoController {
       this.cartaoService = cartaoService;
    }
 
-   /**
-    * Endpoint para autenticar um usuário por número do cartão.
-    *
-    * @param numeroDoCartao Número do cartão do usuário
-    * @param valorDoPlano   Valor do plano para autenticação
-    * @return Mapa contendo o status da autenticação e os créditos restantes do usuário
-    */
    @GetMapping("/usuarios/autenticar")
-   public Map<String, Object> autenticarUsuarioPorNumeroDoCartao(@RequestParam String numeroDoCartao,
-                                                                 @RequestParam int valorDoPlano) {
-      return cartaoService.autenticarUsuario(numeroDoCartao, valorDoPlano);
-   }
+   public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao,
+                                                   @RequestParam("valorDoPlano") int valorDoPlano) {
+      try {
+         // Chame o serviço para autenticar o usuário com base nos parâmetros recebidos
+         boolean autenticado = cartaoService.autenticarUsuario(numeroDoCartao, valorDoPlano).isEmpty();
 
-   /**
-    * Método agendado para consumir créditos periodicamente.
-    */
-   @Scheduled(fixedRate = 3600000) // 1 hora = 3600000 milissegundos
-   public void consumirCreditoPeriodicamente() {
-      cartaoService.consumirCreditoDeTodosUsuarios();
+         // Retorne uma resposta com base na autenticação
+         if (autenticado) {
+            return ResponseEntity.ok("Usuário autenticado com sucesso.");
+         } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
+         }
+      } catch (Exception e) {
+         // Log de erro ou outras ações necessárias
+         e.printStackTrace();
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
+      }
    }
 }
