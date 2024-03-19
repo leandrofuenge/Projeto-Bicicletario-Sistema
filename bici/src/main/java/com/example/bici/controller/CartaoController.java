@@ -1,6 +1,8 @@
 package com.example.bici.controller;
 
 import com.example.bici.service.CartaoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @RestController
 public class CartaoController {
 
    private final CartaoService cartaoService;
+   private final Logger logger = LoggerFactory.getLogger(CartaoController.class);
 
    @Autowired
    public CartaoController(CartaoService cartaoService) {
@@ -26,80 +33,51 @@ public class CartaoController {
       try {
          boolean autenticado = cartaoService.autenticarUsuario(numeroDoCartao);
          if (autenticado) {
-            return ResponseEntity.ok("Usuário autenticado com sucesso.");
+            // Adicione a chamada para verificar os créditos aqui
+            boolean creditosVerificados = verificarCreditos(numeroDoCartao);
+            if (creditosVerificados) {
+               return ResponseEntity.ok("Usuário autenticado com sucesso.");
+            } else {
+               logger.error("Erro ao verificar créditos do usuário.");
+               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao verificar créditos do usuário.");
+            }
          } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
          }
       } catch (IllegalArgumentException e) {
+         logger.error("Parâmetros inválidos: " + e.getMessage());
          return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Parâmetros inválidos: " + e.getMessage());
       } catch (HttpClientErrorException e) {
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro na requisição HTTP: " + e.getRawStatusCode());
+         logger.error("Erro na requisição HTTP: " + e.getStatusCode());
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro na requisição HTTP: " + e.getStatusCode());
       } catch (Exception e) {
-         e.printStackTrace();
+         logger.error("Ocorreu um erro durante a autenticação.", e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // ### Funcoes do Sistema
-
    // Método para verificar créditos do usuário
    public boolean verificarCreditos(String numeroDoCartao) {
-      System.out.println("Verificando créditos do usuário...");
+      logger.info("Verificando créditos do usuário...");
 
-      // Estabelecer conexão com o banco de dados Oracle
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
-         // Consultar o banco de dados para verificar os créditos do usuário
          String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
          try (PreparedStatement statement = connection.prepareStatement(consulta)) {
             statement.setString(1, numeroDoCartao);
             try (ResultSet resultSet = statement.executeQuery()) {
                if (resultSet.next()) {
-                  int creditos = resultSet.getInt("CREDITOS_RESTANTES"); // Corrigir o nome da coluna aqui
-                  System.out.println("Créditos restantes do usuário: " + creditos);
+                  int creditos = resultSet.getInt("CREDITOS_RESTANTES");
+                  logger.info("Créditos restantes do usuário: " + creditos);
                   return true;
                } else {
-                  System.out.println("Usuário não encontrado.");
+                  logger.warn("Usuário não encontrado.");
                   return false;
                }
             }
          }
       } catch (SQLException e) {
-         System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
+         logger.error("Erro ao acessar o banco de dados: " + e.getMessage());
          return false;
       }
    }
-
-
-   public static void main(String[] args) {
-      CartaoService cartaoService = new CartaoService(new UsuarioRepository()); // Supondo que UsuarioRepository seja necessário para criar CartaoService
-      CartaoController cartaoController = new CartaoController(cartaoService);
-
-      // Precisa adicionar aqui o cartao do banco de dados para poder verificar e atualizar os creditos
-      boolean sucesso = cartaoController.verificarCreditos("6318BC1F");
-      if (sucesso) {
-         System.out.println("Operação concluída com sucesso.");
-      } else {
-         System.out.println("Falha ao executar a operação.");
-      }
-   }
-
 }

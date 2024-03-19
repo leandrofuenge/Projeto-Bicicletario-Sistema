@@ -66,28 +66,6 @@ public class Usuario {
         // Construtor padrão necessário para JPA
     }
 
-    // Construtor com os campos necessários
-    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditosRestantes,
-                   String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
-                   String numero, String bairro, String cidade, String estado, String senha, String celular) {
-        this.nomeCompleto = nomeCompleto;
-        this.email = email;
-        this.numeroDoCartao = numeroDoCartao;
-        this.creditosRestantes = creditosRestantes;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.dataDeNascimento = dataDeNascimento;
-        this.sexo = sexo;
-        this.cep = cep;
-        this.endereco = endereco;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.senha = senha;
-        this.celular = celular;
-    }
-
     // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido

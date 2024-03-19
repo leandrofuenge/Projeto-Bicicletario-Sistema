@@ -114,7 +114,7 @@ void loop() {
             digitalWrite(LedVermelho, LOW);
         }
     } else {
-        Serial.println("Usuário não autenticado.");
+        //Serial.println("Usuário não autenticado.");
         digitalWrite(LedVermelho, HIGH);
         delay(2000); // Manter o LED vermelho aceso por 2 segundos
         digitalWrite(LedVermelho, LOW);
