@@ -38,7 +38,27 @@ public class CartaoService {
         return true;
     }
 
-    public void consumirCreditoDeTodosUsuarios() {
-        // Implementar lógica para consumir crédito de todos os usuários
+    public boolean verificarEAtualizarCreditos(String numeroDoCartao) {
+        try {
+            Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
+            if (optionalUsuario.isPresent()) {
+                Usuario usuario = optionalUsuario.get();
+                int creditos = usuario.getCreditosRestantes();
+
+                // Atualizar créditos do usuário
+                int novosCreditos = creditos + 10; // Aumentar créditos em 10 (exemplo)
+                usuario.setCreditosRestantes(novosCreditos);
+                usuarioRepository.save(usuario);
+
+                System.out.println("Créditos atualizados com sucesso para o usuário com o número do cartão: " + numeroDoCartao);
+                return true;
+            } else {
+                System.out.println("Usuário não encontrado com o número do cartão: " + numeroDoCartao);
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao verificar e atualizar créditos: " + e.getMessage());
+            return false;
+        }
     }
 }
