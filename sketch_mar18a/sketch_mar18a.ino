@@ -30,6 +30,7 @@ void connectToWiFi() {
     Serial.println("Endereço IP: " + WiFi.localIP().toString());
 }
 
+// Funcao para autenticar o Usuario
 bool autenticarUsuario(String numeroDoCartao) {
     Serial.println("Autenticando usuário...");
     String url = "http://" + String(host) + ":" + String(port) + javaEndpoint;
@@ -49,6 +50,28 @@ bool autenticarUsuario(String numeroDoCartao) {
         return false;
     }
 }
+
+//Funcao para verificar e atualizar creditos
+bool verificarEAtualizarCreditos(String numeroDoCartao) {
+    Serial.println("Verificando e atualizando créditos do usuário...");
+    String url = "http://" + String(host) + ":" + String(port) + "/usuarios/verificarAtualizarCreditos";
+    url += "?numeroDoCartao=" + numeroDoCartao;
+
+    HTTPClient http;
+    http.begin(url);
+    int httpResponseCode = http.GET();
+
+    if (httpResponseCode == HTTP_CODE_OK) {
+        String payload = http.getString();
+        Serial.println("Resposta do servidor: " + payload);
+        return payload == "Créditos atualizados com sucesso.";
+    } else {
+        Serial.print("Erro na requisição HTTP: ");
+        Serial.println(httpResponseCode);
+        return false;
+    }
+}
+
 
 void setup() {
     Serial.begin(115200);
@@ -73,6 +96,7 @@ void loop() {
     Serial.println("\nCartão detectado. Lendo dados...");
     String numeroDoCartao = leituraDados();
 
+    // Logica para autenticar usuario
     if (autenticarUsuario(numeroDoCartao)) {
         Serial.println("Usuário autenticado com sucesso.");
         digitalWrite(LedVerde, HIGH);
@@ -81,6 +105,8 @@ void loop() {
         digitalWrite(Tranca, LOW);
         digitalWrite(LedVerde, LOW);
         Serial.println("Tranca fechada.");
+        
+        verificarEAtualizarCreditos(numeroDoCartao);
     } else {
         Serial.println("Usuário não autenticado.");
         digitalWrite(LedVermelho, HIGH);
