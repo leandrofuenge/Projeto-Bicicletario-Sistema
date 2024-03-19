@@ -23,9 +23,6 @@ public class Usuario {
     @Column(nullable = false)
     private int creditosRestantes;
 
-    @Column(nullable = false)
-    private String valorDoPlano;
-
     @Column(nullable = false, unique = true)
     private String cpf;
 
@@ -70,14 +67,13 @@ public class Usuario {
     }
 
     // Construtor com os campos necessários
-    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditosRestantes, String valorDoPlano,
+    public Usuario(String nomeCompleto, String email, String numeroDoCartao, int creditosRestantes,
                    String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String senha, String celular) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.numeroDoCartao = numeroDoCartao;
         this.creditosRestantes = creditosRestantes;
-        this.valorDoPlano = valorDoPlano;
         this.cpf = cpf;
         this.rg = rg;
         this.dataDeNascimento = dataDeNascimento;

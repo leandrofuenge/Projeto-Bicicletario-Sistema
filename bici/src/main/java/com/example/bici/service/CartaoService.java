@@ -6,8 +6,6 @@ import com.example.bici.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -20,36 +18,24 @@ public class CartaoService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Map<String, Object> autenticarUsuario(String numeroDoCartao, int valorDoPlano) {
-        Map<String, Object> response = new HashMap<>();
+    public boolean autenticarUsuario(String numeroDoCartao) {
         UsuarioDTO usuarioDTO = obterUsuarioDTO(numeroDoCartao);
-        if (usuarioDTO == null) {
-            response.put("status", "Usuário não encontrado.");
-            return response;
-        }
-
-        response.put("creditosRestantes", usuarioDTO.getCreditosRestantes());
-
-        if (!verificarCreditosSuficientes(usuarioDTO, valorDoPlano)) {
-            response.put("status", "Créditos insuficientes. Recarregue seu cartão.");
-            return response;
-        }
-
-        response.put("status", "Usuário autenticado com sucesso! Cartão identificado. Acesso liberado.");
-        return response;
+        return usuarioDTO != null && verificarCreditosSuficientes(usuarioDTO);
     }
 
     private UsuarioDTO obterUsuarioDTO(String numeroDoCartao) {
         Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
         if (optionalUsuario.isPresent()) {
             Usuario usuario = optionalUsuario.get();
-            return new UsuarioDTO(usuario.getCreditos());
+            return new UsuarioDTO(usuario.getCreditosRestantes());
         }
         return null;
     }
 
-    private boolean verificarCreditosSuficientes(UsuarioDTO usuarioDTO, int valorDoPlano) {
-        return usuarioDTO.getCreditosRestantes() >= valorDoPlano;
+    private boolean verificarCreditosSuficientes(UsuarioDTO usuarioDTO) {
+        // Implemente a lógica para verificar se o usuário tem créditos suficientes
+        // Esta lógica deve ser adaptada conforme necessário
+        return true;
     }
 
     public void consumirCreditoDeTodosUsuarios() {
