@@ -9,6 +9,7 @@ const char* host = "192.168.1.3";
 const int port = 8080;
 const char* javaEndpointAutenticar = "/usuarios/autenticar";
 const char* javaEndpointVerificarCreditos = "/verificarcreditos";
+const char* javaEndpointUtilizarCredito = "/usuarios/utilizarCredito";
 
 const int SS_PIN = 21;
 const int RST_PIN = 22;
@@ -63,11 +64,28 @@ bool verificarCreditos(String numeroDoCartao) {
     if (httpResponseCode == HTTP_CODE_OK) {
         String payload = http.getString();
         Serial.println("Resposta do servidor: " + payload);
-        return payload == "true";
+        return payload == "Créditos restantes do usuário: 1"; // Apenas para simulação, ajuste conforme necessário
     } else {
         Serial.print("Erro na requisição HTTP: ");
         Serial.println(httpResponseCode);
         return false;
+    }
+}
+
+void utilizarCredito(String numeroDoCartao) {
+    Serial.println("Utilizando crédito...");
+    String url = "http://" + String(host) + ":" + String(port) + "/usuarios/utilizarCredito";
+    url += "?numeroDoCartao=" + numeroDoCartao;
+
+    HTTPClient http;
+    http.begin(url);
+    int httpResponseCode = http.POST("");
+
+    if (httpResponseCode == HTTP_CODE_OK) {
+        Serial.println("Crédito utilizado com sucesso.");
+    } else {
+        Serial.print("Erro na requisição HTTP: ");
+        Serial.println(httpResponseCode);
     }
 }
 
@@ -127,18 +145,21 @@ void loop() {
             digitalWrite(Tranca, LOW);
             digitalWrite(LedVerde, LOW);
             Serial.println("Tranca fechada.");
+
+            // Utilizar crédito após acesso bem-sucedido
+        } else {
+            utilizarCredito(numeroDoCartao);
+            Serial.println("Usuário não possui créditos suficientes.");
+            digitalWrite(LedVermelho, HIGH);
+            delay(2000); // Manter o LED vermelho aceso por 2 segundos
+            digitalWrite(LedVermelho, LOW);
         }
     } else {
-        Serial.println("Cartao não identificado.");
+        Serial.println("Cartão não identificado.");
         digitalWrite(LedVermelho, HIGH);
         delay(2000); // Manter o LED vermelho aceso por 2 segundos
         digitalWrite(LedVermelho, LOW);
     }
 
-
-
-
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
 }
-
-
