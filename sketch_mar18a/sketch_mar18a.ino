@@ -149,7 +149,7 @@ void loop() {
             // Utilizar crédito após acesso bem-sucedido
         } else {
             utilizarCredito(numeroDoCartao);
-            Serial.println("Usuário não possui créditos suficientes.");
+            Serial.println("Credito Utilizado.");
             digitalWrite(LedVermelho, HIGH);
             delay(2000); // Manter o LED vermelho aceso por 2 segundos
             digitalWrite(LedVermelho, LOW);
