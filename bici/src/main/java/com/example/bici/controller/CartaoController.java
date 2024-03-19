@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
@@ -77,4 +78,25 @@ public class CartaoController {
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao conectar ao banco de dados: " + e.getMessage());
       }
    }
+
+   @PostMapping("/usuarios/utilizarCredito")
+   public ResponseEntity<Object> utilizarCredito(@RequestParam("numeroDoCartao") String numeroDoCartao) {
+      try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
+         String consulta = "UPDATE USUARIO SET CREDITOS_RESTANTES = CREDITOS_RESTANTES - 1 WHERE NUMERO_DO_CARTAO = ? AND CREDITOS_RESTANTES > 0";
+         try (PreparedStatement statement = connection.prepareStatement(consulta)) {
+            statement.setString(1, numeroDoCartao);
+            int linhasAfetadas = statement.executeUpdate();
+            if (linhasAfetadas > 0) {
+               return ResponseEntity.ok().body("Crédito utilizado com sucesso.");
+            } else {
+               return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não há créditos suficientes para utilizar.");
+            }
+         } catch (SQLException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao preparar a consulta SQL: " + e.getMessage());
+         }
+      } catch (SQLException e) {
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao conectar ao banco de dados: " + e.getMessage());
+      }
+   }
 }
+
