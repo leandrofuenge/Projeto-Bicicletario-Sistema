@@ -3,7 +3,6 @@
 #include <SPI.h>
 #include <HTTPClient.h>
 
-// Definições de pinos e outras variáveis globais
 const char* ssid = "LEANDRO";
 const char* password = "32867393";
 const char* host = "192.168.1.3";
@@ -20,7 +19,6 @@ const int Buzzer = 15;
 MFRC522::MIFARE_Key key;
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-// Função para conectar-se à rede Wi-Fi
 void connectToWiFi() {
     Serial.println("Conectando-se à rede Wi-Fi...");
     WiFi.begin(ssid, password);
@@ -30,6 +28,26 @@ void connectToWiFi() {
     }
     Serial.println("\nWi-Fi conectado.");
     Serial.println("Endereço IP: " + WiFi.localIP().toString());
+}
+
+bool autenticarUsuario(String numeroDoCartao) {
+    Serial.println("Autenticando usuário...");
+    String url = "http://" + String(host) + ":" + String(port) + javaEndpoint;
+    url += "?numeroDoCartao=" + numeroDoCartao;
+
+    HTTPClient http;
+    http.begin(url);
+    int httpResponseCode = http.GET();
+
+    if (httpResponseCode == HTTP_CODE_OK) {
+        String payload = http.getString();
+        Serial.println("Resposta do servidor: " + payload);
+        return payload == "Usuário autenticado com sucesso.";
+    } else {
+        Serial.print("Erro na requisição HTTP: ");
+        Serial.println(httpResponseCode);
+        return false;
+    }
 }
 
 void setup() {
@@ -55,17 +73,7 @@ void loop() {
     Serial.println("\nCartão detectado. Lendo dados...");
     String numeroDoCartao = leituraDados();
 
-    // Aqui, você pode realizar qualquer lógica adicional antes de autenticar o usuário, se necessário
-
-    // Não há necessidade de passar o valor do plano para autenticarUsuario
     if (autenticarUsuario(numeroDoCartao)) {
-     // Cartão não identificado
-        Serial.println("Usuário não autenticado.");
-        digitalWrite(LedVermelho, HIGH);
-        delay(2000); // Manter o LED vermelho aceso por 2 segundos
-        digitalWrite(LedVermelho, LOW);
-    } else {
-        // Cartão identificado com sucesso
         Serial.println("Usuário autenticado com sucesso.");
         digitalWrite(LedVerde, HIGH);
         digitalWrite(Tranca, HIGH);
@@ -73,6 +81,11 @@ void loop() {
         digitalWrite(Tranca, LOW);
         digitalWrite(LedVerde, LOW);
         Serial.println("Tranca fechada.");
+    } else {
+        Serial.println("Usuário não autenticado.");
+        digitalWrite(LedVermelho, HIGH);
+        delay(2000); // Manter o LED vermelho aceso por 2 segundos
+        digitalWrite(LedVermelho, LOW);
     }
 
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
@@ -96,25 +109,4 @@ String leituraDados() {
     conteudo.remove(4, 1);
     conteudo.remove(6, 1);
     return conteudo;
-}
-
-// Função para autenticar o usuário no servidor remoto
-bool autenticarUsuario(const String& numeroDoCartao) {
-    Serial.println("Autenticando usuário...");
-    String url = "http://" + String(host) + ":" + String(port) + javaEndpoint;
-    url += "?numeroDoCartao=" + numeroDoCartao;
-
-    HTTPClient http;
-    http.begin(url);
-    int httpResponseCode = http.GET();
-
-    if (httpResponseCode == HTTP_CODE_OK) {
-        String payload = http.getString();
-        Serial.println("Resposta do servidor: " + payload);
-        return payload == "true";
-    } else {
-        Serial.print("Erro na requisição HTTP: ");
-        Serial.println(httpResponseCode);
-        return false;
-    }
 }
