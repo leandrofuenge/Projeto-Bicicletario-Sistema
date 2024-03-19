@@ -8,7 +8,7 @@ const char* password = "32867393";
 const char* host = "192.168.1.3";
 const int port = 8080;
 const char* javaEndpointAutenticar = "/usuarios/autenticar";
-const char* javaEndpointVerificarCreditos = "/usuarios/verificarCreditos";
+const char* javaEndpointVerificarCreditos = "/verificarcreditos";
 
 const int SS_PIN = 21;
 const int RST_PIN = 22;
@@ -71,6 +71,26 @@ bool verificarCreditos(String numeroDoCartao) {
     }
 }
 
+String leituraDados() {
+    String conteudo = "";
+
+    mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+    for (byte i = 0; i < mfrc522.uid.size; i++) {
+        Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+        Serial.print(mfrc522.uid.uidByte[i], HEX);
+        conteudo.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+        conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
+    }
+
+    Serial.println();
+    conteudo.toUpperCase();
+    conteudo.trim();
+    conteudo.remove(2, 1);
+    conteudo.remove(4, 1);
+    conteudo.remove(6, 1);
+    return conteudo;
+}
+
 void setup() {
     Serial.begin(115200);
     SPI.begin();
@@ -107,39 +127,18 @@ void loop() {
             digitalWrite(Tranca, LOW);
             digitalWrite(LedVerde, LOW);
             Serial.println("Tranca fechada.");
-        } else {
-            Serial.println("Usuário não possui créditos suficientes.");
-            digitalWrite(LedVermelho, HIGH);
-            delay(2000); // Manter o LED vermelho aceso por 2 segundos
-            digitalWrite(LedVermelho, LOW);
         }
     } else {
-        //Serial.println("Usuário não autenticado.");
+        Serial.println("Cartao não identificado.");
         digitalWrite(LedVermelho, HIGH);
         delay(2000); // Manter o LED vermelho aceso por 2 segundos
         digitalWrite(LedVermelho, LOW);
     }
 
+
+
+
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
 }
 
 
-String leituraDados() {
-    String conteudo = "";
-
-    mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
-    for (byte i = 0; i < mfrc522.uid.size; i++) {
-        Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
-        Serial.print(mfrc522.uid.uidByte[i], HEX);
-        conteudo.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
-        conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
-    }
-
-    Serial.println();
-    conteudo.toUpperCase();
-    conteudo.trim();
-    conteudo.remove(2, 1);
-    conteudo.remove(4, 1);
-    conteudo.remove(6, 1);
-    return conteudo;
-}
