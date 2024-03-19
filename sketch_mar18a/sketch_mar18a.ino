@@ -7,7 +7,8 @@ const char* ssid = "LEANDRO";
 const char* password = "32867393";
 const char* host = "192.168.1.3";
 const int port = 8080;
-const char* javaEndpoint = "/usuarios/autenticar";
+const char* javaEndpointAutenticar = "/usuarios/autenticar";
+const char* javaEndpointVerificarCreditos = "/usuarios/verificarCreditos";
 
 const int SS_PIN = 21;
 const int RST_PIN = 22;
@@ -30,10 +31,9 @@ void connectToWiFi() {
     Serial.println("Endereço IP: " + WiFi.localIP().toString());
 }
 
-// Funcao para autenticar o Usuario
 bool autenticarUsuario(String numeroDoCartao) {
     Serial.println("Autenticando usuário...");
-    String url = "http://" + String(host) + ":" + String(port) + javaEndpoint;
+    String url = "http://" + String(host) + ":" + String(port) + javaEndpointAutenticar;
     url += "?numeroDoCartao=" + numeroDoCartao;
 
     HTTPClient http;
@@ -51,10 +51,9 @@ bool autenticarUsuario(String numeroDoCartao) {
     }
 }
 
-//Funcao para verificar e atualizar creditos
-bool verificarEAtualizarCreditos(String numeroDoCartao) {
-    Serial.println("Verificando e atualizando créditos do usuário...");
-    String url = "http://" + String(host) + ":" + String(port) + "/usuarios/verificarAtualizarCreditos";
+bool verificarCreditos(String numeroDoCartao) {
+    Serial.println("Verificando créditos do usuário...");
+    String url = "http://" + String(host) + ":" + String(port) + javaEndpointVerificarCreditos;
     url += "?numeroDoCartao=" + numeroDoCartao;
 
     HTTPClient http;
@@ -64,14 +63,13 @@ bool verificarEAtualizarCreditos(String numeroDoCartao) {
     if (httpResponseCode == HTTP_CODE_OK) {
         String payload = http.getString();
         Serial.println("Resposta do servidor: " + payload);
-        return payload == "Créditos atualizados com sucesso.";
+        return payload == "true";
     } else {
         Serial.print("Erro na requisição HTTP: ");
         Serial.println(httpResponseCode);
         return false;
     }
 }
-
 
 void setup() {
     Serial.begin(115200);
@@ -96,17 +94,25 @@ void loop() {
     Serial.println("\nCartão detectado. Lendo dados...");
     String numeroDoCartao = leituraDados();
 
-    // Logica para autenticar usuario
+    // Lógica para autenticar usuário
     if (autenticarUsuario(numeroDoCartao)) {
         Serial.println("Usuário autenticado com sucesso.");
-        digitalWrite(LedVerde, HIGH);
-        digitalWrite(Tranca, HIGH);
-        delay(5000); // Manter a tranca aberta por 5 segundos
-        digitalWrite(Tranca, LOW);
-        digitalWrite(LedVerde, LOW);
-        Serial.println("Tranca fechada.");
-        
-        verificarEAtualizarCreditos(numeroDoCartao);
+
+        // Verificar créditos antes de permitir o acesso
+        if (verificarCreditos(numeroDoCartao)) {
+            Serial.println("Usuário possui créditos suficientes.");
+            digitalWrite(LedVerde, HIGH);
+            digitalWrite(Tranca, HIGH);
+            delay(5000); // Manter a tranca aberta por 5 segundos
+            digitalWrite(Tranca, LOW);
+            digitalWrite(LedVerde, LOW);
+            Serial.println("Tranca fechada.");
+        } else {
+            Serial.println("Usuário não possui créditos suficientes.");
+            digitalWrite(LedVermelho, HIGH);
+            delay(2000); // Manter o LED vermelho aceso por 2 segundos
+            digitalWrite(LedVermelho, LOW);
+        }
     } else {
         Serial.println("Usuário não autenticado.");
         digitalWrite(LedVermelho, HIGH);
@@ -116,6 +122,7 @@ void loop() {
 
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
 }
+
 
 String leituraDados() {
     String conteudo = "";

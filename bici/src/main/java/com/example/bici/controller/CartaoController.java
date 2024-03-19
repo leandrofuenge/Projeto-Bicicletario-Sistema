@@ -40,6 +40,33 @@ public class CartaoController {
       }
    }
 
+   // Método para verificar créditos do usuário
+   public boolean verificarCreditos(String numeroDoCartao) {
+      System.out.println("Verificando créditos do usuário...");
+
+      // Estabelecer conexão com o banco de dados Oracle
+      try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
+         // Consultar o banco de dados para verificar os créditos do usuário
+         String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
+         try (PreparedStatement statement = connection.prepareStatement(consulta)) {
+            statement.setString(1, numeroDoCartao);
+            try (ResultSet resultSet = statement.executeQuery()) {
+               if (resultSet.next()) {
+                  int creditos = resultSet.getInt("CREDITOS_RESTANTES"); // Corrigir o nome da coluna aqui
+                  System.out.println("Créditos restantes do usuário: " + creditos);
+                  return true;
+               } else {
+                  System.out.println("Usuário não encontrado.");
+                  return false;
+               }
+            }
+         }
+      } catch (SQLException e) {
+         System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
+         return false;
+      }
+   }
+
    // Método para verificar e atualizar créditos do usuário
    public boolean verificarEAtualizarCreditos(String numeroDoCartao) {
       System.out.println("Verificando e atualizando créditos do usuário...");
@@ -54,10 +81,8 @@ public class CartaoController {
             try (ResultSet resultSet = statement.executeQuery()) {
                if (resultSet.next()) {
                   int creditos = resultSet.getInt("CREDITOS_RESTANTES"); // Corrigir o nome da coluna aqui
-                  
 
-
-         // Atualizar créditos do usuário no banco de dados
+                  // Atualizar créditos do usuário no banco de dados
                   int novosCreditos = creditos + 10; // Aumentar créditos em 10 (exemplo)
                   String atualizacao = "UPDATE USUARIO SET CREDITOS_RESTANTES = ? WHERE NUMERO_DO_CARTAO = ?";
                   try (PreparedStatement updateStatement = connection.prepareStatement(atualizacao)) {
@@ -86,11 +111,14 @@ public class CartaoController {
    public static void main(String[] args) {
       CartaoService cartaoService = new CartaoService(new UsuarioRepository()); // Supondo que UsuarioRepository seja necessário para criar CartaoService
       CartaoController cartaoController = new CartaoController(cartaoService);
-      boolean sucesso = cartaoController.verificarEAtualizarCreditos("DE4F0D26");
+
+      // Precisa adicionar aqui o cartao do banco de dados para poder verificar e atualizar os creditos
+      boolean sucesso = cartaoController.verificarCreditos("6318BC1F");
       if (sucesso) {
          System.out.println("Operação concluída com sucesso.");
       } else {
          System.out.println("Falha ao executar a operação.");
       }
    }
+
 }
