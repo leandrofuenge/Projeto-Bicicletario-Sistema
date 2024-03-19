@@ -40,6 +40,27 @@ public class CartaoController {
       }
    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // ### Funcoes do Sistema
+
    // Método para verificar créditos do usuário
    public boolean verificarCreditos(String numeroDoCartao) {
       System.out.println("Verificando créditos do usuário...");
@@ -67,46 +88,6 @@ public class CartaoController {
       }
    }
 
-   // Método para verificar e atualizar créditos do usuário
-   public boolean verificarEAtualizarCreditos(String numeroDoCartao) {
-      System.out.println("Verificando e atualizando créditos do usuário...");
-
-      // Estabelecer conexão com o banco de dados Oracle
-      try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
-         // ...
-         // Consultar o banco de dados para verificar os créditos do usuário
-         String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
-         try (PreparedStatement statement = connection.prepareStatement(consulta)) {
-            statement.setString(1, numeroDoCartao);
-            try (ResultSet resultSet = statement.executeQuery()) {
-               if (resultSet.next()) {
-                  int creditos = resultSet.getInt("CREDITOS_RESTANTES"); // Corrigir o nome da coluna aqui
-
-                  // Atualizar créditos do usuário no banco de dados
-                  int novosCreditos = creditos + 10; // Aumentar créditos em 10 (exemplo)
-                  String atualizacao = "UPDATE USUARIO SET CREDITOS_RESTANTES = ? WHERE NUMERO_DO_CARTAO = ?";
-                  try (PreparedStatement updateStatement = connection.prepareStatement(atualizacao)) {
-                     updateStatement.setInt(1, novosCreditos);
-                     updateStatement.setString(2, numeroDoCartao);
-                     updateStatement.executeUpdate();
-                  }
-
-                  System.out.println("Créditos atualizados com sucesso.");
-                  return true;
-               } else {
-                  System.out.println("Usuário não encontrado.");
-                  return false;
-               }
-            }
-         }
-      } catch (SQLException e) {
-         System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
-         return false;
-      }
-   }
-
-   // Método para realizar outras operações relacionadas ao cartão
-   // ...
 
    public static void main(String[] args) {
       CartaoService cartaoService = new CartaoService(new UsuarioRepository()); // Supondo que UsuarioRepository seja necessário para criar CartaoService
