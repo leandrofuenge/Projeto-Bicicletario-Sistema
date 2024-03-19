@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 @RestController
 public class CartaoController {
@@ -34,7 +30,7 @@ public class CartaoController {
          boolean autenticado = cartaoService.autenticarUsuario(numeroDoCartao);
          if (autenticado) {
             // Adicione a chamada para verificar os créditos aqui
-            boolean creditosVerificados = verificarCreditos(numeroDoCartao);
+            boolean creditosVerificados = verificarCreditos(numeroDoCartao).hasBody();
             if (creditosVerificados) {
                return ResponseEntity.ok("Usuário autenticado com sucesso.");
             } else {
@@ -57,9 +53,10 @@ public class CartaoController {
    }
 
    // Método para verificar créditos do usuário
-   public boolean verificarCreditos(String numeroDoCartao) {
-      logger.info("Verificando créditos do usuário...");
 
+
+   @GetMapping("/verificarcreditos")
+   public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
          String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
          try (PreparedStatement statement = connection.prepareStatement(consulta)) {
@@ -67,17 +64,18 @@ public class CartaoController {
             try (ResultSet resultSet = statement.executeQuery()) {
                if (resultSet.next()) {
                   int creditos = resultSet.getInt("CREDITOS_RESTANTES");
-                  logger.info("Créditos restantes do usuário: " + creditos);
-                  return true;
+                  return ResponseEntity.ok().body("Créditos restantes do usuário: " + creditos);
                } else {
-                  logger.warn("Usuário não encontrado.");
-                  return false;
+                  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
                }
+            } catch (SQLException e) {
+               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar o resultado da consulta: " + e.getMessage());
             }
+         } catch (SQLException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao preparar a consulta SQL: " + e.getMessage());
          }
       } catch (SQLException e) {
-         logger.error("Erro ao acessar o banco de dados: " + e.getMessage());
-         return false;
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao conectar ao banco de dados: " + e.getMessage());
       }
    }
 }
