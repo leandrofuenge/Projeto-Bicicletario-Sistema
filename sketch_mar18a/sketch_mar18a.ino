@@ -75,29 +75,13 @@ void loop() {
 
     Serial.println("\nCartão detectado. Lendo dados...");
     String numeroDoCartao = leituraDados();
-    int valorDoPlano = 200; // Valor do plano fixo em 200
-
-    if (autenticarUsuario(numeroDoCartao, valorDoPlano)) {
-        // Cartão identificado com sucesso
-        Serial.println("Usuário autenticado com sucesso.");
-        digitalWrite(LedVerde, HIGH);
-        digitalWrite(Tranca, HIGH);
-        delay(5000); // Manter a tranca aberta por 5 segundos
-        digitalWrite(Tranca, LOW);
-        digitalWrite(LedVerde, LOW);
-        Serial.println("Tranca fechada.");
-    } else {
-        // Cartão não identificado
-        Serial.println("Usuário não autenticado.");
-        digitalWrite(LedVermelho, HIGH);
-        delay(2000); // Manter o LED vermelho aceso por 2 segundos
-        digitalWrite(LedVermelho, LOW);
-    }
+    
 
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
 }
 
 String leituraDados() {
+  
     String conteudo = "";
 
     mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
