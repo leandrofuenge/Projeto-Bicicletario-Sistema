@@ -37,9 +37,6 @@ public class CartaoController {
    }
 
 
-
-
-
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
@@ -49,7 +46,7 @@ public class CartaoController {
             try (ResultSet resultSet = statement.executeQuery()) {
                if (resultSet.next()) {
                   int creditos = resultSet.getInt("CREDITOS_RESTANTES");
-                  return ResponseEntity.ok().body("Créditos restantes do usuário: " + creditos);
+                  return ResponseEntity.ok().body(STR."Créditos restantes do usuário: \{creditos}");
                } else {
                   return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
                }
@@ -57,7 +54,7 @@ public class CartaoController {
          }
       } catch (SQLException e) {
          logger.error("Erro ao acessar o banco de dados.", e);
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
       }
    }
 
@@ -91,7 +88,56 @@ public class CartaoController {
          }
       } catch (SQLException e) {
          logger.error("Erro ao acessar o banco de dados.", e);
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
       }
    }
+
+   @GetMapping("/usuarios/UsoMomentaneoBicicletario")
+   public ResponseEntity<Object> MomentaneoBicicletario(@RequestParam("UsoMomentaneoBicicletario") String SimMomentaneoBicicletario) {
+      try {
+         // Verificando o uso momentâneo do bicicletário usando o serviço
+         boolean bicicletarioEmUso = cartaoService.UsoMomentaneoBicicletario(SimMomentaneoBicicletario);
+
+         // Verificando se o bicicletário está em uso
+         if (bicicletarioEmUso) {
+            return ResponseEntity.ok().body("Bicicletário em uso. Não é possível utilizá-lo no momento.");
+         } else {
+            return ResponseEntity.ok().body("Bicicletário livre. Pode ser utilizado.");
+         }
+      } catch (Exception e) {
+         logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                 .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
+      }
+   }
+
+
+
+   @GetMapping("/usuarios/NaoUsoMomentaneoBicicletario")
+   public ResponseEntity<Object> NaoUsoMomentaneoBicicletario(@RequestParam("NaoMomentaneoBicicletario") String NaoMomentaneoBicicletario) {
+      try {
+         // Verifica se o bicicletário não está em uso usando o serviço
+         boolean bicicletarioNaoEmUso = cartaoService.NaoUsoMomentaneoBicicletario(NaoMomentaneoBicicletario);
+
+         // Verifica se o bicicletário não está em uso
+         if (bicicletarioNaoEmUso) {
+            return ResponseEntity.ok().body("Não há nenhuma bicicleta no bicicletário no momento.");
+         } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bicicletário em uso no momento.");
+         }
+      } catch (Exception e) {
+         logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                 .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
+      }
+   }
+
+
+
+
+
+
+
+
+
 }

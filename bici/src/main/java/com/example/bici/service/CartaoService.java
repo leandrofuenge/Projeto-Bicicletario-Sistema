@@ -37,4 +37,12 @@ public class CartaoService {
         // Implemente a lógica para verificar os créditos do usuário com base no número do cartão
         return 0; // Valor fictício de retorno
     }
+
+    public boolean UsoMomentaneoBicicletario(String momentaneoBicicletario) {
+        return false;
+    }
+
+    public boolean NaoUsoMomentaneoBicicletario(String naoMomentaneoBicicletario) {
+        return false;
+    }
 }

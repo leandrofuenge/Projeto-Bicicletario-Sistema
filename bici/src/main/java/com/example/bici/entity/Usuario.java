@@ -68,6 +68,12 @@ public class Usuario {
     @Column(nullable = false)
     private String celular;
 
+    @Column(nullable = true)
+    private String SimMomentaneoBicicletario;
+
+    @Column(nullable = true)
+    private String NaoMomentaneoBicicletario;
+
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
