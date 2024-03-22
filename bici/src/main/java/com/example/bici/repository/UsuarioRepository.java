@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    default Optional<Usuario> findByNUMERO_DO_CARTAO(String NUMERO_DO_CARTAO) {
+    default Optional<Usuario> findByNumeroDoCartao(String NUMERO_DO_CARTAO) {
         return Optional.empty();
     }
 }

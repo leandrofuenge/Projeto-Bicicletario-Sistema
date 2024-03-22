@@ -18,10 +18,10 @@ public class Usuario {
     private String nomeCompleto;
 
     @Column(nullable = false, unique = true)
-    private String NUMERO_DO_CARTAO;
+    private String numeroDoCartao;
 
     @Column(nullable = false)
-    private int CREDITOS_RESTANTES;
+    private int creditosRestantes;
 
     @Column(nullable = false, unique = true)
     private String cpf;
@@ -57,7 +57,7 @@ public class Usuario {
     private String email;
 
     @Column(nullable = false, unique = true)
-    private String NUMERO_DE_SERIE_BICICLETA;
+    private String numeroDeSerieBicicleta;
 
     @Column(nullable = false)
     private String corDaBicicleta;
@@ -75,7 +75,7 @@ public class Usuario {
     // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
-        CREDITOS_RESTANTES--; // Atualiza a quantidade restante de créditos
+        creditosRestantes--; // Atualiza a quantidade restante de créditos
     }
 
 }

@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 
 @RestController
@@ -25,7 +24,7 @@ public class CadastroController {
     @PostMapping("/criar")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
         // Definir o valor inicial de creditosRestantes, por exemplo, como o número total de créditos
-        usuario.setCREDITOS_RESTANTES(usuario.getCREDITOS_RESTANTES());
+        usuario.setCreditosRestantes(usuario.getCreditosRestantes());
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
