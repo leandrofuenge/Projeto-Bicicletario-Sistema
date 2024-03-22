@@ -38,7 +38,7 @@ public class CartaoController {
 
 
   @GetMapping("/usuarios/UsoMomentaneoBicicletario")
-public ResponseEntity<Object> UsoMomentaneoBicicletario(@RequestParam("UsoMomentaneoBicicletario") String usoMomentaneoBicicletario) {
+public ResponseEntity<Object> UsoMomentaneoBicicletario(@RequestParam("UsoMomentaneoBicicletario") String usoMomentaneoBicicletario = "Sim" no banco dedados) {
     try {
         // Verificando o uso momentâneo do bicicletário usando o serviço
         boolean bicicletarioEmUso = cartaoService.UsoMomentaneoBicicletario(usoMomentaneoBicicletario);
@@ -56,18 +56,25 @@ public ResponseEntity<Object> UsoMomentaneoBicicletario(@RequestParam("UsoMoment
     }
 }
 
-   @(GetMapping("/usuarios/NaoUsoMomentaneoBicicletario") 
-   public Response 
+   @GetMapping("/usuarios/NaoUsoMomentaneoBicicletario")
+public ResponseEntity<Object> NaoUsoMomentaneoBicicletario(@RequestParam(value = "NaoUsoMomentaneoBicicletario", defaultValue = "Nao") String naoUsoMomentaneoBicicletario) {
+    try {
+        // Verifica se o bicicletário não está em uso usando o serviço
+        boolean bicicletarioNaoEmUso = cartaoService.NaoUsoMomentaneoBicicletario(naoUsoMomentaneoBicicletario);
 
+        // Verifica se o bicicletário não está em uso
+        if (bicicletarioNaoEmUso) {
+            return ResponseEntity.ok().body("Não há nenhuma bicicleta no bicicletário no momento.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bicicletário em uso no momento.");
+        }
+    } catch (Exception e) {
+        logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
+    }
+}
 
-   
-
-   
-   
-
-
-
-   
    
 
    @GetMapping("/verificarcreditos")
