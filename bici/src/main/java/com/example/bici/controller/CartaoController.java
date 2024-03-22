@@ -37,8 +37,38 @@ public class CartaoController {
    }
 
 
+  @GetMapping("/usuarios/UsoMomentaneoBicicletario")
+public ResponseEntity<Object> UsoMomentaneoBicicletario(@RequestParam("UsoMomentaneoBicicletario") String usoMomentaneoBicicletario) {
+    try {
+        // Verificando o uso momentâneo do bicicletário usando o serviço
+        boolean bicicletarioEmUso = cartaoService.UsoMomentaneoBicicletario(usoMomentaneoBicicletario);
+
+        // Verificando se o bicicletário está em uso
+        if (!bicicletarioEmUso) {
+            return ResponseEntity.ok().body("Bicicletário livre. Pode ser utilizado.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bicicleta Em Uso. Não é possível utilizar o bicicletário.");
+        }
+    } catch (Exception e) {
+        logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
+    }
+}
+
+   @(GetMapping("/usuarios/NaoUsoMomentaneoBicicletario") 
+   public Response 
 
 
+   
+
+   
+   
+
+
+
+   
+   
 
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
