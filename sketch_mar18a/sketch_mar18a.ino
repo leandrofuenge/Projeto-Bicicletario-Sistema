@@ -147,9 +147,9 @@ void loop() {
             digitalWrite(LedVerde, LOW);
             Serial.println("Tranca fechada.");
             // Utilizar crédito após acesso bem-sucedido
-            utilizarCredito(numeroDoCartao);
         }
     } else {
+        utilizarCredito(numeroDoCartao);
         Serial.println("Cartão não identificado.");
         digitalWrite(LedVermelho, HIGH);
         delay(2000); // Manter o LED vermelho aceso por 2 segundos

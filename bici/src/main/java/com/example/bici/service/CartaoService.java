@@ -17,10 +17,13 @@ public class CartaoService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public boolean autenticarUsuario(String numeroDoCartao) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
+    public boolean autenticarUsuario(String NUMERO_DO_CARTAO) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findByNUMERO_DO_CARTAO(NUMERO_DO_CARTAO);
         return optionalUsuario.isPresent(); // Retorna true se o usuário com o número do cartão existir
     }
 
 
+    public Object verificarCreditos(String s) {
+        return null;
     }
+}

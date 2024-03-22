@@ -1,32 +1,69 @@
-package com.example.bici.controller;
-
+import com.example.bici.controller.CartaoController;
 import com.example.bici.service.CartaoService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.sql.SQLException;
 
-class CartaoControllerTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-    @Test
-    void testVerificarCreditos() {
-        // Criando uma instância simulada de CartaoService para uso no teste
-        CartaoService cartaoService = new CartaoService(null); // Você pode passar null, pois não estamos usando o repository no teste
+public class CartaoControllerTest {
 
-        // Criando uma instância de CartaoController com o CartaoService simulado
-        CartaoController cartaoController = new CartaoController(cartaoService);
+    private CartaoController cartaoController;
+    private CartaoService cartaoService;
 
-        // Agora você pode prosseguir com os testes
-        // Suponha que o número do cartão exista no banco de dados para este teste
-        String numeroDoCartaoExistente = "6318BC1F";
-        assertTrue(cartaoController.verificarCreditos(numeroDoCartaoExistente));
-
-        // Suponha que o número do cartão não exista no banco de dados para este teste
-        String numeroDoCartaoInexistente = "9876543210";
-        assertFalse(cartaoController.verificarCreditos(numeroDoCartaoInexistente));
+    @BeforeEach
+    public void setUp() {
+        cartaoService = mock(CartaoService.class);
+        cartaoController = new CartaoController(cartaoService);
     }
 
+    @Test
+    public void autenticarUsuario_UsuarioAutenticado_Success() {
+        when(cartaoService.autenticarUsuario(anyString())).thenReturn(true);
 
+        ResponseEntity<Object> response = cartaoController.autenticarUsuario("numeroDoCartao");
 
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Usuário autenticado com sucesso.", response.getBody());
+    }
 
+    @Test
+    public void autenticarUsuario_UsuarioNaoAutenticado_Unauthorized() {
+        when(cartaoService.autenticarUsuario(anyString())).thenReturn(false);
 
+        ResponseEntity<Object> response = cartaoController.autenticarUsuario("CREDITOS_RESTANTES");
+
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+        assertEquals("Usuário não autenticado.", response.getBody());
+    }
+
+    @Test
+    public void verificarCreditos_UsuarioEncontrado_Success() throws SQLException {
+        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.ok().body("Créditos restantes do usuário: 10"));
+
+        ResponseEntity<Object> response = cartaoController.verificarCreditos("CREDITOS_RESTANTES");
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Créditos restantes do usuário: 10", response.getBody());
+    }
+
+    @Test
+    public void verificarCreditos_UsuarioNaoEncontrado_NotFound() throws SQLException {
+        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado."));
+
+        ResponseEntity<Object> response = cartaoController.verificarCreditos("numeroDoCartao");
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals("Usuário não encontrado.", response.getBody());
+    }
+
+    // Você pode escrever mais testes para verificar diferentes cenários em verificarCreditos
+
+    // Testes para utilizarCredito podem seguir um padrão semelhante
 }

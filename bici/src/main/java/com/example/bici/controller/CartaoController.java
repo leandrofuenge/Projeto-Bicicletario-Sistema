@@ -6,11 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
 
@@ -30,31 +26,21 @@ public class CartaoController {
       try {
          boolean autenticado = cartaoService.autenticarUsuario(numeroDoCartao);
          if (autenticado) {
-            // Adicione a chamada para verificar os créditos aqui
-            boolean creditosVerificados = verificarCreditos(numeroDoCartao).hasBody();
-            if (creditosVerificados) {
+            ResponseEntity<Object> response = verificarCreditos(numeroDoCartao);
+            if (response.getStatusCode() == HttpStatus.OK) {
                return ResponseEntity.ok("Usuário autenticado com sucesso.");
             } else {
-               logger.error("Erro ao verificar créditos do usuário.");
-               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao verificar créditos do usuário.");
+               return response;
             }
          } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
          }
-      } catch (IllegalArgumentException e) {
-         logger.error("Parâmetros inválidos: " + e.getMessage());
-         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Parâmetros inválidos: " + e.getMessage());
-      } catch (HttpClientErrorException e) {
-         logger.error("Erro na requisição HTTP: " + e.getStatusCode());
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro na requisição HTTP: " + e.getStatusCode());
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a autenticação.", e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
 
-
-   // Método para verificar créditos do usuário
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
@@ -68,35 +54,45 @@ public class CartaoController {
                } else {
                   return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
                }
-            } catch (SQLException e) {
-               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar o resultado da consulta: " + e.getMessage());
             }
-         } catch (SQLException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao preparar a consulta SQL: " + e.getMessage());
          }
       } catch (SQLException e) {
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao conectar ao banco de dados: " + e.getMessage());
+         logger.error("Erro ao acessar o banco de dados.", e);
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
       }
    }
 
    @PostMapping("/usuarios/utilizarCredito")
    public ResponseEntity<Object> utilizarCredito(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
-         String consulta = "UPDATE USUARIO SET CREDITOS_RESTANTES = CREDITOS_RESTANTES - 1 WHERE NUMERO_DO_CARTAO = ? AND CREDITOS_RESTANTES > 0";
-         try (PreparedStatement statement = connection.prepareStatement(consulta)) {
+         String consultaCreditos = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
+         try (PreparedStatement statement = connection.prepareStatement(consultaCreditos)) {
             statement.setString(1, numeroDoCartao);
-            int linhasAfetadas = statement.executeUpdate();
-            if (linhasAfetadas > 0) {
-               return ResponseEntity.ok().body("Crédito utilizado com sucesso.");
-            } else {
-               return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não há créditos suficientes para utilizar.");
+            try (ResultSet resultSet = statement.executeQuery()) {
+               if (resultSet.next()) {
+                  int creditos = resultSet.getInt("CREDITOS_RESTANTES");
+                  if (creditos > 0) {
+                     String consultaAtualizacao = "UPDATE USUARIO SET CREDITOS_RESTANTES = CREDITOS_RESTANTES - 1 WHERE NUMERO_DO_CARTAO = ? AND CREDITOS_RESTANTES > 0";
+                     try (PreparedStatement updateStatement = connection.prepareStatement(consultaAtualizacao)) {
+                        updateStatement.setString(1, numeroDoCartao);
+                        int linhasAfetadas = updateStatement.executeUpdate();
+                        if (linhasAfetadas > 0) {
+                           return ResponseEntity.ok().body("Crédito utilizado com sucesso.");
+                        } else {
+                           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao utilizar crédito.");
+                        }
+                     }
+                  } else {
+                     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não há créditos suficientes para utilizar.");
+                  }
+               } else {
+                  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
+               }
             }
-         } catch (SQLException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao preparar a consulta SQL: " + e.getMessage());
          }
       } catch (SQLException e) {
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao conectar ao banco de dados: " + e.getMessage());
+         logger.error("Erro ao acessar o banco de dados.", e);
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
       }
    }
 }
-

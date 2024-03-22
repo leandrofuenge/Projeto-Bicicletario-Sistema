@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    Optional<Usuario> findByNumeroDoCartao(String numeroDoCartao);
+    default Optional<Usuario> findByNUMERO_DO_CARTAO(String NUMERO_DO_CARTAO) {
+        return Optional.empty();
+    }
 }

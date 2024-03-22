@@ -25,7 +25,7 @@ public class CadastroController {
     @PostMapping("/criar")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
         // Definir o valor inicial de creditosRestantes, por exemplo, como o número total de créditos
-        usuario.setCreditosRestantes(usuario.getCreditos());
+        usuario.setCREDITOS_RESTANTES(usuario.getCREDITOS_RESTANTES());
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
