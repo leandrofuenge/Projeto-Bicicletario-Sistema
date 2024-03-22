@@ -24,22 +24,21 @@ public class CartaoController {
    @GetMapping("/usuarios/autenticar")
    public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try {
-         boolean autenticado = cartaoService.autenticarUsuario(numeroDoCartao);
-         if (autenticado) {
-            ResponseEntity<Object> response = verificarCreditos(numeroDoCartao);
-            if (response.getStatusCode() == HttpStatus.OK) {
-               return ResponseEntity.ok("Usuário autenticado com sucesso.");
-            } else {
-               return response;
-            }
-         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
+         boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);
+         if (usuarioAutenticado) {
+            return verificarCreditos(numeroDoCartao);
          }
+         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a autenticação.", e);
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                 .body("Ocorreu um erro durante a autenticação.");
       }
    }
+
+
+
+
 
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {

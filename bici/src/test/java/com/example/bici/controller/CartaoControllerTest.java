@@ -45,7 +45,7 @@ public class CartaoControllerTest {
 
     @Test
     public void verificarCreditos_UsuarioEncontrado_Success() throws SQLException {
-        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.ok().body("Créditos restantes do usuário: 10"));
+        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.ok().body("Créditos restantes do usuário: 10").getStatusCode().value());
 
         ResponseEntity<Object> response = cartaoController.verificarCreditos("CREDITOS_RESTANTES");
 
@@ -55,7 +55,7 @@ public class CartaoControllerTest {
 
     @Test
     public void verificarCreditos_UsuarioNaoEncontrado_NotFound() throws SQLException {
-        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado."));
+        when(cartaoService.verificarCreditos(anyString())).thenReturn(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.").getStatusCode().value());
 
         ResponseEntity<Object> response = cartaoController.verificarCreditos("numeroDoCartao");
 

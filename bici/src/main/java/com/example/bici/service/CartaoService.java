@@ -20,14 +20,13 @@ public class CartaoService {
     /**
      * Verifica se um usuário com o número do cartão fornecido está autenticado no sistema.
      *
-     * @param NUMERO_DO_CARTAO O número do cartão do usuário a ser verificado.
+     * @param numeroDoCartao O número do cartão do usuário a ser verificado.
      * @return true se o usuário estiver autenticado, false caso contrário.
      */
-    public boolean autenticarUsuario(String NUMERO_DO_CARTAO) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(NUMERO_DO_CARTAO);
+    public boolean autenticarUsuario(String numeroDoCartao) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
         return optionalUsuario.isPresent(); // Retorna true se o usuário com o número do cartão existir
     }
-
     /**
      * Verifica a quantidade de créditos associados ao número do cartão fornecido.
      *
