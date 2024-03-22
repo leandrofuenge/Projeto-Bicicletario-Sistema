@@ -56,6 +56,12 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false, unique = true)
+    private String NUMERO_DE_SERIE_BICICLETA;
+
+    @Column(nullable = false)
+    private String corDaBicicleta;
+
     @Column(nullable = false)
     private String senha;
 
