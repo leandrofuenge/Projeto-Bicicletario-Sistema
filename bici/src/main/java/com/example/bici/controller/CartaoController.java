@@ -45,9 +45,9 @@ public ResponseEntity<Object> UsoMomentaneoBicicletario(@RequestParam("UsoMoment
 
         // Verificando se o bicicletário está em uso
         if (!bicicletarioEmUso) {
-            return ResponseEntity.ok().body("Bicicletário livre. Pode ser utilizado.");
-        } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bicicleta Em Uso. Não é possível utilizar o bicicletário.");
+        } else {
+            return ResponseEntity.ok().body("Bicicletário livre. Pode ser utilizado.");
         }
     } catch (Exception e) {
         logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
