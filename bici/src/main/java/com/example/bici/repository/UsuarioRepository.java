@@ -6,8 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 
+@Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Optional<Usuario> findByNumeroDoCartao(String numeroDoCartao);
+    Optional <Usuario> findByCpfAndSenha(String cpf, String senha);
+
 }
+
