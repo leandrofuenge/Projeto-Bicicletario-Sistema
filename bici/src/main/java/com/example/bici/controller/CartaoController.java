@@ -30,7 +30,7 @@ public class CartaoController {
          if (usuarioAutenticado) {
             return ResponseEntity.ok("Usuario Autenticado");
          }
-         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
+         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não Encontrado.");
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a autenticação.", e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
@@ -94,10 +94,10 @@ public class CartaoController {
    }
 
    @GetMapping("/usuarios/UsoMomentaneoBicicletario")
-   public ResponseEntity<Object> MomentaneoBicicletario(@RequestParam("UsoMomentaneoBicicletario") String SimMomentaneoBicicletario) {
+   public ResponseEntity<Object> MomentaneoBicicletario() {
       try {
          // Verificando o uso momentâneo do bicicletário usando o serviço
-         boolean bicicletarioEmUso = cartaoService.UsoMomentaneoBicicletario(SimMomentaneoBicicletario);
+         boolean bicicletarioEmUso = cartaoService.UsoMomentaneoBicicletario();
 
          // Verificando se o bicicletário está em uso
          if (bicicletarioEmUso) {
@@ -115,10 +115,10 @@ public class CartaoController {
 
 
    @GetMapping("/usuarios/NaoUsoMomentaneoBicicletario")
-   public ResponseEntity<Object> NaoUsoMomentaneoBicicletario(@RequestParam("NaoMomentaneoBicicletario") String NaoMomentaneoBicicletario) {
+   public ResponseEntity<Object> NaoUsoMomentaneoBicicletario() {
       try {
          // Verifica se o bicicletário não está em uso usando o serviço
-         boolean bicicletarioNaoEmUso = cartaoService.NaoUsoMomentaneoBicicletario(NaoMomentaneoBicicletario);
+         boolean bicicletarioNaoEmUso = cartaoService.NaoUsoMomentaneoBicicletario();
 
          // Verifica se o bicicletário não está em uso
          if (bicicletarioNaoEmUso) {
@@ -132,13 +132,4 @@ public class CartaoController {
                  .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
       }
    }
-
-
-
-
-
-
-
-
-
 }

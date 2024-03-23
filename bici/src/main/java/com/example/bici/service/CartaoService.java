@@ -30,19 +30,18 @@ public class CartaoService {
     /**
      * Verifica a quantidade de créditos associados ao número do cartão fornecido.
      *
-     * @param numeroDoCartao O número do cartão do usuário para verificar os créditos.
      * @return A quantidade de créditos associados ao número do cartão.
      */
-    public int verificarCreditos(String numeroDoCartao) {
+    public int verificarCreditos() {
         // Implemente a lógica para verificar os créditos do usuário com base no número do cartão
         return 0; // Valor fictício de retorno
     }
 
-    public boolean UsoMomentaneoBicicletario(String momentaneoBicicletario) {
+    public boolean UsoMomentaneoBicicletario() {
         return false;
     }
 
-    public boolean NaoUsoMomentaneoBicicletario(String naoMomentaneoBicicletario) {
+    public boolean NaoUsoMomentaneoBicicletario() {
         return false;
     }
 }
