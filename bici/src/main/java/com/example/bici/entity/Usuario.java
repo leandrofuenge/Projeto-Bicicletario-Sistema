@@ -68,10 +68,10 @@ public class Usuario {
     @Column(nullable = false)
     private String celular;
 
-    @Column(nullable = true)
+    @Column()
     private String SimMomentaneoBicicletario;
 
-    @Column(nullable = true)
+    @Column()
     private String NaoMomentaneoBicicletario;
 
     public Usuario() {

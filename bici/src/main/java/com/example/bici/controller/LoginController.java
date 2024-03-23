@@ -4,7 +4,6 @@ import com.example.bici.entity.Usuario;
 import com.example.bici.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +19,7 @@ public class LoginController {
         this.authService = authService;
     }
 
+    //http://localhost:8080/login?cpf=seu_cpf_aqui&senha=sua_senha_aqui
     @PostMapping("/login")
     public Optional<Usuario> fazerLogin(@RequestParam("cpf") String cpf, @RequestParam("senha") String senha) {
         return authService.fazerLogin(cpf, senha);
