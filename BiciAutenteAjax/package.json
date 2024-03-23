@@ -1,0 +1,25 @@
+{
+  "name": "biciautentefront",
+  "version": "1.0.0",
+  "description": "Frontend para o sistema de autenticação de bicicletas",
+  "main": "nodemon server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bici",
+    "autenticação",
+    "frontend"
+  ],
+  "author": "Seu Nome",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

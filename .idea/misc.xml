@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="EntryPointsManager">
-    <writeAnnotations>
-      <writeAnnotation name="lombok.Getter" />
-    </writeAnnotations>
-  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/bici/pom.xml" />
+        <option value="$PROJECT_DIR$/BiciAutente/bici/pom.xml" />
+        <option value="$PROJECT_DIR$/BiciAutenteFront/pom.xml" />
+        <option value="$PROJECT_DIR$/BiciAutenteFront/BiciAutente/bici/pom.xml" />
       </list>
     </option>
   </component>

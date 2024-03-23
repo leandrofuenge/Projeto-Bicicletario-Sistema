@@ -7,6 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mytodo" />
+      </profile>
+      <profile name="Annotation profile for bici" enabled="true">
+        <sourceOutputDir name="../../BiciAutenteFront/BiciAutente/bici/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../BiciAutenteFront/BiciAutente/bici/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="bici" />
       </profile>
     </annotationProcessing>
@@ -14,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="bici" options="-parameters" />
+      <module name="mytodo" options="-parameters" />
     </option>
   </component>
 </project>
