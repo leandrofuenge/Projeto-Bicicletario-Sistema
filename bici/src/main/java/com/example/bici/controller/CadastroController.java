@@ -2,8 +2,11 @@ package com.example.bici.controller;
 
 import com.example.bici.entity.Usuario;
 import com.example.bici.service.CadastroService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,18 +25,36 @@ public class CadastroController {
 
     // Criar um novo usuário
     @PostMapping("/criar")
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<String> criarUsuario(@RequestBody Usuario usuario) {
         usuario.setCreditosRestantes(usuario.getCreditosRestantes());
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
-        return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String novoUsuarioJson;
+        try {
+            novoUsuarioJson = objectMapper.writeValueAsString(novoUsuario);
+        } catch (JsonProcessingException e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return ResponseEntity.ok(novoUsuarioJson);
     }
 
 
     // Obter todos os usuários
-    @GetMapping("/todos")
-    public ResponseEntity<List<Usuario>> obterTodosUsuarios() {
+    @GetMapping(value = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> obterTodosUsuarios() {
         List<Usuario> usuarios = cadastroService.obterTodosUsuarios();
-        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String usuariosJson;
+        try {
+            usuariosJson = objectMapper.writeValueAsString(usuarios);
+        } catch (JsonProcessingException e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return ResponseEntity.ok(usuariosJson);
     }
 
     // Obter um usuário pelo ID
@@ -67,17 +88,13 @@ public class CadastroController {
 
     // Consumir crédito quando um post é executado
     @PostMapping("/post")
-    public ResponseEntity<Void> executarPost(@RequestParam Long userId) {
-        // Obter o usuário pelo ID
+    public ResponseEntity<Void> consumirCredito(@RequestParam Long userId) {
         Usuario usuario = cadastroService.obterUsuarioPorId(userId);
         if (usuario != null) {
-            // Se o usuário existir, consumir um crédito
             usuario.consumirCredito();
-            // Atualizar o usuário no banco de dados
             cadastroService.atualizarUsuario(usuario.getId(), usuario);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            // Se o usuário não existir, retornar not found
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
