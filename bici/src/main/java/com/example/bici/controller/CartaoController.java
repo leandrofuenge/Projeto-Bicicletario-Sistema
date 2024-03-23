@@ -28,13 +28,12 @@ public class CartaoController {
       try {
          boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);
          if (usuarioAutenticado) {
-            return verificarCreditos(numeroDoCartao);
+            return ResponseEntity.ok("Usuario Autenticado");
          }
          return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado.");
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a autenticação.", e);
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                 .body("Ocorreu um erro durante a autenticação.");
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
 

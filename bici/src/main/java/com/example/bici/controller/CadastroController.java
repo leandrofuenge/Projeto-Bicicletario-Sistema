@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
 
@@ -24,16 +23,11 @@ public class CadastroController {
     // Criar um novo usuário
     @PostMapping("/criar")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
-        // Hash da senha usando BCrypt
-        String senhaHash = BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt());
-        // Define o hash da senha no objeto Usuario
-        usuario.setSenha(senhaHash);
-        // Definir o valor inicial de creditosRestantes, por exemplo, como o número total de créditos
         usuario.setCreditosRestantes(usuario.getCreditosRestantes());
-        // Cria o novo usuário
         Usuario novoUsuario = cadastroService.criarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
+
 
     // Obter todos os usuários
     @GetMapping("/todos")
