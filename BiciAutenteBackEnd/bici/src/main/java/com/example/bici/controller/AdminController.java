@@ -1,7 +1,7 @@
 package com.example.bici.controller;
 
 import com.example.bici.entity.Usuario;
-import com.example.bici.service.CadastroService;
+import com.example.bici.service.AdminService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +13,21 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/usuarios")
-public class CadastroController {
+public class AdminController {
 
-    private final CadastroService cadastroService;
+    private final AdminService adminService;
 
     @Autowired
-    public CadastroController(CadastroService cadastroService) {
-        this.cadastroService = cadastroService;
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
     }
 
+
+    // Esta Funcao permite o Usuario criar um perfil
     @PostMapping("/criar")
     @ResponseBody
     public String criarUsuario(@RequestBody Usuario usuario) {
-        Usuario novoUsuario = cadastroService.criarUsuario(usuario);
+        Usuario novoUsuario = adminService.criarUsuario(usuario);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             return objectMapper.writeValueAsString(novoUsuario);
@@ -34,10 +36,11 @@ public class CadastroController {
         }
     }
 
+    // Funcao Serve Apenas para Teste | Tipo: Puxar todos os clientes
     @GetMapping(value = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String obterTodosUsuarios() {
-        List<Usuario> usuarios = cadastroService.obterTodosUsuarios();
+        List<Usuario> usuarios = adminService.obterTodosUsuarios();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             return objectMapper.writeValueAsString(usuarios);
@@ -46,10 +49,11 @@ public class CadastroController {
         }
     }
 
-    @GetMapping("/{id}")
+
+    @GetMapping("/cpf/{cpf}")
     @ResponseBody
-    public String obterUsuarioPorId(@PathVariable Long id) {
-        Usuario usuario = cadastroService.obterUsuarioPorId(id);
+    public String obterUsuarioPorCpf(@PathVariable String cpf) {
+        Usuario usuario = adminService.obterUsuarioPorCpf(cpf); // Modificado para obter usuário por CPF
         if (usuario != null) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -62,10 +66,12 @@ public class CadastroController {
         }
     }
 
-    @PutMapping("/{id}")
+
+    //Atualizar usuario por CPF
+    @PutMapping("atualizar/{cpf}")
     @ResponseBody
-    public String atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        Usuario usuarioAtualizado = cadastroService.atualizarUsuario(id, usuario);
+    public String atualizarUsuarioPorCpf(@PathVariable String cpf, @RequestBody Usuario usuario) {
+        Usuario usuarioAtualizado = adminService.atualizarUsuarioPorCpf(cpf, usuario); // Modificado para usar CPF
         if (usuarioAtualizado != null) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -78,23 +84,19 @@ public class CadastroController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    @ResponseBody
-    public String excluirUsuario(@PathVariable Long id) {
-        cadastroService.excluirUsuario(id);
-        return "{\"message\": \"Usuário excluído com sucesso\"}";
-    }
 
-    @PostMapping("/post")
+    //Excluir Usuario Por CPF
+    @DeleteMapping("/excluir/{cpf}")
     @ResponseBody
-    public String consumirCredito(@RequestParam Long userId) {
-        Usuario usuario = cadastroService.obterUsuarioPorId(userId);
-        if (usuario != null) {
-            usuario.consumirCredito();
-            cadastroService.atualizarUsuario(usuario.getId(), usuario);
-            return "{\"message\": \"Crédito consumido com sucesso\"}";
+    public String excluirUsuarioPorCpf(@PathVariable String cpf) {
+        boolean deleted = adminService.excluirUsuarioPorCpf(cpf);
+        if (deleted) {
+            return "{\"message\": \"Usuário excluído com sucesso\"}";
         } else {
             return "{\"error\": \"Usuário não encontrado\"}";
         }
     }
+
+
+
 }

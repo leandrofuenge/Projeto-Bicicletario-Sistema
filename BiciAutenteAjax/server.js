@@ -55,21 +55,6 @@ app.post('/Login', async (req, res) => {
     }
 });
 
-
-// Rota para atualizar um usuário existente
-app.put('/usuarios/:id', async (req, res) => {
-    try {
-        const id = req.params.id;
-        const response = await axios.put(`http://localhost:8080/usuarios/${id}`, req.body);
-        res.json(response.data);
-    } catch (error) {
-        console.error('Erro ao atualizar usuário:', error.message);
-        res.status(error.response.status || 500).json({ error: 'Erro ao atualizar usuário' });
-    }
-});
-
-
-
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
