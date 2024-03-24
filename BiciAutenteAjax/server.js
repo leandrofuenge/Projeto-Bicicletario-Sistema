@@ -15,10 +15,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'PaginaInicial.html'));
+});
+
+
+
+
+
+
 //------------------------------------------------------------------------------------------------------------//
 
 // Rota para servir o arquivo Cadastro HTML
-app.get('/criar', (req, res) => {
+app.get('/Cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'Cadastro.html'));
 });
 
