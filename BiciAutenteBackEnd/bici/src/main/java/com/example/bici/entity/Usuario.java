@@ -14,58 +14,58 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private String nomeCompleto;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String numeroDoCartao;
 
-    @Column(nullable = false)
-    private int creditosRestantes;
+    @Column()
+    private Integer creditosRestantes;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String cpf;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String rg;
 
-    @Column(nullable = false)
+    @Column()
     private String dataDeNascimento;
 
-    @Column(nullable = false)
+    @Column()
     private String sexo;
 
-    @Column(nullable = false)
+    @Column()
     private String cep;
 
-    @Column(nullable = false)
+    @Column()
     private String endereco;
 
-    @Column(nullable = false)
+    @Column()
     private String numero;
 
-    @Column(nullable = false)
+    @Column()
     private String bairro;
 
-    @Column(nullable = false)
+    @Column()
     private String cidade;
 
-    @Column(nullable = false)
+    @Column()
     private String estado;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String numeroDeSerieBicicleta;
 
-    @Column(nullable = false)
+    @Column()
     private String corDaBicicleta;
 
-    @Column(nullable = false)
+    @Column()
     private String senha;
 
-    @Column(nullable = false)
+    @Column()
     private String celular;
 
     @Column()
@@ -81,7 +81,9 @@ public class Usuario {
     // Método para consumir crédito
     public void consumirCredito() {
         // Implementação para marcar que o crédito foi consumido
-        creditosRestantes--; // Atualiza a quantidade restante de créditos
+        if (creditosRestantes != null && creditosRestantes > 0) {
+            creditosRestantes--; // Atualiza a quantidade restante de créditos
+        }
     }
 
 }

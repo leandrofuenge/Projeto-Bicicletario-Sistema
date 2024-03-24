@@ -23,15 +23,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'PaginaInicial.html'));
 });
 
-
-
-
-
-
 //------------------------------------------------------------------------------------------------------------//
+//funcao para criar um usuario
 
 // Rota para servir o arquivo Cadastro HTML
-app.get('/Cadastro', (req, res) => {
+app.post('/Cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'Cadastro.html'));
 });
 
@@ -48,7 +44,7 @@ app.post('/usuarios/criar', async (req, res) => {
 
 
 //------------------------------------------------------------------------------------------------------------//
-
+// Funcao para Obter todos os usuarios
 
 app.get('/todos', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'ObterUsuario.html'));
@@ -72,15 +68,20 @@ app.get('/usuarios/todos', async (req, res) => {
 //------------------------------------------------------------------------------------------------------------//
 
 
+// Rota para servir o arquivo HTML de login
+app.get('/Login', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'Login.html'));
+});
 
-
-
-
-
-
-
-
-
+// Rota para lidar com a submissão do formulário de login
+app.post('/Login', async (req, res) => {
+    try {
+        const response = await axios.post('http://localhost:8080/login', req.body);
+        res.status(201).json({ message: 'Login bem-sucedido', data: response.data });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao login' });
+    }
+});
 
 
 //------------------------------------------------------------------------------------------------------------//

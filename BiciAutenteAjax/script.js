@@ -1,5 +1,43 @@
 $(document).ready(function () {
 
+
+// Função para realizar login
+    function fazerLogin() {
+        // Intercepta o envio do formulário
+        $('#loginForm').submit(function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const formData = $(this).serialize(); // Serializa os dados do formulário
+            // Envia a solicitação POST para o endpoint /login
+            $.post("/login", formData)
+                .done(function(response) {
+                    // Se o login for bem-sucedido
+                    alert("Login bem-sucedido!");
+                    console.log(response);
+                    // Redirecionar para outra página, se necessário
+                    window.location.href = '/dashboard'; // Redireciona para a página de dashboard
+                })
+                .fail(function(xhr, status, error) {
+                    // Se ocorrer um erro, exibe a mensagem de erro
+                    alert("Erro ao fazer login!");
+                    console.error('Erro de login:', error);
+                });
+        });
+    }
+
+// Chama a função fazerLogin quando o documento estiver pronto
+    $(document).ready(function() {
+        fazerLogin();
+    });
+
+
+
+
+
+
+
+
+
+
     // Criar um novo usuário
     $("#criarUsuario").submit(function (event) {
         event.preventDefault();
@@ -12,6 +50,9 @@ $(document).ready(function () {
             console.log(error);
         });
     });
+
+
+
 
 
     // Atualizar um usuário existente
@@ -35,6 +76,8 @@ $(document).ready(function () {
     });
 
 
+
+
     // Excluir um usuário pelo ID
     $("#excluirUsuario").click(function () {
         const userId = $("#userId").val();
@@ -50,6 +93,10 @@ $(document).ready(function () {
             }
         });
     })
+
+
+
+
 })
 
 

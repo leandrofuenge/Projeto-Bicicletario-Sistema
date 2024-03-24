@@ -27,8 +27,7 @@ public class LoginController {
         Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
         if (usuarioOptional.isPresent()) {
             // Se o login for bem-sucedido, retornar os detalhes do usuário
-            Usuario usuario = usuarioOptional.get();
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Usuario Logado");
         } else {
             // Se as credenciais estiverem incorretas, retornar um status 401 (Unauthorized)
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("CPF ou senha inválidos");
