@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // Criar um novo usuário
     $("#criarUsuario").submit(function (event) {
         event.preventDefault();
@@ -12,28 +13,6 @@ $(document).ready(function () {
         });
     });
 
-    // Obter todos os usuários
-    $("#obterTodosUsuarios").click(function () {
-        $.get("/usuarios/todos", function (usuarios) {
-            console.log(usuarios);
-            // Manipular os usuários recebidos conforme necessário
-        }).fail(function (error) {
-            console.log(error);
-            alert("Erro ao obter todos os usuários!");
-        });
-    });
-
-    // Obter um usuário pelo ID
-    $("#obterUsuarioPorId").click(function () {
-        const userId = $("#userId").val();
-        $.get("/usuarios/" + userId, function (usuario) {
-            console.log(usuario);
-            // Manipular o usuário recebido conforme necessário
-        }).fail(function (error) {
-            console.log(error);
-            alert("Erro ao obter usuário!");
-        });
-    });
 
     // Atualizar um usuário existente
     $("#atualizarUsuario").submit(function (event) {
@@ -55,6 +34,7 @@ $(document).ready(function () {
         });
     });
 
+
     // Excluir um usuário pelo ID
     $("#excluirUsuario").click(function () {
         const userId = $("#userId").val();
@@ -69,16 +49,7 @@ $(document).ready(function () {
                 console.log(error);
             }
         });
-    });
+    })
+})
 
-    // Consumir crédito
-    $("#consumirCredito").click(function () {
-        const userId = $("#userId").val();
-        $.post("/usuarios/post?userId=" + userId, function () {
-            alert("Crédito consumido com sucesso!");
-        }).fail(function (error) {
-            alert("Erro ao consumir crédito!");
-            console.log(error);
-        });
-    });
-});
+

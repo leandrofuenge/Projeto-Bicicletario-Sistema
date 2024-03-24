@@ -1,4 +1,4 @@
-const express = require('express');
+const express= require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const path = require("path");
@@ -14,9 +14,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Configurar o middleware para servir arquivos estáticos (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rota para servir o arquivo HTML
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '', 'index.html'));
+
+//------------------------------------------------------------------------------------------------------------//
+
+// Rota para servir o arquivo Cadastro HTML
+app.get('/criar', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'Cadastro.html'));
 });
 
 // Rota para criar um novo usuário
@@ -29,6 +32,16 @@ app.post('/usuarios/criar', async (req, res) => {
     }
 });
 
+
+
+//------------------------------------------------------------------------------------------------------------//
+
+
+app.get('/todos', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'ObterUsuario.html'));
+});
+
+
 // Rota para obter todos os usuários
 app.get('/usuarios/todos', async (req, res) => {
     try {
@@ -40,6 +53,28 @@ app.get('/usuarios/todos', async (req, res) => {
 });
 
 // Outras rotas para atualizar, excluir, etc., podem ser adicionadas da mesma maneira
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);

@@ -103,7 +103,7 @@ public class CartaoController {
          if (bicicletarioEmUso) {
             return ResponseEntity.ok().body("Bicicletário em uso. Não é possível utilizá-lo no momento.");
          } else {
-            return ResponseEntity.ok().body("Bicicletário livre. Pode ser utilizado.");
+            return ResponseEntity.ok().body("Bicicletário liver. Pode ser utilizado.");
          }
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a verificação do uso do bicicletário.", e);
