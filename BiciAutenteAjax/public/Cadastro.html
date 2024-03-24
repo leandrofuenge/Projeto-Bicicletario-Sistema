@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend HTML com Bootstrap e Tailwind CSS</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Adicione o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Adicione o CSS do Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- Adicione a biblioteca js-cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+
+
+    <style>
+        /* Você também pode adicionar estilos personalizados aqui se necessário */
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root" class="container mx-auto">
+    <h2 class="text-center mt-4 text-2xl font-bold">Cadastro de Usuários</h2>
+    <form id="criarUsuarioForm" class="mt-4">
+
+        <div class="mb-4">
+            <label for="nome" class="block required">Nome:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="nome" name="nomeCompleto" required placeholder="Insira seu nome">
+            <div class="error-message" id="nome-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block">Email:</label>
+            <input type="email" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="email" name="email" required placeholder="Insira seu Email">
+            <div class="error-message" id="email-error"></div>
+        </div>
+
+
+
+        <div class="mb-4">
+            <label for="cpf" class="block">CPF:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="cpf" name="cpf" required placeholder="Insira seu CPF">
+            <div class="error-message" id="cpf-error"></div>
+        </div>
+
+
+        <div class="mb-4">
+            <label for="senha" class="block">Senha:</label>
+            <input type="password" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="senha" name="senha" required placeholder="Insira sua Senha">
+            <div class="error-message" id="senha-error"></div>
+        </div>
+
+
+        <div class="mb-4">
+            <label for="rg" class="block">RG:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="rg" name="rg" required placeholder="Insira seu RG">
+            <div class="error-message" id="rg-error"></div>
+        </div>
+
+
+        <div class="mb-4">
+            <label for="dataDeNascimento" class="block">Data de Nascimento:</label>
+            <input type="date" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="dataDeNascimento" name="dataDeNascimento" required placeholder="Insira seu Data De Nascimento">
+            <div class="error-message" id="dataDeNascimento-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="sexo" class="block">Sexo:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="sexo" name="sexo" required placeholder="Insira seu sexo">
+            <div class="error-message" id="sexo-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="cep" class="block">CEP:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="cep" name="cep" required placeholder="Insira seu CEP">
+            <div class="error-message" id="cep-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="endereco" class="block">Endereço:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="endereco" name="endereco" required placeholder="Insira seu endereco">
+            <div class="error-message" id="endereco-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="numero" class="block">Número:</label>
+            <input type="number" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="numero" name="numero" required placeholder="Insira seu numero da casa">
+            <div class="error-message" id="numero-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="bairro" class="block">Bairro:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="bairro" name="bairro" required placeholder="Insira seu Bairro">
+            <div class="error-message" id="bairro-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="cidade" class="block">Cidade:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="cidade" name="cidade" required placeholder="Insira seu cidade">
+            <div class="error-message" id="cidade-error"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="estado" class="block">Estado:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="estado" name="estado" required placeholder="Insira seu Estado">
+            <div class="error-message" id="estado-error"></div>
+        </div>
+
+        <div>
+            <label for="numeroDeSerieBicicleta">Número de Série da Bicicleta:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="numeroDeSerieBicicleta" name="numeroDeSerieBicicleta" required placeholder="Insira seu número de série da bicicleta">
+            <div class="error-message" id="numeroDeSerieBicicleta-error"></div>
+        </div>
+
+
+
+        <div>
+            <label for="corDaBicicleta">Cor da Bicicleta:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="corDaBicicleta" name="corDaBicicleta" required placeholder="Insira seu Cor Da Bicicleta">
+            <div class="error-message" id="corDaBicicleta-error"></div>
+        </div>
+
+
+        <div>
+            <label for="celular">Celular:</label>
+            <input type="text" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="celular" name="celular" required placeholder="Insira seu Celular">
+            <div class="error-message" id="celular-error"></div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Criar Usuário</button>
+
+        <button class="nav-item">
+            <a class="nav-link" href="Login.html">Login</a>
+        </button>
+
+    </form>
+
+    <!-- Container para exibir os usuários -->
+    <div id="todosUsuarios" class="mt-4"></div>
+</div>
+
+<!-- Adicione o JavaScript do React -->
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+<!-- Adicione o JavaScript do Framer Motion -->
+<script src="https://cdn.jsdelivr.net/npm/framer-motion@4.1.17/dist/framer-motion.min.js"></script>
+
+<!-- Adicione o JavaScript do Bootstrap (opcional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Adicione seu script JavaScript aqui -->
+
+<script>
+
+
+
+
+    $(document).ready(function () {
+        // Função para criar um novo usuário e validar o email
+        $("#criarUsuarioForm").submit(function (event) {
+            event.preventDefault();
+
+            // Validar o email usando regex
+            const email = $("#email").val();
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regex.test(email)) {
+                $("#email-error").text("Por favor, insira um email válido.");
+                return;
+            }
+
+            // Se o email for válido, continuar com a criação do usuário
+            const formData = $(this).serialize();
+            $.post("/usuarios/criar", formData, function (response) {
+                alert("Novo usuário criado com sucesso!");
+                console.log(response);
+                // Criar cookie de autenticação
+                Cookies.set('token', 'seu_token_aqui');
+                // Redirecionar para a página de dashboard
+                window.location.href = 'dashboard.html';
+            }).fail(function (error) {
+                alert("Erro ao criar novo usuário!");
+                console.log(error);
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        // Função para criar um novo usuário e validar o CPF
+        $("#criarUsuarioForm").submit(function (event) {
+            event.preventDefault();
+
+            // Validar o CPF usando regex
+            const cpf = $("#cpf").val();
+            const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            if (!cpfRegex.test(cpf)) {
+                $("#cpf-error").text("Por favor, insira um CPF válido.");
+                return;
+            }
+
+            // Se o CPF for válido, continuar com a criação do usuário
+            const formData = $(this).serialize();
+            $.post("/usuarios/criar", formData, function (response) {
+                alert("Novo usuário criado com sucesso!");
+                console.log(response);
+            }).fail(function (error) {
+                alert("Erro ao criar novo usuário!");
+                console.log(error);
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+    });
+
+    $(document).ready(function() {
+        $('#rg').mask('00.000.000-0').on('input', function() {
+            const regex = /^\d{2}\.\d{3}\.\d{3}-\d{1,2}$/;
+            const rg = $(this).val();
+            if (!regex.test(rg)) {
+                $('#rg-error').text('RG inválido');
+            } else {
+                $('#rg-error').text('');
+            }
+        });
+    });
+
+
+
+    $(document).ready(function() {
+        $('#sexo').on('input', function() {
+            const sexo = $(this).val().toLowerCase();
+            const regex = /^(mulher|homem|transgênero|não-binário)$/i;
+            if (!regex.test(sexo)) {
+                $('#sexo-error').text('Insira um sexo (mulher, homem, transgênero, não-binário)');
+            } else {
+                $('#sexo-error').text('');
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        // Aplica a máscara para o campo de CEP
+        $('#cep').mask('00000-000').on('input', function() {
+            const cep = $(this).val();
+            // Regex para validar o formato do CEP: 12345-678
+            const regex = /^\d{5}-\d{3}$/;
+            if (!regex.test(cep)) {
+                $('#cep-error').text('Insira um CEP válido (formato: 12345-678)');
+            } else {
+                $('#cep-error').text('');
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        // Aplicar a máscara ao número de série da bicicleta
+        $('#numeroDeSerieBicicleta').inputmask({ regex: "[A-Za-z0-9-]*" });
+
+        // Validar o número de série da bicicleta ao enviar o formulário
+        $('#criarUsuarioForm').submit(function(event) {
+            const numeroDeSerieBicicleta = $('#numeroDeSerieBicicleta').val();
+            const regex = /^[A-Za-z0-9-]+$/;
+            if (!regex.test(numeroDeSerieBicicleta)) {
+                $('#numeroDeSerieBicicleta-error').text('Insira um número de série de bicicleta válido');
+                event.preventDefault(); // Impede o envio do formulário se o número de série for inválido
+            } else {
+                $('#numeroDeSerieBicicleta-error').text('');
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('#celular').mask('(00) 00000-0000').on('input', function() {
+            const regex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            const celular = $(this).val();
+            if (!regex.test(celular)) {
+                $('#celular-error').text('Celular inválido');
+            } else {
+                $('#celular-error').text('');
+            }
+        });
+    });
+
+
+</script>
+
+</body>
+</html>
