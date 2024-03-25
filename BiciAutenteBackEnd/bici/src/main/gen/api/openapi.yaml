@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: API Documentos
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /usuarios:
+    get:
+      description: Endpoint para recuperar todos os usuários cadastrados.
+      responses:
+        "200":
+          content: {}
+          description: Lista de usuários obtida com sucesso
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Obter todos os usuários
+      x-accepts: application/json
+    post:
+      description: Endpoint para criar um novo usuário.
+      responses:
+        "201":
+          content: {}
+          description: Usuário criado com sucesso
+        "400":
+          content: {}
+          description: Requisição inválida
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Criar novo usuário
+      x-accepts: application/json
+components:
+  schemas: {}
+x-original-swagger-version: "2.0"
+

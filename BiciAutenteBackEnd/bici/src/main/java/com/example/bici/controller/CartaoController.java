@@ -37,7 +37,6 @@ public class CartaoController {
       }
    }
 
-
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
@@ -93,6 +92,7 @@ public class CartaoController {
       }
    }
 
+
    @GetMapping("/usuarios/UsoMomentaneoBicicletario")
    public ResponseEntity<Object> MomentaneoBicicletario() {
       try {
@@ -111,6 +111,7 @@ public class CartaoController {
                  .body("Ocorreu um erro durante a verificação do uso do bicicletário.");
       }
    }
+
 
 
 

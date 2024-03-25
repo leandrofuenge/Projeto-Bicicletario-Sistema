@@ -28,14 +28,11 @@ public class AdminService {
         return usuarioRepository.findAll();
     }
 
-
-
     // Obter um usuário pelo CPF
     public Usuario obterUsuarioPorCpf(String cpf) {
         Optional<Usuario> optionalUsuario = usuarioRepository.findByCpf(cpf);
         return optionalUsuario.orElse(null);
     }
-
 
     // Atualizar um usuário existente
     public Usuario atualizarUsuarioPorCpf(String cpf, Usuario usuario) {
@@ -51,7 +48,6 @@ public class AdminService {
             return null;
         }
     }
-
 
     // Excluir um usuário pelo ID
     public boolean excluirUsuarioPorCpf(String cpf) {

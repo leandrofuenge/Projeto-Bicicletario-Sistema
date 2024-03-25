@@ -2,6 +2,8 @@ package com.example.bici.controller;
 
 import com.example.bici.entity.Usuario;
 import com.example.bici.service.LoginService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
+@Tag(name = "Login Controller", description = "Endpoints para autenticação de usuários")
 public class LoginController {
 
     private final LoginService loginService;
@@ -23,24 +26,21 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    // Endpoint para fazer login
+    @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
     public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody) {
         String cpf = requestBody.get("cpf");
         String senha = requestBody.get("senha");
 
         if (cpf == null || senha == null) {
-            // Se o CPF ou senha estiverem ausentes no corpo da requisição
             return ResponseEntity.badRequest().body("CPF e senha são obrigatórios");
         }
 
         Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
         if (usuarioOptional.isPresent()) {
-            // Se o login for bem-sucedido, retorna os detalhes do usuário
             Usuario usuario = usuarioOptional.get();
             return ResponseEntity.ok(usuario);
         } else {
-            // Se as credenciais estiverem incorretas, retorna um status 401 (Unauthorized)
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", "CPF ou senha inválidos");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);

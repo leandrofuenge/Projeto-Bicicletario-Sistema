@@ -13,6 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/usuarios")
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Adicionando suporte a CORS para todas as origens e cabeçalhos
 public class AdminController {
 
     private final AdminService adminService;
@@ -22,8 +23,6 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-
-    // Esta Funcao permite o Usuario criar um perfil
     @PostMapping("/criar")
     @ResponseBody
     public String criarUsuario(@RequestBody Usuario usuario) {
@@ -36,7 +35,6 @@ public class AdminController {
         }
     }
 
-    // Funcao Serve Apenas para Teste | Tipo: Puxar todos os clientes
     @GetMapping(value = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String obterTodosUsuarios() {
@@ -49,11 +47,10 @@ public class AdminController {
         }
     }
 
-
     @GetMapping("/cpf/{cpf}")
     @ResponseBody
     public String obterUsuarioPorCpf(@PathVariable String cpf) {
-        Usuario usuario = adminService.obterUsuarioPorCpf(cpf); // Modificado para obter usuário por CPF
+        Usuario usuario = adminService.obterUsuarioPorCpf(cpf);
         if (usuario != null) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -66,12 +63,10 @@ public class AdminController {
         }
     }
 
-
-    //Atualizar usuario por CPF
     @PutMapping("atualizar/{cpf}")
     @ResponseBody
     public String atualizarUsuarioPorCpf(@PathVariable String cpf, @RequestBody Usuario usuario) {
-        Usuario usuarioAtualizado = adminService.atualizarUsuarioPorCpf(cpf, usuario); // Modificado para usar CPF
+        Usuario usuarioAtualizado = adminService.atualizarUsuarioPorCpf(cpf, usuario);
         if (usuarioAtualizado != null) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -84,8 +79,6 @@ public class AdminController {
         }
     }
 
-
-    //Excluir Usuario Por CPF
     @DeleteMapping("/excluir/{cpf}")
     @ResponseBody
     public String excluirUsuarioPorCpf(@PathVariable String cpf) {
@@ -96,7 +89,4 @@ public class AdminController {
             return "{\"error\": \"Usuário não encontrado\"}";
         }
     }
-
-
-
 }
