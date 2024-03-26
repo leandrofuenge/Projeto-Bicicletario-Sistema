@@ -27,13 +27,4 @@ public class CartaoService {
         Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
         return optionalUsuario.isPresent(); // Retorna true se o usuário com o número do cartão existir
     }
-    /**
-     * Verifica a quantidade de créditos associados ao número do cartão fornecido.
-     *
-     * @return A quantidade de créditos associados ao número do cartão.
-     */
-    public int verificarCreditos(String s) {
-        // Implemente a lógica para verificar os créditos do usuário com base no número do cartão
-        return 0; // Valor fictício de retorno
-    }
 }
