@@ -1,6 +1,5 @@
-package com.example.bici.controller;
+package com.example.bici.service;
 
-import com.example.bici.service.UsuarioService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
