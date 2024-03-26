@@ -1,0 +1,94 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "API Title",
+		"version": "1.0"
+	},
+	"host": "api.server.test",
+	"basePath": "/",
+	"schemes": [
+		"https"
+	],
+	"tags": [
+		{
+			"name": "Login Controller",
+			"description": "Endpoints para autenticação de usuários"
+		}
+	],
+	"paths": {
+		"/login": {
+			"post": {
+				"tags": [
+					"Login Controller"
+				],
+				"summary": "Realiza login de usuário",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Credenciais de usuário",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"cpf": {
+									"type": "string"
+								},
+								"senha": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Login bem-sucedido",
+						"schema": {
+							"$ref": "#/definitions/Usuario"
+						}
+					},
+					"400": {
+						"description": "Requisição inválida",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Não autorizado",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"error": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Usuario": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"nome": {
+					"type": "string"
+				},
+				"cpf": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

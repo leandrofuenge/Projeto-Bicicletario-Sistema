@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: API Title
+  version: "1.0"
+servers:
+- url: https://api.server.test/
+tags:
+- description: Endpoints para autenticação de usuários
+  name: Login Controller
+paths:
+  /login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_login_post_request'
+        description: Credenciais de usuário
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: Login bem-sucedido
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Requisição inválida
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_login_post_401_response'
+          description: Não autorizado
+      summary: Realiza login de usuário
+      tags:
+      - Login Controller
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    Usuario:
+      example:
+        cpf: cpf
+        nome: nome
+        id: 0
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        cpf:
+          type: string
+      type: object
+    _login_post_request:
+      properties:
+        cpf:
+          type: string
+        senha:
+          type: string
+      type: object
+    _login_post_401_response:
+      properties:
+        error:
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
+

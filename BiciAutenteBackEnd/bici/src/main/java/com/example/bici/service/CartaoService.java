@@ -32,16 +32,8 @@ public class CartaoService {
      *
      * @return A quantidade de créditos associados ao número do cartão.
      */
-    public int verificarCreditos() {
+    public int verificarCreditos(String s) {
         // Implemente a lógica para verificar os créditos do usuário com base no número do cartão
         return 0; // Valor fictício de retorno
-    }
-
-    public boolean UsoMomentaneoBicicletario() {
-        return false;
-    }
-
-    public boolean NaoUsoMomentaneoBicicletario() {
-        return false;
     }
 }

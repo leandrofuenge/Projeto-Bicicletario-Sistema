@@ -1,0 +1,116 @@
+openapi: 3.0.1
+info:
+  description: Esta API permite operações relacionadas a cartões de usuários
+  title: API de Cartões
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- description: Operações relacionadas a cartões de usuários
+  name: Cartao
+paths:
+  /usuarios/autenticar:
+    get:
+      parameters:
+      - description: Número do cartão do usuário
+        in: query
+        name: numeroDoCartao
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Usuário autenticado com sucesso
+        "401":
+          content: {}
+          description: Usuário não encontrado
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Autentica um usuário pelo número do cartão
+      tags:
+      - Cartao
+      x-accepts: application/json
+  /verificarcreditos:
+    get:
+      parameters:
+      - description: Número do cartão do usuário
+        in: query
+        name: numeroDoCartao
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Créditos do usuário obtidos com sucesso
+        "404":
+          content: {}
+          description: Usuário não encontrado
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Verifica créditos do usuário pelo número do cartão
+      tags:
+      - Cartao
+      x-accepts: application/json
+  /usuarios/utilizarCredito:
+    post:
+      parameters:
+      - description: Número do cartão do usuário
+        in: query
+        name: numeroDoCartao
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Crédito utilizado com sucesso
+        "400":
+          content: {}
+          description: Não há créditos suficientes para utilizar
+        "404":
+          content: {}
+          description: Usuário não encontrado
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Utiliza crédito do usuário pelo número do cartão
+      tags:
+      - Cartao
+      x-accepts: application/json
+  /usuarios/UsoMomentaneoBicicletario:
+    get:
+      responses:
+        "200":
+          content: {}
+          description: Bicicletário disponível para uso
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Verifica se o bicicletário está em uso no momento
+      tags:
+      - Cartao
+      x-accepts: application/json
+  /usuarios/NaoUsoMomentaneoBicicletario:
+    get:
+      responses:
+        "200":
+          content: {}
+          description: Bicicletário não está em uso no momento
+        "401":
+          content: {}
+          description: Bicicletário está em uso no momento
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Verifica se o bicicletário não está em uso no momento
+      tags:
+      - Cartao
+      x-accepts: application/json
+components:
+  schemas: {}
+x-original-swagger-version: "2.0"
+

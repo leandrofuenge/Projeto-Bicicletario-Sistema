@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BiciAutente.iml" filepath="$PROJECT_DIR$/.idea/BiciAutente.iml" />
       <module fileurl="file://$PROJECT_DIR$/bici/bici.iml" filepath="$PROJECT_DIR$/bici/bici.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bici/src/main/gen/openapi-java-client.iml" filepath="$PROJECT_DIR$/bici/src/main/gen/openapi-java-client.iml" />
     </modules>
   </component>
 </project>

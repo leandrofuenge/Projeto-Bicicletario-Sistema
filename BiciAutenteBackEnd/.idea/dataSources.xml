@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="oracle" uuid="8efcf8ed-70c3-47b0-9c4c-117e68fa1cb5">
+    <data-source source="LOCAL" name="oracle" uuid="bf9e51a8-5f86-470d-ab8c-f9b682bf0137">
       <driver-ref>oracle.19</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
@@ -9,9 +9,6 @@
       <auto-commit>false</auto-commit>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@localhost:1521/XEPDB1</jdbc-url>
-      <jdbc-additional-properties>
-        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

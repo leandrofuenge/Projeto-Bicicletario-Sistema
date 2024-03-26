@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/usuarios")
+@RequestMapping("/administrador")
 @CrossOrigin(origins = "*", allowedHeaders = "*") // Adicionando suporte a CORS para todas as origens e cabeçalhos
 public class AdminController {
 
@@ -23,7 +23,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping("/criar/todos/cadastro")
     @ResponseBody
     public String criarUsuario(@RequestBody Usuario usuario) {
         Usuario novoUsuario = adminService.criarUsuario(usuario);
@@ -35,7 +35,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(value = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/visualizar/todos/cadastros", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String obterTodosUsuarios() {
         List<Usuario> usuarios = adminService.obterTodosUsuarios();
@@ -47,7 +47,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/cpf/{cpf}")
+    @GetMapping("/obter/todos/cpf/{cpf}")
     @ResponseBody
     public String obterUsuarioPorCpf(@PathVariable String cpf) {
         Usuario usuario = adminService.obterUsuarioPorCpf(cpf);
@@ -63,14 +63,14 @@ public class AdminController {
         }
     }
 
-    @PutMapping("atualizar/{cpf}")
+    @PutMapping("/modificar/todos/{cpf}")
     @ResponseBody
-    public String atualizarUsuarioPorCpf(@PathVariable String cpf, @RequestBody Usuario usuario) {
-        Usuario usuarioAtualizado = adminService.atualizarUsuarioPorCpf(cpf, usuario);
-        if (usuarioAtualizado != null) {
+    public String modificarUsuarioPorCpf(@PathVariable String cpf, @RequestBody Usuario usuario) {
+        Usuario usuarioModificado = adminService.modificarUsuarioPorCpf(cpf, usuario);
+        if (usuarioModificado != null) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
-                return objectMapper.writeValueAsString(usuarioAtualizado);
+                return objectMapper.writeValueAsString(usuarioModificado);
             } catch (JsonProcessingException e) {
                 return "{\"error\": \"Erro ao processar a requisição\"}";
             }
@@ -79,7 +79,7 @@ public class AdminController {
         }
     }
 
-    @DeleteMapping("/excluir/{cpf}")
+    @DeleteMapping("/excluir/todos/{cpf}")
     @ResponseBody
     public String excluirUsuarioPorCpf(@PathVariable String cpf) {
         boolean deleted = adminService.excluirUsuarioPorCpf(cpf);

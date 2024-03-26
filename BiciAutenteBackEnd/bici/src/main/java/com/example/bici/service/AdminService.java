@@ -13,11 +13,11 @@ public class AdminService {
 
     private final UsuarioRepository usuarioRepository;
 
+
     @Autowired
     public AdminService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
-
     // Criar um novo usuário
     public Usuario criarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
@@ -35,19 +35,23 @@ public class AdminService {
     }
 
     // Atualizar um usuário existente
-    public Usuario atualizarUsuarioPorCpf(String cpf, Usuario usuario) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findByCpf(cpf);
-        if (optionalUsuario.isPresent()) {
-            Usuario usuarioExistente = optionalUsuario.get();
+    public Usuario modificarUsuarioPorCpf(String cpf, Usuario usuario) {
+        // Verifique se o usuário com o CPF fornecido existe no banco de dados
+        Usuario usuarioExistente = obterUsuarioPorCpf(cpf);
+        if (usuarioExistente != null) {
+            // Atualize as informações do usuário com base nos dados fornecidos
             usuarioExistente.setNomeCompleto(usuario.getNomeCompleto());
-            usuarioExistente.setNumeroDoCartao(usuario.getNumeroDoCartao());
-            // Atualize outros campos conforme necessário
+            usuarioExistente.setEmail(usuario.getEmail());
+            // Continue atualizando outros campos conforme necessário
+
+            // Salve as alterações no banco de dados
 
             return usuarioRepository.save(usuarioExistente);
         } else {
-            return null;
+            return null; // Retorne null se o usuário não existir
         }
     }
+
 
     // Excluir um usuário pelo ID
     public boolean excluirUsuarioPorCpf(String cpf) {
@@ -59,5 +63,4 @@ public class AdminService {
             return false;
         }
     }
-
 }

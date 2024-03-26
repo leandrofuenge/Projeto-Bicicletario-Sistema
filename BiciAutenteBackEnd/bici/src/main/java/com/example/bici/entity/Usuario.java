@@ -14,13 +14,13 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column()
+    @Column(name = "nome_completo")
     private String nomeCompleto;
 
-    @Column(unique = true)
+    @Column(name = "numero_do_cartao", unique = true)
     private String numeroDoCartao;
 
-    @Column()
+    @Column(name = "creditos_restantes")
     private Integer creditosRestantes;
 
     @Column(unique = true)
@@ -29,61 +29,63 @@ public class Usuario {
     @Column(unique = true)
     private String rg;
 
-    @Column()
+    @Column(name = "data_de_nascimento")
     private String dataDeNascimento;
 
-    @Column()
     private String sexo;
 
-    @Column()
     private String cep;
 
-    @Column()
     private String endereco;
 
-    @Column()
     private String numero;
 
-    @Column()
     private String bairro;
 
-    @Column()
     private String cidade;
 
-    @Column()
     private String estado;
 
     @Column(unique = true)
     private String email;
 
-    @Column(unique = true)
+    @Column(name = "numero_de_serie_bicicleta", unique = true)
     private String numeroDeSerieBicicleta;
 
-    @Column()
+    @Column(name = "cor_da_bicicleta")
     private String corDaBicicleta;
 
-    @Column()
     private String senha;
 
-    @Column()
     private String celular;
-
-    @Column()
-    private String SimMomentaneoBicicletario;
-
-    @Column()
-    private String NaoMomentaneoBicicletario;
 
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
 
-    // Método para consumir crédito
-    public void consumirCredito() {
-        // Implementação para marcar que o crédito foi consumido
-        if (creditosRestantes != null && creditosRestantes > 0) {
-            creditosRestantes--; // Atualiza a quantidade restante de créditos
-        }
+    public Usuario(Long id, String nomeCompleto, String numeroDoCartao, Integer creditosRestantes,
+                   String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
+                   String numero, String bairro, String cidade, String estado, String email,
+                   String numeroDeSerieBicicleta, String corDaBicicleta, String senha,
+                   String celular) {
+        this.id = id;
+        this.nomeCompleto = nomeCompleto;
+        this.numeroDoCartao = numeroDoCartao;
+        this.creditosRestantes = creditosRestantes;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataDeNascimento = dataDeNascimento;
+        this.sexo = sexo;
+        this.cep = cep;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.email = email;
+        this.numeroDeSerieBicicleta = numeroDeSerieBicicleta;
+        this.corDaBicicleta = corDaBicicleta;
+        this.senha = senha;
+        this.celular = celular;
     }
-
 }

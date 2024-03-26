@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Esta API permite a administração de usuários",
+    "title": "API de Administração de Usuários",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Admin",
+      "description": "Operações administrativas"
+    }
+  ],
+  "paths": {
+    "/usuarios/criar": {
+      "post": {
+        "tags": ["Admin"],
+        "summary": "Cria um novo usuário",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "usuario",
+            "description": "Objeto de usuário a ser criado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário criado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "400": {
+            "description": "Erro ao processar a requisição"
+          }
+        }
+      }
+    },
+    "/usuarios/todos": {
+      "get": {
+        "tags": ["Admin"],
+        "summary": "Obtém todos os usuários",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Usuario"
+              }
+            }
+          },
+          "400": {
+            "description": "Erro ao processar a requisição"
+          }
+        }
+      }
+    },
+    "/usuarios/cpf/{cpf}": {
+      "get": {
+        "tags": ["Admin"],
+        "summary": "Obtém um usuário por CPF",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "required": true,
+            "type": "string",
+            "description": "CPF do usuário a ser buscado"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    },
+    "/usuarios/atualizar/{cpf}": {
+      "put": {
+        "tags": ["Admin"],
+        "summary": "Atualiza um usuário por CPF",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "required": true,
+            "type": "string",
+            "description": "CPF do usuário a ser atualizado"
+          },
+          {
+            "in": "body",
+            "name": "usuario",
+            "description": "Objeto de usuário atualizado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          },
+          "400": {
+            "description": "Erro ao processar a requisição"
+          }
+        }
+      }
+    },
+    "/usuarios/excluir/{cpf}": {
+      "delete": {
+        "tags": ["Admin"],
+        "summary": "Exclui um usuário por CPF",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "required": true,
+            "type": "string",
+            "description": "CPF do usuário a ser excluído"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário excluído com sucesso"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
