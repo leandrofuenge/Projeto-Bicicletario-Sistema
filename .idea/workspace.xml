@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb0aa22-7fb7-4ad4-8011-0810d1cb4265" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/adaptive-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +70,7 @@
     "npm.android.executor": "Run",
     "npm.start.executor": "Run",
     "npm.web.executor": "Run",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -68,7 +79,7 @@
       <recent name="C:\Users\luclecia\Documents\Projetos Automacao\Projeto-Bicicletario-Sistema\BiciAutenteAndroid" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.web">
+  <component name="RunManager" selected="npm.android">
     <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/BiciAutenteAndroid/App.js" working-dir="$PROJECT_DIR$/BiciAutenteAndroid">
       <method v="2" />
     </configuration>
@@ -104,9 +115,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.android" />
         <item itemvalue="npm.web" />
         <item itemvalue="Node.js.App.js" />
-        <item itemvalue="npm.android" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -119,7 +130,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711508215865</updated>
-      <workItem from="1711508778800" duration="5618000" />
+      <workItem from="1711508778800" duration="8496000" />
     </task>
     <servers />
   </component>
