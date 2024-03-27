@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { View, TextInput, Button, Alert } from 'react-native';
+import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import axios from 'axios';
 
 const LoginScreen = () => {
     const [cpf, setCpf] = useState('');
@@ -25,13 +25,15 @@ const LoginScreen = () => {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
             <TextInput
+                style={styles.input}
                 placeholder="CPF"
                 onChangeText={setCpf}
                 value={cpf}
             />
             <TextInput
+                style={styles.input}
                 placeholder="Senha"
                 onChangeText={setSenha}
                 value={senha}
@@ -41,5 +43,24 @@ const LoginScreen = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 20,
+    },
+    input: {
+        width: '100%',
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginBottom: 10,
+        paddingHorizontal: 10,
+    },
+});
 
 export default LoginScreen;

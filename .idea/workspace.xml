@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb0aa22-7fb7-4ad4-8011-0810d1cb4265" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/assets/adaptive-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/assets/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/assets/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/assets/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteAndroid/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Projetos Automacao.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +119,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711508215865</updated>
-      <workItem from="1711508778800" duration="5353000" />
+      <workItem from="1711508778800" duration="5618000" />
     </task>
     <servers />
   </component>
