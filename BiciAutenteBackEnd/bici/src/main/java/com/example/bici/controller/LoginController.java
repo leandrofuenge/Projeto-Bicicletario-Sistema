@@ -7,9 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @Tag(name = "Login Controller", description = "Endpoints para autenticação de usuários")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class LoginController {
 
     private final LoginService loginService;
@@ -28,7 +27,7 @@ public class LoginController {
 
     @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
-    public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody) {
+    public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody, @RequestHeader Map<String, String> requestHeaders) {
         String cpf = requestBody.get("cpf");
         String senha = requestBody.get("senha");
 
