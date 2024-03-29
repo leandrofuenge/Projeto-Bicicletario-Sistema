@@ -85,4 +85,7 @@ public class UsuarioServiceTest {
         verify(preparedStatement).setLong(1, idUsuario);
         verify(preparedStatement).executeUpdate();
     }
+
+
+
 }

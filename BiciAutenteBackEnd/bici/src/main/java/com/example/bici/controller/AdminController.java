@@ -89,11 +89,4 @@ public class AdminController {
             return "{\"error\": \"Usuário não encontrado\"}";
         }
     }
-
-
-
 }
-
-
-
-
