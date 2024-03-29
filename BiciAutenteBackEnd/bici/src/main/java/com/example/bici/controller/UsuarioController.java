@@ -17,7 +17,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/usuario/meus-dados/{id}")
+    @GetMapping("/Meus-dados/{id}")
     public Usuario getUsuarioById(@PathVariable int id) {
         return usuarioService.getUsuarioPorId(id);
     }
@@ -47,5 +47,3 @@ public class UsuarioController {
         }
     }
 }
-
-
