@@ -23,6 +23,7 @@ public class UsuarioController {
     }
 
 
+
     @PutMapping("/Alterar-Meus-Dados/{id}")
     public ResponseEntity<String> modificarMeusDados(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
@@ -34,5 +35,17 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados ");
         }
     }
+
+
+    @DeleteMapping("/Excluir-Meus-Dados/{id}")
+    public ResponseEntity<String> excluirMeusDados(@PathVariable Long id) {
+        boolean sucesso = usuarioService.ExcluirMeusDados(id);
+        if (sucesso) {
+            return ResponseEntity.ok("Dados do usuário excluídos com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir os dados do usuário");
+        }
+    }
 }
+
 

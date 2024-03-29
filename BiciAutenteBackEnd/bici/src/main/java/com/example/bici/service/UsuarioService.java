@@ -95,4 +95,25 @@ public class UsuarioService {
             return false;
         }
     }
+
+
+    // Método para excluir os dados do usuário logado
+    public boolean ExcluirMeusDados(long idUsuario) {
+        String sql = "DELETE FROM USUARIO WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setLong(1, idUsuario);
+
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Erro ao executar consulta SQL", e);
+            return false;
+        }
+    }
 }
+
+
