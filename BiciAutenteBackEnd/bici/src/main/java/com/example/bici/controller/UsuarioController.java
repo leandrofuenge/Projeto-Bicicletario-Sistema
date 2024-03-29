@@ -23,7 +23,6 @@ public class UsuarioController {
     }
 
 
-
     @PutMapping("/Alterar-Meus-Dados/{id}")
     public ResponseEntity<String> modificarMeusDados(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
@@ -47,3 +46,4 @@ public class UsuarioController {
         }
     }
 }
+

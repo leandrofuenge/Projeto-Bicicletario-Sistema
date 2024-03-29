@@ -1,0 +1,145 @@
+openapi: 3.0.1
+info:
+  description: Esta API permite operações relacionadas aos usuários de bicicletas
+  title: API de Usuário de Bicicletas
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- description: Operações relacionadas aos usuários
+  name: Usuario
+paths:
+  /usuario/Meus-dados/{id}:
+    get:
+      parameters:
+      - description: ID do usuário
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content: {}
+          description: Dados do usuário recuperados com sucesso
+        "404":
+          content: {}
+          description: Usuário não encontrado
+        "500":
+          content: {}
+          description: Erro interno do servidor
+      summary: Obter os dados de um usuário pelo ID
+      tags:
+      - Usuario
+      x-accepts: application/json
+  /usuario/Alterar-Meus-Dados/{id}:
+    put:
+      parameters:
+      - description: ID do usuário
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        description: Objeto JSON contendo os novos dados do usuário
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: Dados do usuário modificados com sucesso
+        "500":
+          content: {}
+          description: Erro interno do servidor ao tentar modificar os dados do usuário
+      summary: Modificar os dados de um usuário pelo ID
+      tags:
+      - Usuario
+      x-codegen-request-body-name: usuario
+      x-content-type: '*/*'
+      x-accepts: application/json
+  /usuario/Excluir-Meus-Dados/{id}:
+    delete:
+      parameters:
+      - description: ID do usuário
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content: {}
+          description: Dados do usuário excluídos com sucesso
+        "500":
+          content: {}
+          description: Erro interno do servidor ao tentar excluir os dados do usuário
+      summary: Excluir os dados de um usuário pelo ID
+      tags:
+      - Usuario
+      x-accepts: application/json
+components:
+  schemas:
+    Usuario:
+      example:
+        cidade: cidade
+        estado: estado
+        endereco: endereco
+        numero: numero
+        bairro: bairro
+        corDaBicicleta: corDaBicicleta
+        creditosRestantes: 6
+        cep: cep
+        senha: senha
+        rg: rg
+        cpf: cpf
+        numeroDeSerieBicicleta: numeroDeSerieBicicleta
+        celular: celular
+        id: 0
+        sexo: sexo
+        dataDeNascimento: dataDeNascimento
+        email: email
+        nomeCompleto: nomeCompleto
+      properties:
+        id:
+          type: integer
+        nomeCompleto:
+          type: string
+        creditosRestantes:
+          type: integer
+        cpf:
+          type: string
+        rg:
+          type: string
+        dataDeNascimento:
+          type: string
+        sexo:
+          type: string
+        cep:
+          type: string
+        endereco:
+          type: string
+        numero:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        email:
+          type: string
+        numeroDeSerieBicicleta:
+          type: string
+        corDaBicicleta:
+          type: string
+        senha:
+          type: string
+        celular:
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
+

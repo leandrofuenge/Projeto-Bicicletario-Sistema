@@ -12,7 +12,6 @@ public class UsuarioService {
 
     private static final Logger LOGGER = Logger.getLogger(UsuarioService.class.getName());
 
-
     // Método para obter a conexão com o banco de dados Oracle
     private Connection getConnection() throws SQLException {
         String url = "jdbc:oracle:thin:@localhost:1521/XEPDB1"; // Substitua "seu_sid" pelo SID do seu banco de dados Oracle
@@ -20,6 +19,8 @@ public class UsuarioService {
         String senha = "8YxeV6wCA9H8";
         return DriverManager.getConnection(url, usuario, senha);
     }
+
+
 
     // Método para recuperar os dados do usuário logado
     public Usuario getUsuarioPorId(int idUsuarioLogado) {
@@ -115,5 +116,4 @@ public class UsuarioService {
         }
     }
 }
-
 

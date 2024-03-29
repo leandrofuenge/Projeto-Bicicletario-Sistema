@@ -1,0 +1,159 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de Usuário de Bicicletas",
+    "description": "Esta API permite operações relacionadas aos usuários de bicicletas"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Usuario",
+      "description": "Operações relacionadas aos usuários"
+    }
+  ],
+  "paths": {
+    "/usuario/Meus-dados/{id}": {
+      "get": {
+        "tags": ["Usuario"],
+        "summary": "Obter os dados de um usuário pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do usuário recuperados com sucesso"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/usuario/Alterar-Meus-Dados/{id}": {
+      "put": {
+        "tags": ["Usuario"],
+        "summary": "Modificar os dados de um usuário pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do usuário"
+          },
+          {
+            "in": "body",
+            "name": "usuario",
+            "description": "Objeto JSON contendo os novos dados do usuário",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do usuário modificados com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor ao tentar modificar os dados do usuário"
+          }
+        }
+      }
+    },
+    "/usuario/Excluir-Meus-Dados/{id}": {
+      "delete": {
+        "tags": ["Usuario"],
+        "summary": "Excluir os dados de um usuário pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do usuário excluídos com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor ao tentar excluir os dados do usuário"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "nomeCompleto": {
+          "type": "string"
+        },
+        "creditosRestantes": {
+          "type": "integer"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "rg": {
+          "type": "string"
+        },
+        "dataDeNascimento": {
+          "type": "string"
+        },
+        "sexo": {
+          "type": "string"
+        },
+        "cep": {
+          "type": "string"
+        },
+        "endereco": {
+          "type": "string"
+        },
+        "numero": {
+          "type": "string"
+        },
+        "bairro": {
+          "type": "string"
+        },
+        "cidade": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "numeroDeSerieBicicleta": {
+          "type": "string"
+        },
+        "corDaBicicleta": {
+          "type": "string"
+        },
+        "senha": {
+          "type": "string"
+        },
+        "celular": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
