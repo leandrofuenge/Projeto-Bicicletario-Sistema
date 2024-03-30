@@ -93,9 +93,6 @@ public class Usuario {
 
 
 
-
-
-
     public Usuario() {
         // Construtor padrão necessário para JPA
     }

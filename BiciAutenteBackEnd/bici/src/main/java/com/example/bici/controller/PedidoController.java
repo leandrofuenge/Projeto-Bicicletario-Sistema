@@ -2,10 +2,7 @@ package com.example.bici.controller;
 
 import com.example.bici.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pedido")
@@ -23,8 +20,8 @@ public class PedidoController {
         return pedidoService.salvarEstadoPedido(estadoPedido);
     }
 
-    @PostMapping("/solicitar-cartao-pedido")
-    public String solicitarCartaoPedido(@RequestBody int tipoPedido) {
-        return pedidoService.solicitarCartaoPedido(tipoPedido);
+    @PostMapping("/solicitar-cartao-por-cpf")
+    public String solicitarCartaoPorCPF(@RequestParam("cpf") String cpf) {
+        return pedidoService.solicitarCartaoPedidoPorCPF(cpf);
     }
 }
