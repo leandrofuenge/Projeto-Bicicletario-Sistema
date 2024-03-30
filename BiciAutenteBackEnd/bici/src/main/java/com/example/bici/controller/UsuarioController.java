@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RequestMapping("/usuario")
 @RestController
 public class UsuarioController {
@@ -22,28 +21,35 @@ public class UsuarioController {
         return usuarioService.getUsuarioPorId(id);
     }
 
-
     @PutMapping("/Alterar-Meus-Dados/{id}")
     public ResponseEntity<String> modificarMeusDados(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
 
-        boolean sucesso = usuarioService.ModificarMeusDados(usuario);
+        boolean sucesso = usuarioService.modificarMeusDados(usuario);
         if (sucesso) {
             return ResponseEntity.ok("Dados modificados com sucesso");
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados ");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados");
         }
     }
 
-
     @DeleteMapping("/Excluir-Meus-Dados/{id}")
     public ResponseEntity<String> excluirMeusDados(@PathVariable Long id) {
-        boolean sucesso = usuarioService.ExcluirMeusDados(id);
+        boolean sucesso = usuarioService.excluirMeusDados(id);
         if (sucesso) {
             return ResponseEntity.ok("Dados do usuário excluídos com sucesso");
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir os dados do usuário");
         }
     }
-}
 
+    @PostMapping("/Criar-Meu-Cadastro")
+    public ResponseEntity<String> criarMeuCadastro(@RequestBody Usuario novoUsuario) {
+        boolean sucesso = usuarioService.criarMeuCadastro(novoUsuario);
+        if (sucesso) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o cadastro");
+        } else {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro criado com sucesso");
+        }
+    }
+}

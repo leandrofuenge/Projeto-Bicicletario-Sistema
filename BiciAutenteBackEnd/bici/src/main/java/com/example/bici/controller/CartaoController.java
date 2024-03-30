@@ -23,8 +23,6 @@ public class CartaoController {
       this.cartaoService = cartaoService;
    }
 
-
-
    @GetMapping("/usuarios/autenticar")
    public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao,
                                                    @RequestParam(value = "cartao_bloqueado", required = false) boolean cartaoBloqueado) {
@@ -43,9 +41,6 @@ public class CartaoController {
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
-
-
-
 
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
@@ -103,29 +98,4 @@ public class CartaoController {
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
       }
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-

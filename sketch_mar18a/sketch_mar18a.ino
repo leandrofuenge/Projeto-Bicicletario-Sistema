@@ -3,27 +3,33 @@
 #include <SPI.h>
 #include <HTTPClient.h>
 
-const char* ssid = "LEANDRO";
-const char* password = "32867393";
-const char* host = "192.168.1.3";
-const int port = 8080;
-const char* javaEndpointAutenticar = "/usuarios/autenticar";
-const char* javaEndpointVerificarCreditos = "/verificarcreditos";
-const char* javaEndpointUtilizarCredito = "/usuarios/utilizarCredito";
+// Configurações da rede Wi-Fi
+const char* SSID = "LEANDRO";
+const char* PASSWORD = "32867393";
 
+// Configurações do servidor HTTP
+const char* HOST = "192.168.1.3";
+const int PORT = 8080;
+const char* ENDPOINT_AUTENTICAR = "/usuarios/autenticar";
+const char* ENDPOINT_VERIFICAR_CREDITOS = "/verificarcreditos";
+const char* ENDPOINT_UTILIZAR_CREDITO = "/usuarios/utilizarCredito";
+
+// Pinos do MFRC522
 const int SS_PIN = 21;
 const int RST_PIN = 22;
-const int LedVerde = 26;
-const int LedVermelho = 12;
-const int Tranca = 2;
-const int Buzzer = 15;
 
-MFRC522::MIFARE_Key key;
+// Pinos dos LEDs, tranca e buzzer
+const int LED_VERDE = 26;
+const int LED_VERMELHO = 12;
+const int TRANCA = 2;
+const int BUZZER = 15;
+
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
+// Função para conectar à rede Wi-Fi
 void connectToWiFi() {
     Serial.println("Conectando-se à rede Wi-Fi...");
-    WiFi.begin(ssid, password);
+    WiFi.begin(SSID, PASSWORD);
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
@@ -32,63 +38,45 @@ void connectToWiFi() {
     Serial.println("Endereço IP: " + WiFi.localIP().toString());
 }
 
+// Função para fazer uma requisição GET HTTP
+bool httpGet(const char* endpoint, String params = "") {
+    String url = "http://" + String(HOST) + ":" + String(PORT) + endpoint;
+    if (params != "") {
+        url += "?" + params;
+    }
+
+    HTTPClient http;
+    http.begin(url);
+    int httpResponseCode = http.GET();
+    if (httpResponseCode == HTTP_CODE_OK) {
+        Serial.println("Requisição HTTP bem-sucedida");
+        return true;
+    } else {
+        Serial.print("Erro na requisição HTTP: ");
+        Serial.println(httpResponseCode);
+        return false;
+    }
+}
+
+// Função para autenticar o usuário
 bool autenticarUsuario(String numeroDoCartao) {
     Serial.println("Autenticando usuário...");
-    String url = "http://" + String(host) + ":" + String(port) + javaEndpointAutenticar;
-    url += "?numeroDoCartao=" + numeroDoCartao;
-
-    HTTPClient http;
-    http.begin(url);
-    int httpResponseCode = http.GET();
-
-    if (httpResponseCode == HTTP_CODE_OK) {
-        String payload = http.getString();
-        Serial.println("Resposta do servidor: " + payload);
-        return payload == "Usuário autenticado com sucesso.";
-    } else {
-        Serial.print("Erro na requisição HTTP: ");
-        Serial.println(httpResponseCode);
-        return false;
-    }
+    return httpGet(ENDPOINT_AUTENTICAR, "numeroDoCartao=" + numeroDoCartao);
 }
 
+// Função para verificar os créditos do usuário
 bool verificarCreditos(String numeroDoCartao) {
     Serial.println("Verificando créditos do usuário...");
-    String url = "http://" + String(host) + ":" + String(port) + javaEndpointVerificarCreditos;
-    url += "?numeroDoCartao=" + numeroDoCartao;
-
-    HTTPClient http;
-    http.begin(url);
-    int httpResponseCode = http.GET();
-
-    if (httpResponseCode == HTTP_CODE_OK) {
-        String payload = http.getString();
-        Serial.println("Resposta do servidor: " + payload);
-        return payload == "Créditos restantes do usuário: 1"; // Apenas para simulação, ajuste conforme necessário
-    } else {
-        Serial.print("Erro na requisição HTTP: ");
-        Serial.println(httpResponseCode);
-        return false;
-    }
+    return httpGet(ENDPOINT_VERIFICAR_CREDITOS, "numeroDoCartao=" + numeroDoCartao);
 }
 
-void utilizarCredito(String numeroDoCartao) {
+// Função para utilizar crédito do usuário
+bool utilizarCredito(String numeroDoCartao) {
     Serial.println("Utilizando crédito...");
-    String url = "http://" + String(host) + ":" + String(port) + "/usuarios/utilizarCredito";
-    url += "?numeroDoCartao=" + numeroDoCartao;
-
-    HTTPClient http;
-    http.begin(url);
-    int httpResponseCode = http.POST("");
-
-    if (httpResponseCode == HTTP_CODE_OK) {
-        Serial.println("Crédito utilizado com sucesso.");
-    } else {
-        Serial.print("Erro na requisição HTTP: ");
-        Serial.println(httpResponseCode);
-    }
+    return httpGet(ENDPOINT_UTILIZAR_CREDITO, "numeroDoCartao=" + numeroDoCartao);
 }
 
+// Função para realizar a leitura dos dados do cartão
 String leituraDados() {
     String conteudo = "";
 
@@ -109,19 +97,21 @@ String leituraDados() {
     return conteudo;
 }
 
+// Configuração inicial
 void setup() {
     Serial.begin(115200);
     SPI.begin();
     mfrc522.PCD_Init();
 
-    pinMode(LedVerde, OUTPUT);
-    pinMode(LedVermelho, OUTPUT);
-    pinMode(Tranca, OUTPUT);
-    pinMode(Buzzer, OUTPUT);
+    pinMode(LED_VERDE, OUTPUT);
+    pinMode(LED_VERMELHO, OUTPUT);
+    pinMode(TRANCA, OUTPUT);
+    pinMode(BUZZER, OUTPUT);
 
     connectToWiFi();
 }
 
+// Loop principal
 void loop() {
     if (!mfrc522.PICC_IsNewCardPresent())
         return;
@@ -132,7 +122,7 @@ void loop() {
     Serial.println("\nCartão detectado. Lendo dados...");
     String numeroDoCartao = leituraDados();
 
-    // Lógica para autenticar usuário
+    // Lógica para autenticar o usuário
     if (autenticarUsuario(numeroDoCartao)) {
         Serial.println("Usuário autenticado com sucesso.");
 
@@ -140,20 +130,20 @@ void loop() {
         if (verificarCreditos(numeroDoCartao)) {
             Serial.println("Usuário possui créditos suficientes.");
         } else {
-            digitalWrite(LedVerde, HIGH);
-            digitalWrite(Tranca, HIGH);
+            digitalWrite(LED_VERDE, HIGH);
+            digitalWrite(TRANCA, HIGH);
             delay(5000); // Manter a tranca aberta por 5 segundos
-            digitalWrite(Tranca, LOW);
-            digitalWrite(LedVerde, LOW);
+            digitalWrite(TRANCA, LOW);
+            digitalWrite(LED_VERDE, LOW);
             Serial.println("Tranca fechada.");
             // Utilizar crédito após acesso bem-sucedido
+            utilizarCredito(numeroDoCartao);
         }
     } else {
-        utilizarCredito(numeroDoCartao);
         Serial.println("Cartão não identificado.");
-        digitalWrite(LedVermelho, HIGH);
+        digitalWrite(LED_VERMELHO, HIGH);
         delay(2000); // Manter o LED vermelho aceso por 2 segundos
-        digitalWrite(LedVermelho, LOW);
+        digitalWrite(LED_VERMELHO, LOW);
     }
 
     delay(2000); // Aguardar 2 segundos antes de verificar outro cartão RFID
