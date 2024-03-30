@@ -2,6 +2,9 @@ package com.example.bici.service;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.example.bici.entity.Usuario;
+import com.example.bici.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import java.util.Random;
 
@@ -9,6 +12,13 @@ import java.util.Random;
 public class PedidoService {
 
     private static final Logger LOGGER = Logger.getLogger(PedidoService.class.getName());
+
+    // Injete o repositório de usuários aqui
+    private final UsuarioRepository usuarioRepository;
+
+    public PedidoService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     // Função para salvar o estado do pedido
     public String salvarEstadoPedido(int estadoPedido) {
@@ -41,8 +51,14 @@ public class PedidoService {
     public String solicitarCartaoPedido(int tipoPedido) {
         try {
             if (tipoPedido == 7) {
-                String numeroAleatorio = gerarCartaoAleatorio();
+                String numeroAleatorio = gerarNumeroAleatorio();
                 LOGGER.info(STR."Número aleatório do tipo 7CD69460: \{numeroAleatorio}");
+
+                // Salva o número do cartão no banco de dados
+                Usuario usuario = new Usuario();
+                usuario.setNumeroDoCartao(numeroAleatorio);
+                usuarioRepository.save(usuario);
+
                 return numeroAleatorio;
             }
             LOGGER.warning("Tipo de pedido não suportado para gerar cartão automaticamente.");
@@ -54,7 +70,7 @@ public class PedidoService {
     }
 
     // Função para gerar automaticamente um número aleatório do tipo 7CD69460
-    private String gerarCartaoAleatorio() {
+    private String gerarNumeroAleatorio() {
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
         // Gera os caracteres aleatórios
