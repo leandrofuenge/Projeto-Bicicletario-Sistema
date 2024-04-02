@@ -75,7 +75,7 @@ public class UsuarioServiceTest {
         when(preparedStatement.executeUpdate()).thenReturn(1); // Indica que uma linha foi afetada (exclusão bem-sucedida)
 
         // Execução do método a ser testado
-        boolean resultado = usuarioService.ExcluirMeusDados(idUsuario);
+        boolean resultado = usuarioService.excluirMeusDados(idUsuario);
 
         // Verificação
         assertTrue(resultado, "A exclusão dos dados do usuário deve ser bem-sucedida");

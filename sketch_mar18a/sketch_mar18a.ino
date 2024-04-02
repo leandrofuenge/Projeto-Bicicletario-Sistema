@@ -12,7 +12,7 @@ const char* HOST = "192.168.1.3";
 const int PORT = 8080;
 const char* ENDPOINT_AUTENTICAR = "/usuarios/autenticar";
 const char* ENDPOINT_VERIFICAR_CREDITOS = "/verificarcreditos";
-const char* ENDPOINT_UTILIZAR_CREDITO = "/usuarios/utilizarCredito";
+const char* ENDPOINT_UTILIZAR_CREDITO = "/usuarios/utilizarcredito";
 
 // Pinos do MFRC522
 const int SS_PIN = 21;

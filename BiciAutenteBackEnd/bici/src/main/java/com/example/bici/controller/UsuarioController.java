@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/usuario")
 @RestController
+@RequestMapping("/api")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -16,40 +16,57 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/Meus-dados/{id}")
-    public Usuario getUsuarioById(@PathVariable int id) {
-        return usuarioService.getUsuarioPorId(id);
+    @PostMapping("/usuarios/criar")
+    public ResponseEntity<?> criarUsuario(@RequestBody Usuario novoUsuario) {
+        try {
+            boolean sucesso = usuarioService.criarMeuCadastro(novoUsuario);
+            if (sucesso) {
+                return ResponseEntity.status(HttpStatus.CREATED).body("Usuário criado com sucesso");
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
+        }
     }
 
-    @PutMapping("/Alterar-Meus-Dados/{id}")
-    public ResponseEntity<String> modificarMeusDados(@PathVariable Long id, @RequestBody Usuario usuario) {
+    @GetMapping("/usuarios/{id}")
+    public ResponseEntity<?> getUsuarioById(@PathVariable int id) {
+        try {
+            Usuario usuario = usuarioService.getUsuarioPorId(id);
+            return ResponseEntity.ok(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao obter os dados do usuário");
+        }
+    }
+
+    @PutMapping("/usuarios/{id}")
+    public ResponseEntity<?> modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
 
-        boolean sucesso = usuarioService.modificarMeusDados(usuario);
-        if (sucesso) {
-            return ResponseEntity.ok("Dados modificados com sucesso");
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados");
+        try {
+            boolean sucesso = usuarioService.modificarMeusDados(usuario);
+            if (sucesso) {
+                return ResponseEntity.ok("Dados do usuário modificados com sucesso");
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados do usuário");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados do usuário");
         }
     }
 
-    @DeleteMapping("/Excluir-Meus-Dados/{id}")
-    public ResponseEntity<String> excluirMeusDados(@PathVariable Long id) {
-        boolean sucesso = usuarioService.excluirMeusDados(id);
-        if (sucesso) {
-            return ResponseEntity.ok("Dados do usuário excluídos com sucesso");
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir os dados do usuário");
-        }
-    }
-
-    @PostMapping("/Criar-Meu-Cadastro")
-    public ResponseEntity<String> criarMeuCadastro(@RequestBody Usuario novoUsuario) {
-        boolean sucesso = usuarioService.criarMeuCadastro(novoUsuario);
-        if (sucesso) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o cadastro");
-        } else {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro criado com sucesso");
+    @DeleteMapping("/usuarios/{id}")
+    public ResponseEntity<?> excluirUsuario(@PathVariable Long id) {
+        try {
+            boolean sucesso = usuarioService.excluirMeusDados(id);
+            if (sucesso) {
+                return ResponseEntity.ok("Usuário excluído com sucesso");
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir o usuário");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir o usuário");
         }
     }
 }

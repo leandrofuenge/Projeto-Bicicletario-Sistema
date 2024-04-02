@@ -34,7 +34,7 @@ public class CartaoControllerTest {
     @Test
     void verificarCreditos_UsuarioEncontrado() {
         // Simulando um número de cartão existente no banco de dados
-        String numeroDoCartao = "7A9F4D23";
+        String numeroDoCartao = "7CD6946086213703";
 
         // Criando um controlador e chamando o método verificarCreditos
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
@@ -80,13 +80,13 @@ public class CartaoControllerTest {
         // Criando um mock para CartaoService
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
         // Simulando a existência de créditos suficientes
-        when(cartaoService.verificarCreditos("1234567890")).thenReturn(10);
+        when(cartaoService.verificarCreditos("7CD6946086213703")).thenReturn(10);
 
         // Criando uma instância de CartaoController com o mock de CartaoService
         CartaoController cartaoController = new CartaoController(cartaoService);
 
         // Chamando o método utilizarCredito
-        ResponseEntity<Object> responseEntity = cartaoController.utilizarCredito("6318BC1F");
+        ResponseEntity<Object> responseEntity = cartaoController.utilizarCredito("7CD6946086213703");
 
         // Verificando se a resposta é OK
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());

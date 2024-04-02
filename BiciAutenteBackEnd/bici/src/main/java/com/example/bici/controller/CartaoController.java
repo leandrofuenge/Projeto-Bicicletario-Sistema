@@ -64,7 +64,6 @@ public class CartaoController {
    }
 
 
-
    @PostMapping("/usuarios/utilizarcredito")
    public ResponseEntity<Object> utilizarCredito(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {

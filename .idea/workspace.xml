@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb0aa22-7fb7-4ad4-8011-0810d1cb4265" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/adaptive-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/assets/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/UsuarioController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +50,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema",
+    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteWeb",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,6 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711508215865</updated>
       <workItem from="1711508778800" duration="8496000" />
+      <workItem from="1711823517944" duration="130000" />
     </task>
     <servers />
   </component>

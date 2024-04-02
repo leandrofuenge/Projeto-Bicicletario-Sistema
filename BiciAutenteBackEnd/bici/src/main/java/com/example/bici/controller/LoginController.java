@@ -27,7 +27,7 @@ public class LoginController {
 
     @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
-    public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody, @RequestHeader Map<String, String> requestHeaders) {
+    public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody) {
         String cpf = requestBody.get("cpf");
         String senha = requestBody.get("senha");
 

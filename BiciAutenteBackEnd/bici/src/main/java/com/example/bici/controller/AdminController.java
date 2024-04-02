@@ -23,7 +23,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/criar/todos/cadastro")
+    @PostMapping("/criar/todos/usuarios/cadastro")
     @ResponseBody
     public String criarUsuario(@RequestBody Usuario usuario) {
         Usuario novoUsuario = adminService.criarUsuario(usuario);
@@ -35,7 +35,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(value = "/visualizar/todos/cadastros", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/visualizar/todos/usuarios/cadastros", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String obterTodosUsuarios() {
         List<Usuario> usuarios = adminService.obterTodosUsuarios();
@@ -47,7 +47,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/obter/todos/cpf/{cpf}")
+    @GetMapping("/obter/todos/usuarios/cpf/{cpf}")
     @ResponseBody
     public String obterUsuarioPorCpf(@PathVariable String cpf) {
         Usuario usuario = adminService.obterUsuarioPorCpf(cpf);
@@ -63,7 +63,7 @@ public class AdminController {
         }
     }
 
-    @PutMapping("/modificar/todos/{cpf}")
+    @PutMapping("/modificar/todos/usuarios/{cpf}")
     @ResponseBody
     public String modificarUsuarioPorCpf(@PathVariable String cpf, @RequestBody Usuario usuario) {
         Usuario usuarioModificado = adminService.modificarUsuarioPorCpf(cpf, usuario);
@@ -79,7 +79,7 @@ public class AdminController {
         }
     }
 
-    @DeleteMapping("/excluir/todos/{cpf}")
+    @DeleteMapping("/excluir/todos/usuarios/{cpf}")
     @ResponseBody
     public String excluirUsuarioPorCpf(@PathVariable String cpf) {
         boolean deleted = adminService.excluirUsuarioPorCpf(cpf);
