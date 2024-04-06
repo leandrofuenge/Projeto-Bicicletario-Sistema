@@ -71,9 +71,6 @@ public class UsuarioController {
     }
 
 
-
-
-
     @PutMapping("/usuarios/cartao/bloquear")
     public ResponseEntity<String> bloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
         try {
@@ -93,4 +90,16 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao desbloquear o cartão: \{e.getMessage()}");
         }
     }
+
+
+    @PutMapping("/cancelar")
+    public ResponseEntity<String> cancelarPedidoCartao(@RequestParam("cpf") String cpf, @RequestParam("numeroDoCartao") String numeroDoCartao) {
+        String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
+        if (resultado.startsWith("Erro")) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resultado);
+        } else {
+            return ResponseEntity.ok(resultado);
+        }
+    }
+
 }

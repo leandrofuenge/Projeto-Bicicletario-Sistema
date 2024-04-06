@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb0aa22-7fb7-4ad4-8011-0810d1cb4265" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/bici/src/main/java/com/example/bici/controller/UsuarioController.java" afterDir="false" />
-    </list>
+    <list default="true" id="dfb0aa22-7fb7-4ad4-8011-0810d1cb4265" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +48,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteWeb",
+    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,6 +109,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -121,6 +127,7 @@
       <updated>1711508215865</updated>
       <workItem from="1711508778800" duration="8496000" />
       <workItem from="1711823517944" duration="130000" />
+      <workItem from="1712439930751" duration="109000" />
     </task>
     <servers />
   </component>

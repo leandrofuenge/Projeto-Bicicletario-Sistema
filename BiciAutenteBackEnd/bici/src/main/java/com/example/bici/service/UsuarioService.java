@@ -142,16 +142,6 @@ public class UsuarioService {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     public void bloquearCartao(String numeroDoCartao, String cpf) {
         try {
             bloquearDesbloquearCartao(numeroDoCartao, cpf, 1);
@@ -193,6 +183,33 @@ public class UsuarioService {
             } else {
                 LOGGER.log(Level.WARNING, "Falha ao {0} o cartão {1}.", new Object[]{(status == 1) ? "bloquear" : "desbloquear", numeroDoCartao});
             }
+        }
+    }
+
+
+    // Método para cancelar o pedido de cartão por CPF
+    public String cancelarCartao(String cpf, String numeroDoCartao) {
+        String sql = "UPDATE usuario SET NUMERO_DO_CARTAO = NULL WHERE CPF = ? AND NUMERO_DO_CARTAO = ?";
+
+        try (Connection conn = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, cpf);
+            stmt.setString(2, numeroDoCartao);
+
+            int linhasAfetadas = stmt.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                System.out.println(STR."Pedido de cartão cancelado com sucesso para o usuário com CPF \{cpf}");
+                return "Pedido de cartão cancelado com sucesso";
+            } else {
+                System.out.println(STR."O usuário com CPF \{cpf} não possui um pedido de cartão ativo.");
+                return "O usuário com CPF fornecido não possui um pedido de cartão ativo.";
+            }
+
+        } catch (SQLException e) {
+            System.out.println(STR."Erro ao cancelar pedido de cartão: \{e.getMessage()}");
+            return "Erro ao cancelar pedido de cartão";
         }
     }
 }
