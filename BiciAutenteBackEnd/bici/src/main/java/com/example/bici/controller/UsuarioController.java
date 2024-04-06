@@ -69,4 +69,28 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir o usuário");
         }
     }
+
+
+
+
+
+    @PutMapping("/usuarios/cartao/bloquear")
+    public ResponseEntity<String> bloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+        try {
+            usuarioService.bloquearCartao(numeroDoCartao, cpf);
+            return ResponseEntity.ok("Cartão bloqueado com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao bloquear o cartão: \{e.getMessage()}");
+        }
+    }
+
+    @PutMapping("/usuarios/cartao/desbloquear")
+    public ResponseEntity<String> desbloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+        try {
+            usuarioService.desbloquearCartao(numeroDoCartao, cpf);
+            return ResponseEntity.ok("Cartão desbloqueado com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao desbloquear o cartão: \{e.getMessage()}");
+        }
+    }
 }

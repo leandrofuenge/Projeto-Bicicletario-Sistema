@@ -15,7 +15,7 @@ public class CartaoControllerTest {
     @Test
     public void testAutenticarUsuario() {
         // Arrange
-        String numeroDoCartao = "1234567890";
+        String numeroDoCartao = "7CD6946048681258";
         boolean cartaoBloqueado = false;
 
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
@@ -34,7 +34,7 @@ public class CartaoControllerTest {
     @Test
     void verificarCreditos_UsuarioEncontrado() {
         // Simulando um número de cartão existente no banco de dados
-        String numeroDoCartao = "7CD6946086213703";
+        String numeroDoCartao = "7CD6946048681258";
 
         // Criando um controlador e chamando o método verificarCreditos
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
@@ -56,7 +56,7 @@ public class CartaoControllerTest {
     @Test
     void verificarCreditos_UsuarioNaoEncontrado() {
         // Simulando um número de cartão não existente no banco de dados
-        String numeroDoCartao = "9876543210";
+        String numeroDoCartao = "7CD694604868125812";
 
         // Criando um controlador e chamando o método verificarCreditos
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
@@ -80,13 +80,13 @@ public class CartaoControllerTest {
         // Criando um mock para CartaoService
         CartaoService cartaoService = Mockito.mock(CartaoService.class);
         // Simulando a existência de créditos suficientes
-        when(cartaoService.verificarCreditos("7CD6946086213703")).thenReturn(10);
+        when(cartaoService.verificarCreditos("7CD6946048681258")).thenReturn(10);
 
         // Criando uma instância de CartaoController com o mock de CartaoService
         CartaoController cartaoController = new CartaoController(cartaoService);
 
         // Chamando o método utilizarCredito
-        ResponseEntity<Object> responseEntity = cartaoController.utilizarCredito("7CD6946086213703");
+        ResponseEntity<Object> responseEntity = cartaoController.utilizarCredito("7CD6946048681258");
 
         // Verificando se a resposta é OK
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());

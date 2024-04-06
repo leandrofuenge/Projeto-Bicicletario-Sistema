@@ -1,6 +1,8 @@
 package com.example.bici.service;
 
 import com.example.bici.entity.Usuario;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -140,4 +142,57 @@ public class UsuarioService {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+    public void bloquearCartao(String numeroDoCartao, String cpf) {
+        try {
+            bloquearDesbloquearCartao(numeroDoCartao, cpf, 1);
+            ResponseEntity.ok("Cartão bloqueado com sucesso.");
+        } catch (Exception e) {
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao bloquear o cartão: \{e.getMessage()}");
+        }
+    }
+
+    public void desbloquearCartao(String numeroDoCartao, String cpf) {
+        try {
+            bloquearDesbloquearCartao(numeroDoCartao, cpf, 0);
+            ResponseEntity.ok("Cartão desbloqueado com sucesso.");
+        } catch (Exception e) {
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao desbloquear o cartão: \{e.getMessage()}");
+        }
+    }
+
+    private void bloquearDesbloquearCartao(String numeroDoCartao, String cpf, int status) throws SQLException {
+        try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
+            PreparedStatement stmt = connection.prepareStatement("SELECT BLOQUEADO_DESBLOQUEADO FROM USUARIO WHERE NUMERO_DO_CARTAO = ? AND CPF = ?");
+            stmt.setString(1, numeroDoCartao);
+            stmt.setString(2, cpf);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next() && rs.getInt("BLOQUEADO_DESBLOQUEADO") == status) {
+                String message = (status == 1) ? "já está bloqueado." : "já está desbloqueado.";
+                LOGGER.log(Level.INFO, "O cartão {0} {1}", new Object[]{numeroDoCartao, message});
+                return;
+            }
+
+            stmt = connection.prepareStatement("UPDATE USUARIO SET BLOQUEADO_DESBLOQUEADO = ? WHERE NUMERO_DO_CARTAO = ? AND CPF = ?");
+            stmt.setInt(1, status);
+            stmt.setString(2, numeroDoCartao);
+            stmt.setString(3, cpf);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                String message = (status == 1) ? "bloqueado" : "desbloqueado";
+                LOGGER.log(Level.INFO, "Cartão {0} {1} com sucesso.", new Object[]{numeroDoCartao, message});
+            } else {
+                LOGGER.log(Level.WARNING, "Falha ao {0} o cartão {1}.", new Object[]{(status == 1) ? "bloquear" : "desbloquear", numeroDoCartao});
+            }
+        }
+    }
 }

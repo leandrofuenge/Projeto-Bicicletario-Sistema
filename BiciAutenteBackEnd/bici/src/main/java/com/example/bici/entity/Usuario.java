@@ -86,6 +86,9 @@ public class Usuario {
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+    @Column(name = "BLOQUEADO_DESBLOQUEADO") // Mapeia a cor da bicicleta
+    private String BLOQUEADO_DESBLOQUEADO; // Cor da bicicleta associada ao usuário
+
 
 
 
