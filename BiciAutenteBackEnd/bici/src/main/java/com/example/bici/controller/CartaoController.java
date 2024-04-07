@@ -59,7 +59,6 @@ public class CartaoController {
                cartaoBloqueado = true;
             }
 
-
          }
 
          // Fecha recursos
