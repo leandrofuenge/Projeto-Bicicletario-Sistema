@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: seu_email@example.com
+  description: API para operações relacionadas a pedidos.
+  title: API de Pedidos
+  version: 1.0.0
+servers:
+- url: /pedido
+tags:
+- description: Operações relacionadas a pedidos
+  name: pedido
+paths:
+  /salvar-estado:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              format: int32
+              type: integer
+        description: Estado do pedido a ser salvo
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: Estado do pedido salvo com sucesso
+      summary: Salva o estado de um pedido
+      tags:
+      - pedido
+      x-codegen-request-body-name: estadoPedido
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /solicitar-cartao/{cpf}:
+    get:
+      parameters:
+      - description: CPF do usuário
+        in: path
+        name: cpf
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Cartão solicitado com sucesso
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Bad Request - O usuário não está elegível para solicitar um
+            cartão
+        "500":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Erro interno do servidor
+      summary: Solicita um cartão pelo CPF do usuário
+      tags:
+      - pedido
+      x-accepts: text/plain
+  /cancelar-pedido/{cpf}:
+    delete:
+      parameters:
+      - description: CPF do usuário
+        in: path
+        name: cpf
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Pedido de cartão cancelado com sucesso
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Not Found - O usuário não possui pedido de cartão
+        "500":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Erro interno do servidor
+      summary: Cancela um pedido de cartão pelo CPF do usuário
+      tags:
+      - pedido
+      x-accepts: text/plain
+components:
+  schemas: {}
+x-original-swagger-version: "2.0"
+

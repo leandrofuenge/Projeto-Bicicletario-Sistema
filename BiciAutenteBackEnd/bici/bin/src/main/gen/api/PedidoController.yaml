@@ -1,0 +1,84 @@
+swagger: "2.0"
+info:
+  description: "API para operações relacionadas a pedidos."
+  version: "1.0.0"
+  title: "API de Pedidos"
+  contact:
+    email: "seu_email@example.com"
+basePath: "/pedido"
+tags:
+  - name: "pedido"
+    description: "Operações relacionadas a pedidos"
+paths:
+  /salvar-estado:
+    post:
+      tags:
+        - "pedido"
+      summary: "Salva o estado de um pedido"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "estadoPedido"
+          description: "Estado do pedido a ser salvo"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        200:
+          description: "Estado do pedido salvo com sucesso"
+          schema:
+            type: "string"
+  /solicitar-cartao/{cpf}:
+    get:
+      tags:
+        - "pedido"
+      summary: "Solicita um cartão pelo CPF do usuário"
+      produces:
+        - "text/plain"
+      parameters:
+        - in: "path"
+          name: "cpf"
+          description: "CPF do usuário"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Cartão solicitado com sucesso"
+          schema:
+            type: "string"
+        400:
+          description: "Bad Request - O usuário não está elegível para solicitar um cartão"
+          schema:
+            type: "string"
+        500:
+          description: "Erro interno do servidor"
+          schema:
+            type: "string"
+  /cancelar-pedido/{cpf}:
+    delete:
+      tags:
+        - "pedido"
+      summary: "Cancela um pedido de cartão pelo CPF do usuário"
+      produces:
+        - "text/plain"
+      parameters:
+        - in: "path"
+          name: "cpf"
+          description: "CPF do usuário"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Pedido de cartão cancelado com sucesso"
+          schema:
+            type: "string"
+        404:
+          description: "Not Found - O usuário não possui pedido de cartão"
+          schema:
+            type: "string"
+        500:
+          description: "Erro interno do servidor"
+          schema:
+            type: "string"

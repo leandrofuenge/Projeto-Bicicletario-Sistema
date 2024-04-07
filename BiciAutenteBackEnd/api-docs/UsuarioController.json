@@ -1,60 +1,124 @@
 {
   "swagger": "2.0",
   "info": {
+    "description": "API para operações relacionadas a usuários.",
     "version": "1.0.0",
-    "title": "API de Usuário de Bicicletas",
-    "description": "Esta API permite operações relacionadas aos usuários de bicicletas"
+    "title": "API de Usuários",
+    "contact": {
+      "email": "seu_email@example.com"
+    }
   },
-  "basePath": "/",
+  "basePath": "/api",
   "tags": [
     {
-      "name": "Usuario",
-      "description": "Operações relacionadas aos usuários"
+      "name": "usuarios",
+      "description": "Operações relacionadas a usuários"
+    },
+    {
+      "name": "cartao",
+      "description": "Operações relacionadas a cartões"
     }
   ],
   "paths": {
-    "/usuario/Meus-dados/{id}": {
-      "get": {
-        "tags": ["Usuario"],
-        "summary": "Obter os dados de um usuário pelo ID",
+    "/usuarios/criar": {
+      "post": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Cria um novo usuário",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain"
+        ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "in": "body",
+            "name": "novoUsuario",
+            "description": "Objeto de usuário a ser criado",
             "required": true,
-            "type": "integer",
-            "description": "ID do usuário"
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Dados do usuário recuperados com sucesso"
-          },
-          "404": {
-            "description": "Usuário não encontrado"
+          "201": {
+            "description": "Usuário criado com sucesso",
+            "schema": {
+              "type": "string"
+            }
           },
           "500": {
-            "description": "Erro interno do servidor"
+            "description": "Erro ao criar o usuário",
+            "schema": {
+              "type": "string"
+            }
           }
         }
       }
     },
-    "/usuario/Alterar-Meus-Dados/{id}": {
-      "put": {
-        "tags": ["Usuario"],
-        "summary": "Modificar os dados de um usuário pelo ID",
+    "/usuarios/{id}": {
+      "get": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Obtém um usuário pelo ID",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
+            "description": "ID do usuário",
             "required": true,
             "type": "integer",
-            "description": "ID do usuário"
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "500": {
+            "description": "Erro ao obter os dados do usuário",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/{}": {
+      "put": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Modifica um usuário pelo ID",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID do usuário",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
           },
           {
             "in": "body",
             "name": "usuario",
-            "description": "Objeto JSON contendo os novos dados do usuário",
+            "description": "Objeto de usuário com dados a serem modificados",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Usuario"
@@ -63,33 +127,209 @@
         ],
         "responses": {
           "200": {
-            "description": "Dados do usuário modificados com sucesso"
+            "description": "Dados do usuário modificados com sucesso",
+            "schema": {
+              "type": "string"
+            }
           },
           "500": {
-            "description": "Erro interno do servidor ao tentar modificar os dados do usuário"
+            "description": "Erro ao modificar os dados do usuário",
+            "schema": {
+              "type": "string"
+            }
           }
         }
       }
     },
-    "/usuario/Excluir-Meus-Dados/{id}": {
+    "/usuarios/{delete}": {
       "delete": {
-        "tags": ["Usuario"],
-        "summary": "Excluir os dados de um usuário pelo ID",
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Exclui um usuário pelo ID",
+        "produces": [
+          "text/plain"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
+            "description": "ID do usuário",
             "required": true,
             "type": "integer",
-            "description": "ID do usuário"
+            "format": "int64"
           }
         ],
         "responses": {
           "200": {
-            "description": "Dados do usuário excluídos com sucesso"
+            "description": "Usuário excluído com sucesso",
+            "schema": {
+              "type": "string"
+            }
           },
           "500": {
-            "description": "Erro interno do servidor ao tentar excluir os dados do usuário"
+            "description": "Erro ao excluir o usuário",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/cartao/bloquear": {
+      "put": {
+        "tags": [
+          "cartao"
+        ],
+        "summary": "Bloqueia um cartão",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "numeroDoCartao",
+            "description": "Número do cartão a ser bloqueado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "cpf",
+            "description": "CPF do titular do cartão",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cartão bloqueado com sucesso",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Erro ao bloquear o cartão",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/cartao/desbloquear": {
+      "put": {
+        "tags": [
+          "cartao"
+        ],
+        "summary": "Desbloqueia um cartão",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "numeroDoCartao",
+            "description": "Número do cartão a ser desbloqueado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "cpf",
+            "description": "CPF do titular do cartão",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cartão desbloqueado com sucesso",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Erro ao desbloquear o cartão",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/cartao/liberar": {
+      "put": {
+        "tags": [
+          "cartao"
+        ],
+        "summary": "Libera um cartão",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "numeroDoCartao",
+            "description": "Número do cartão a ser liberado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "cpf",
+            "description": "CPF do titular do cartão",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cartão liberado com sucesso",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Falha ao liberar o cartão",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/cartao/cancelar/{cpf}/{numeroDoCartao}": {
+      "delete": {
+        "tags": [
+          "cartao"
+        ],
+        "summary": "Cancela um cartão pelo CPF e número do cartão",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "description": "CPF do titular do cartão",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "numeroDoCartao",
+            "description": "Número do cartão a ser cancelado",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cartão cancelado com sucesso",
+            "schema": {
+              "type": "string"
+            }
           }
         }
       }
@@ -100,57 +340,19 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
-        "nomeCompleto": {
-          "type": "string"
-        },
-        "creditosRestantes": {
-          "type": "integer"
-        },
-        "cpf": {
-          "type": "string"
-        },
-        "rg": {
-          "type": "string"
-        },
-        "dataDeNascimento": {
-          "type": "string"
-        },
-        "sexo": {
-          "type": "string"
-        },
-        "cep": {
-          "type": "string"
-        },
-        "endereco": {
-          "type": "string"
-        },
-        "numero": {
-          "type": "string"
-        },
-        "bairro": {
-          "type": "string"
-        },
-        "cidade": {
-          "type": "string"
-        },
-        "estado": {
+        "nome": {
           "type": "string"
         },
         "email": {
           "type": "string"
         },
-        "numeroDeSerieBicicleta": {
+        "cpf": {
           "type": "string"
         },
-        "corDaBicicleta": {
-          "type": "string"
-        },
-        "senha": {
-          "type": "string"
-        },
-        "celular": {
+        "endereco": {
           "type": "string"
         }
       }

@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build API de Usuário de Bicicletas
+    name: Build API de Pedidos
     runs-on: ubuntu-latest
     strategy:
       matrix:
