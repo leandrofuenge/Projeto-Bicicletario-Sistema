@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven-publish.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BiciAutente.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Leandro.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anotaca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-docs/AdminController.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-docs/CartaoController.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-docs/LoginController.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-docs/PedidoController.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-docs/UsuarioController.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.openapi-generator-ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.openapi-generator/FILES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.openapi-generator/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/api/AdminController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/api/CartaoController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/api/LoginController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/api/PedidoController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/api/UsuarioController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/AdminApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/CartaoApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/DefaultApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/LoginControllerApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/LoginPost401Response.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/LoginPostRequest.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/Usuario.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/docs/UsuarioApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/git_push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/gen/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/BiciApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/config/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/controller/CartaoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/controller/PedidoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/controller/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/dto/UsuarioDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/entity/PedidoInterno.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/entity/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/repository/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/service/AdminService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/service/CartaoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/service/PedidoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/java/com/example/bici/service/UsuarioService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/test/java/com/example/bici/BiciApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/test/java/com/example/bici/controller/AdminControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/test/java/com/example/bici/controller/CartaoControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/test/java/com/example/bici/service/PedidoServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/bin/src/test/java/com/example/bici/service/UsuarioServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.openapi-generator-ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.openapi-generator/FILES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.openapi-generator/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/api/AdminController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/api/CartaoController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/api/LoginController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/api/PedidoController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/api/UsuarioController.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/AdminApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/CartaoApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/DefaultApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/LoginControllerApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/LoginPost401Response.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/LoginPostRequest.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/PedidoApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/Usuario.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/docs/UsuarioApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/git_push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ApiCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ApiClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ApiException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/GzipRequestInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/JSON.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ProgressRequestBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ProgressResponseBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ServerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/ServerVariable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/AdminApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/CartaoApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/DefaultApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/LoginControllerApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/PedidoApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/api/UsuarioApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/auth/ApiKeyAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/auth/Authentication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/auth/HttpBasicAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/auth/HttpBearerAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/model/LoginPost401Response.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/model/LoginPostRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/main/java/org/openapitools/client/model/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/AdminApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/CartaoApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/DefaultApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/LoginControllerApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/PedidoApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/api/UsuarioApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/model/LoginPost401ResponseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/model/LoginPostRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/gen/src/test/java/org/openapitools/client/model/UsuarioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/BiciApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/PedidoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/UsuarioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/dto/UsuarioDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/PedidoInterno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/repository/UsuarioRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/CartaoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/LoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/BiciApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/AdminControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/service/PedidoServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/service/UsuarioServiceTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/bici/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2emVGTGdO4dTqlZkslmQHQ28pUQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AdminControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AdminControllerTest.testCriarUsuario.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.BiciApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartaoControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.PedidoServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UsuarioServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BiciApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47044727&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.CartaoControllerTest">
+    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.AdminControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BiciApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.BiciApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PedidoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.service.PedidoServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.service.UsuarioServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="bici" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bici.BiciApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CartaoControllerTest" />
+        <item itemvalue="JUnit.UsuarioServiceTest" />
+        <item itemvalue="JUnit.PedidoServiceTest" />
+        <item itemvalue="JUnit.AdminControllerTest" />
+        <item itemvalue="JUnit.BiciApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="" />
+      <created>1712509646930</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712509646930</updated>
+      <workItem from="1712509648000" duration="1060000" />
+      <workItem from="1712510743462" duration="700000" />
+      <workItem from="1712511482363" duration="2718000" />
+      <workItem from="1712514747710" duration="669000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
