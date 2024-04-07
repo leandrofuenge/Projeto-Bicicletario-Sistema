@@ -22,6 +22,7 @@ public class CartaoController {
    public CartaoController(CartaoService cartaoService) {
       this.cartaoService = cartaoService;
    }
+
    @GetMapping("/usuarios/autenticar")
    public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try {
@@ -42,8 +43,23 @@ public class CartaoController {
          while (resultSet.next()) {
             int liberado = resultSet.getInt("liberado");
             int bloqueadoDesbloqueado = resultSet.getInt("BLOQUEADO_DESBLOQUEADO");
-            cartaoBloqueado = bloqueadoDesbloqueado == 1;
-            cartaoLiberado = liberado == 1;
+
+            // Adiciona a lógica para autenticar o usuário e bloquear ou desbloquear o cartão conforme especificado
+            if (liberado == 0 && bloqueadoDesbloqueado == 0) {
+               // Usuario autenticado e liberado
+               cartaoLiberado = true;
+            } else if (liberado == 0 && bloqueadoDesbloqueado == 1) {
+               // Usuario bloqueado
+               cartaoBloqueado = true;
+            } else if (liberado == 1 && bloqueadoDesbloqueado == 1) {
+               // Cartao bloqueado
+               cartaoBloqueado = true;
+            } else if (liberado == 1 && bloqueadoDesbloqueado == 0) {
+               // Cartao bloqueado
+               cartaoBloqueado = true;
+            }
+
+
          }
 
          // Fecha recursos
@@ -73,6 +89,7 @@ public class CartaoController {
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
+
 
 
 
