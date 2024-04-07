@@ -9,7 +9,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/BiciAutenteBackEnd/bici/pom.xml" />
+        <option value="$PROJECT_DIR$/bici/pom.xml" />
+        <option value="$PROJECT_DIR$/bici/src/main/gen/pom.xml" />
       </list>
     </option>
   </component>
