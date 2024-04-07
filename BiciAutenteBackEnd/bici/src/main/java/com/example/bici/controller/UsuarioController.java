@@ -91,15 +91,6 @@ public class UsuarioController {
         }
     }
 
-
-
-
-
-
-
-
-
-
     @PutMapping("/usuarios/cartao/liberar")
     public ResponseEntity<String> liberarCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
         boolean liberacaoSucesso = usuarioService.liberarCartao(numeroDoCartao, cpf);
@@ -110,19 +101,9 @@ public class UsuarioController {
         }
     }
 
-
-
-
-
-
-
-
-
-
     @DeleteMapping("/cartao/cancelar/{cpf}/{numeroDoCartao}")
     public ResponseEntity<String> cancelarCartao(@PathVariable String cpf, @PathVariable String numeroDoCartao) {
         String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
         return ResponseEntity.ok(resultado);
     }
 }
-

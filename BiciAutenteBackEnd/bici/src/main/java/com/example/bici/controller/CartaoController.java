@@ -22,25 +22,60 @@ public class CartaoController {
    public CartaoController(CartaoService cartaoService) {
       this.cartaoService = cartaoService;
    }
-
    @GetMapping("/usuarios/autenticar")
-   public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao,
-                                                   @RequestParam(value = "cartao_bloqueado", required = false) boolean cartaoBloqueado) {
+   public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try {
+         // Estabelece a conexão com o banco de dados Oracle
+         Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8");
+
+         // Prepara a consulta SQL para buscar o status do cartão com base no número do cartão fornecido
+         String consulta = "SELECT liberado, BLOQUEADO_DESBLOQUEADO FROM USUARIO WHERE numero_do_cartao = ?";
+         PreparedStatement statement = connection.prepareStatement(consulta);
+         statement.setString(1, numeroDoCartao);
+
+         // Executa a consulta
+         ResultSet resultSet = statement.executeQuery();
+
+         // Processa o resultado da consulta
+         boolean cartaoBloqueado = false;
+         boolean cartaoLiberado = false;
+         while (resultSet.next()) {
+            int liberado = resultSet.getInt("liberado");
+            int bloqueadoDesbloqueado = resultSet.getInt("BLOQUEADO_DESBLOQUEADO");
+            cartaoBloqueado = bloqueadoDesbloqueado == 1;
+            cartaoLiberado = liberado == 1;
+         }
+
+         // Fecha recursos
+         resultSet.close();
+         statement.close();
+         connection.close();
+
          if (cartaoBloqueado) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Cartão Bloqueado.");
+         }
+
+         if (cartaoLiberado) {
+            return ResponseEntity.ok("Cartão Liberado.");
          }
 
          boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);
          if (usuarioAutenticado) {
             return ResponseEntity.ok("Usuario Autenticado");
          }
+
          return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não Encontrado.");
+      } catch (IllegalArgumentException e) {
+         logger.error("Argumento inválido ao autenticar usuário.", e);
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Argumento inválido ao autenticar usuário.");
       } catch (Exception e) {
          logger.error("Ocorreu um erro durante a autenticação.", e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
       }
    }
+
+
+
 
    @GetMapping("/verificarcreditos")
    public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
@@ -97,6 +132,4 @@ public class CartaoController {
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
       }
    }
-
-
 }

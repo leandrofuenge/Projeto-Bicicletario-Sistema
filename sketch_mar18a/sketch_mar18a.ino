@@ -129,7 +129,6 @@ void loop() {
         // Verificar créditos antes de permitir o acesso
         if (verificarCreditos(numeroDoCartao)) {
             Serial.println("Usuário possui créditos suficientes.");
-        } else {
             digitalWrite(LED_VERDE, HIGH);
             digitalWrite(TRANCA, HIGH);
             delay(5000); // Manter a tranca aberta por 5 segundos
@@ -138,6 +137,11 @@ void loop() {
             Serial.println("Tranca fechada.");
             // Utilizar crédito após acesso bem-sucedido
             utilizarCredito(numeroDoCartao);
+        } else {
+            digitalWrite(LED_VERMELHO, HIGH);
+            delay(2000); // Manter o LED vermelho aceso por 2 segundos
+            digitalWrite(LED_VERMELHO, LOW);
+            Serial.println("Tranca não aberta. Créditos insuficientes.");
         }
     } else {
         Serial.println("Cartão não identificado.");
