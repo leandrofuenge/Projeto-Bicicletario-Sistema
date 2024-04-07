@@ -90,6 +90,9 @@ public class Usuario {
     private String BLOQUEADO_DESBLOQUEADO; // Cor da bicicleta associada ao usuário
 
 
+    @Column(name = "liberado")
+    private String liberado;
+
 
 
 

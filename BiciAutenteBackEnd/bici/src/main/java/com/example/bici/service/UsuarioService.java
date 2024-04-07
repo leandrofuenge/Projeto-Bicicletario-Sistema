@@ -186,7 +186,6 @@ public class UsuarioService {
         }
     }
 
-
     // Método para cancelar o pedido de cartão por CPF
     public String cancelarCartao(String cpf, String numeroDoCartao) {
         String sql = "UPDATE usuario SET NUMERO_DO_CARTAO = NULL WHERE CPF = ? AND NUMERO_DO_CARTAO = ?";
@@ -211,5 +210,41 @@ public class UsuarioService {
             System.out.println(STR."Erro ao cancelar pedido de cartão: \{e.getMessage()}");
             return "Erro ao cancelar pedido de cartão";
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public boolean liberarCartao(String numeroDoCartao, String cpf) {
+        String sql = "UPDATE USUARIO SET liberado = 1 WHERE numero_do_cartao = ? AND cpf = ?";
+        boolean liberacaoSucesso = false;
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, numeroDoCartao);
+            statement.setString(2, cpf);
+
+            int linhasAfetadas = statement.executeUpdate();
+            liberacaoSucesso = linhasAfetadas > 0;
+
+            if (liberacaoSucesso) {
+                System.out.println(STR."Cartão liberado para o cliente com número \{numeroDoCartao}");
+            } else {
+                System.out.println("Nenhum cartão encontrado para liberar.");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(STR."Erro ao liberar o cartão: \{e.getMessage()}");
+        }
+
+        return liberacaoSucesso;
     }
 }

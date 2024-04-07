@@ -92,14 +92,37 @@ public class UsuarioController {
     }
 
 
-    @PutMapping("/cancelar")
-    public ResponseEntity<String> cancelarPedidoCartao(@RequestParam("cpf") String cpf, @RequestParam("numeroDoCartao") String numeroDoCartao) {
-        String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
-        if (resultado.startsWith("Erro")) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resultado);
+
+
+
+
+
+
+
+
+    @PutMapping("/usuarios/cartao/liberar")
+    public ResponseEntity<String> liberarCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+        boolean liberacaoSucesso = usuarioService.liberarCartao(numeroDoCartao, cpf);
+        if (liberacaoSucesso) {
+            return ResponseEntity.ok("Cartão liberado com sucesso.");
         } else {
-            return ResponseEntity.ok(resultado);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Falha ao liberar o cartão.");
         }
     }
 
+
+
+
+
+
+
+
+
+
+    @DeleteMapping("/cartao/cancelar/{cpf}/{numeroDoCartao}")
+    public ResponseEntity<String> cancelarCartao(@PathVariable String cpf, @PathVariable String numeroDoCartao) {
+        String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
+        return ResponseEntity.ok(resultado);
+    }
 }
+
