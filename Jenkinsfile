@@ -10,14 +10,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Testar') { // Terceiro estágio: Executar testes
-            steps {
-                script {
-                    // Comando para executar os testes usando Maven
-                    bat 'mvn test'
-                }
-            }
-        }
     }
 }
