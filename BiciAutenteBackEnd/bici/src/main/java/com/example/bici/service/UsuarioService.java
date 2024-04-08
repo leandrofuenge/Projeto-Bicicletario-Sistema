@@ -14,7 +14,7 @@ public class UsuarioService {
 
     private static final Logger LOGGER = Logger.getLogger(UsuarioService.class.getName());
 
-    private static final String DATABASE_URL = "jdbc:oracle:thin:@localhost:1521/XEPDB1";
+    private static final String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.17:1521/XEPDB1";
     private static final String DATABASE_USER = "LEANDRO";
     private static final String DATABASE_PASSWORD = "8YxeV6wCA9H8";
 

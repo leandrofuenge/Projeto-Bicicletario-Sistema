@@ -27,7 +27,7 @@ public class CartaoController {
    public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao) {
       try {
          // Testable a conexão com o banco de dados Oracle
-         Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8");
+         Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.17:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8");
 
          // Prepara a consulta SQL para buscar o status do cartão com base no número do cartão fornecido
          String consulta = "SELECT liberado, BLOQUEADO_DESBLOQUEADO FROM USUARIO WHERE numero_do_cartao = ?";
