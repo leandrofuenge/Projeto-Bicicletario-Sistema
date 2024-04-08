@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Arduino/sketch_mar18a/sketch_mar18a.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../Arduino/sketch_mar18a/sketch_mar18a.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/drawable/ic_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/menu/navigation_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/api/JavaApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/api/JavaApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,53 +51,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "JUnit.AdminControllerTest.executor": "Debug",
-    "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
-    "JUnit.BiciApplicationTests.executor": "Run",
-    "JUnit.CartaoControllerTest.executor": "Debug",
-    "JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor": "Debug",
-    "JUnit.PedidoServiceTest.executor": "Debug",
-    "JUnit.UsuarioServiceTest.executor": "Debug",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.BiciApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.47044727",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AdminControllerTest.testCriarUsuario.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.BiciApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartaoControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.PedidoServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UsuarioServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BiciApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47044727&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.BiciApplication">
     <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="BiciApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.BiciApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="CartaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bici" />
@@ -147,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="JUnit.UsuarioServiceTest" />
         <item itemvalue="JUnit.PedidoServiceTest" />
         <item itemvalue="JUnit.CartaoControllerTest" />
-        <item itemvalue="JUnit.BiciApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +173,8 @@
       <workItem from="1712521944526" duration="6542000" />
       <workItem from="1712547549741" duration="36000" />
       <workItem from="1712556461893" duration="73000" />
-      <workItem from="1712583128208" duration="4038000" />
+      <workItem from="1712583128208" duration="8332000" />
+      <workItem from="1712602516015" duration="724000" />
     </task>
     <servers />
   </component>

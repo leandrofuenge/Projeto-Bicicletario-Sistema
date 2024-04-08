@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -28,21 +27,26 @@ public class LoginController {
     @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
     public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody) {
+        // Validação de entrada
         String cpf = requestBody.get("cpf");
         String senha = requestBody.get("senha");
-
-        if (cpf == null || senha == null) {
+        if (cpf == null || senha == null || cpf.isEmpty() || senha.isEmpty()) {
             return ResponseEntity.badRequest().body("CPF e senha são obrigatórios");
         }
 
-        Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
-        if (usuarioOptional.isPresent()) {
-            Usuario usuario = usuarioOptional.get();
-            return ResponseEntity.ok(usuario);
-        } else {
-            Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("error", "CPF ou senha inválidos");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+        try {
+            // Autenticação segura
+            Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
+            if (usuarioOptional.isPresent()) {
+                Usuario usuario = usuarioOptional.get();
+                return ResponseEntity.ok(usuario);
+            } else {
+                // Resposta para credenciais inválidas
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("CPF ou senha inválidos");
+            }
+        } catch (Exception e) {
+            // Tratamento de exceções
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar a solicitação");
         }
     }
 }
