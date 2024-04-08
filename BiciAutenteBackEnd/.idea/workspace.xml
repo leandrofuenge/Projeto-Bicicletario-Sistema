@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/drawable/ic_menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/menu/navigation_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/api/JavaApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/api/JavaApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +162,7 @@
       <workItem from="1712547549741" duration="36000" />
       <workItem from="1712556461893" duration="73000" />
       <workItem from="1712583128208" duration="8332000" />
-      <workItem from="1712602516015" duration="724000" />
+      <workItem from="1712602516015" duration="1372000" />
     </task>
     <servers />
   </component>

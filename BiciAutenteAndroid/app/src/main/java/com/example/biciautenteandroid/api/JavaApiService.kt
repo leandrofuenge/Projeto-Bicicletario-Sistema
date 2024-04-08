@@ -4,22 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import com.example.biciautenteandroid.MainActivity
-import io.ktor.client.*
-import io.ktor.client.engine.android.*
-import io.ktor.client.features.json.*
-import io.ktor.client.request.*
-import java.io.IOException
-
-import com.google.gson.Gson
-import io.ktor.client.*
-import io.ktor.client.engine.android.*
-import io.ktor.client.features.json.*
-import io.ktor.client.request.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
-
+import java.io.IOException
 
 // Defina o URL base da API Java que você deseja consumir
 private const val BASE_URL = "http://192.168.1.17:1010"
@@ -42,46 +33,45 @@ interface ApiService {
     suspend fun fazerLogin(@Body loginData: LoginData): ApiResponse
 }
 
-// Função para realizar o login na API Java usando Ktor
-suspend fun fazerLoginNaApiJava(context: Context, cpf: String, senha: String): ApiResponse {
-    val client = HttpClient(Android) {
-        install(JsonFeature) {
-            serializer = GsonSerializer()
-        }
-    }
-
-    val apiService = Retrofit.Builder()
+// Função para realizar o login na API Java usando Retrofit
+suspend fun fazerLogin(context: Context, cpf: String, senha: String): ApiResponse {
+    val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ApiService::class.java)
 
+    val apiService = retrofit.create(ApiService::class.java)
     val loginData = LoginData(cpf, senha)
 
-    try {
+    return try {
         val response = apiService.fazerLogin(loginData)
-
         if (response.successful) {
             // Login bem-sucedido, mostra a mensagem de sucesso
-            Toast.makeText(context, "Login realizado com sucesso", Toast.LENGTH_SHORT).show()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(context, "Login realizado com sucesso", Toast.LENGTH_SHORT).show()
+            }
 
             // Inicia a MainActivity após o login bem-sucedido
             val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
         } else {
             // Trate a resposta de erro da API Java
-            Toast.makeText(context, "Erro ao fazer login: ${response.errorMessage}", Toast.LENGTH_SHORT).show()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(context, "Erro ao fazer login: ${response.errorMessage}", Toast.LENGTH_SHORT).show()
+            }
         }
-        return response
+        response
     } catch (e: IOException) {
         // Trate exceções de IO, como falhas de conexão de rede
-        Toast.makeText(context, "Erro de conexão: ${e.message}", Toast.LENGTH_SHORT).show()
-        throw e
+        withContext(Dispatchers.Main) {
+            Toast.makeText(context, "Erro de conexão: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+        ApiResponse(successful = false, errorMessage = e.message)
     } catch (e: Exception) {
         // Trate outras exceções que possam ocorrer durante a solicitação
-        Toast.makeText(context, "Erro inesperado: ${e.message}", Toast.LENGTH_SHORT).show()
-        throw e
-    } finally {
-        client.close()
+        withContext(Dispatchers.Main) {
+            Toast.makeText(context, "Erro inesperado: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+        ApiResponse(successful = false, errorMessage = e.message)
     }
 }

@@ -6,19 +6,26 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.biciautenteandroid.api.fazerLoginNaApiJava
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.example.biciautenteandroid.api.ApiResponse
+import com.example.biciautenteandroid.api.ApiService
+import com.example.biciautenteandroid.api.LoginData
+import kotlinx.coroutines.*
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var editTextUsername: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var buttonLogin: Button
-    private lateinit var cpf: String
-    private lateinit var senha: String
+
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://192.168.1.17:1010/") // Altere para o URL correto
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    private val apiService = retrofit.create(ApiService::class.java)
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,26 +37,26 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin = findViewById(R.id.buttonLogin)
 
         buttonLogin.setOnClickListener {
-            // Obtendo valores dos campos de texto
-            cpf = editTextUsername.text.toString()
-            senha = editTextPassword.text.toString()
+            val cpf = editTextUsername.text.toString()
+            val senha = editTextPassword.text.toString()
 
             GlobalScope.launch(Dispatchers.Main) {
                 try {
-                    // Fazer login na API
-                    val response = fazerLoginNaApiJava(applicationContext, cpf, senha)
+                    val response = fazerLogin(cpf, senha)
 
                     if (response.successful) {
-                        // Se o login for bem-sucedido, iniciar a MainActivity
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Login realizado com sucesso",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
-
-                        // Finalizar a LoginActivity para evitar que o usuário volte para ela usando o botão "Voltar"
                         finish()
                     } else {
-                        // Se o login falhar, exibir mensagem de erro
                         Toast.makeText(
-                            applicationContext,
+                            this@LoginActivity,
                             response.errorMessage ?: "Erro ao fazer login",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -59,6 +66,13 @@ class LoginActivity : AppCompatActivity() {
                     // Trate a exceção, se necessário
                 }
             }
+        }
+    }
+
+    private suspend fun fazerLogin(cpf: String, senha: String): ApiResponse {
+        return withContext(Dispatchers.IO) {
+            val loginData = LoginData(cpf, senha)
+            apiService.fazerLogin(loginData)
         }
     }
 }
