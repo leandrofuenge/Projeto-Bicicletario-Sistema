@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bici" />
-        <module name="openapi-java-client" />
       </profile>
     </annotationProcessing>
   </component>

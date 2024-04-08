@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arduino/sketch_mar18a/sketch_mar18a.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../Arduino/sketch_mar18a/sketch_mar18a.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.BiciApplication.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/IntelliJ.Portuguese.Brazil.Dictionary-master/portuguese-brazil_technical-terms.dic",
+    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,7 +71,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.47044727",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RunManager" selected="Spring Boot.BiciApplication">
@@ -160,7 +163,7 @@
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="2" Folder0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" Folder1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" CustomDictionaries="2" CustomDictionary0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil_technical-terms_without-accents.dic" CustomDictionary1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil_technical-terms.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" CustomDictionaries="1" CustomDictionary0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil_technical-terms.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="" />
@@ -172,7 +175,10 @@
       <workItem from="1712510743462" duration="700000" />
       <workItem from="1712511482363" duration="2718000" />
       <workItem from="1712520990873" duration="47000" />
-      <workItem from="1712521944526" duration="2788000" />
+      <workItem from="1712521944526" duration="6542000" />
+      <workItem from="1712547549741" duration="36000" />
+      <workItem from="1712556461893" duration="73000" />
+      <workItem from="1712583128208" duration="4038000" />
     </task>
     <servers />
   </component>
