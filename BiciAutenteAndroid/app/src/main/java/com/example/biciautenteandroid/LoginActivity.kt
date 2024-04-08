@@ -10,7 +10,6 @@ import com.example.biciautenteandroid.api.ApiResponse
 import com.example.biciautenteandroid.api.ApiService
 import com.example.biciautenteandroid.api.LoginData
 import kotlinx.coroutines.*
-
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -27,7 +26,8 @@ class LoginActivity : AppCompatActivity() {
 
     private val apiService = retrofit.create(ApiService::class.java)
 
-    @OptIn(DelicateCoroutinesApi::class)
+    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             val cpf = editTextUsername.text.toString()
             val senha = editTextPassword.text.toString()
 
-            GlobalScope.launch(Dispatchers.Main) {
+            coroutineScope.launch {
                 try {
                     val response = fazerLogin(cpf, senha)
 
@@ -64,9 +64,19 @@ class LoginActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                     // Trate a exceção, se necessário
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Erro ao fazer login: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineScope.cancel() // Cancela todas as corrotinas quando a atividade é destruída
     }
 
     private suspend fun fazerLogin(cpf: String, senha: String): ApiResponse {

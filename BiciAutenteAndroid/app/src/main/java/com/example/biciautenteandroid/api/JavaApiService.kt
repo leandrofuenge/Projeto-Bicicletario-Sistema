@@ -13,7 +13,7 @@ import retrofit2.http.POST
 import java.io.IOException
 
 // Defina o URL base da API Java que você deseja consumir
-private const val BASE_URL = "http://192.168.1.17:1010"
+private const val BASE_URL = "http://192.168.1.17:1010/"
 
 // Data class para os dados de login
 data class LoginData(
@@ -29,7 +29,7 @@ data class ApiResponse(
 
 // Interface para definir os endpoints da API
 interface ApiService {
-    @POST("/login")
+    @POST("login")
     suspend fun fazerLogin(@Body loginData: LoginData): ApiResponse
 }
 
