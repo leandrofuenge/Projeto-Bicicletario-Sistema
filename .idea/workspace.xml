@@ -1,15 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.BiciAutenteAndroid</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
+    <list default="true" id="b4dcf03c-305e-4387-8728-032b3fc086b7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Bicicletario-Sistema.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arduino/sketch_mar18a/sketch_mar18a.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Arduino/sketch_mar18a/sketch_mar18a.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/androidTest/java/com/example/biciautenteandroid/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/LoginActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/api/JavaApiService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/ui/home/HomeFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/java/com/example/biciautenteandroid/ui/home/HomeViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_menu_camera.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_menu_gallery.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/ic_menu_slideshow.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/drawable/side_nav_bar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/activity_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/app_bar_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/fragment_gallery.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/fragment_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/fragment_slideshow.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/layout/nav_header_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/menu/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/menu/navigation_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values-land/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values-w1240dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values-w600dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/app/src/test/java/com/example/biciautenteandroid/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiciAutenteAndroid/settings.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BiciAutenteBackEnd/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BiciAutenteBackEnd/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,148 +107,110 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ro5pdaeu9dcq79ij]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/bici/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="2emVGTGdO4dTqlZkslmQHQ28pUQ" />
+  <component name="ProjectId" id="2et6BWPzmvmSr362d0O4yl48u0Y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.AdminControllerTest.executor": "Debug",
-    "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
-    "JUnit.BiciApplicationTests.executor": "Run",
-    "JUnit.CartaoControllerTest.executor": "Debug",
-    "JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor": "Debug",
-    "JUnit.PedidoServiceTest.executor": "Debug",
-    "JUnit.UsuarioServiceTest.executor": "Debug",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "Spring Boot.BiciApplication.executor": "Debug",
-    "android.gradle.sync.needed": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
+    "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteAndroid",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.47044727",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.AdminControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="BiciAutenteAndroid.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BiciApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.BiciApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CartaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PedidoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.service.PedidoServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.service.UsuarioServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="bici" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bici.BiciApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -175,16 +224,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="" />
-      <created>1712509646930</created>
+      <changelist id="b4dcf03c-305e-4387-8728-032b3fc086b7" name="Changes" comment="" />
+      <created>1712711399033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712509646930</updated>
-      <workItem from="1712509648000" duration="1060000" />
-      <workItem from="1712510743462" duration="700000" />
-      <workItem from="1712511482363" duration="2718000" />
-      <workItem from="1712520990873" duration="130000" />
-      <workItem from="1712551226127" duration="90000" />
+      <updated>1712711399033</updated>
+      <workItem from="1712712924009" duration="120000" />
     </task>
     <servers />
   </component>
