@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/TelaPrincipal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MyComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Cadastro.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Cartao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MainScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MainScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +36,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -46,6 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "HTTP Request.generated-requests | #2.executor": "Run",
     "HTTP Request.generated-requests | #3.executor": "Run",
     "HTTP Request.generated-requests | #4.executor": "Run",
@@ -63,6 +78,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.BiciApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/luclecia/Documents/Projetos Automacao/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
@@ -102,10 +118,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #6" />
         <item itemvalue="HTTP Request.generated-requests | #5" />
         <item itemvalue="HTTP Request.generated-requests | #4" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
       </list>
     </recent_temporary>
@@ -138,6 +154,10 @@
       <workItem from="1712624005081" duration="791000" />
       <workItem from="1712697241969" duration="80000" />
       <workItem from="1712713358456" duration="2133000" />
+      <workItem from="1712783385095" duration="3014000" />
+      <workItem from="1712837089998" duration="1940000" />
+      <workItem from="1712961336784" duration="147000" />
+      <workItem from="1712965590017" duration="5370000" />
     </task>
     <servers />
   </component>

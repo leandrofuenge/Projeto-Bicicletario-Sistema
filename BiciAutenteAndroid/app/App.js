@@ -1,20 +1,23 @@
 // App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './LoginScreen'; // Importe o componente LoginScreen corretamente
-import MainScreen from './MainScreen'; // Importe o componente MainScreen corretamente
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Provider as PaperProvider } from 'react-native-paper';
+import MainScreen from './MainScreen';
+import MyComponent from './MyComponent';
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Main" component={MainScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <PaperProvider>
+            <NavigationContainer>
+                <Drawer.Navigator initialRouteName="Main">
+                    <Drawer.Screen name="Main" component={MainScreen} />
+                    <Drawer.Screen name="MyComponent" component={MyComponent} />
+                </Drawer.Navigator>
+            </NavigationContainer>
+        </PaperProvider>
     );
 };
 

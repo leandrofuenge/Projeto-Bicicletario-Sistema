@@ -212,18 +212,8 @@ public class UsuarioService {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     public boolean liberarCartao(String numeroDoCartao, String cpf) {
-        String sql = "UPDATE USUARIO SET liberado = 1 WHERE numero_do_cartao = ? AND cpf = ?";
+        String sql = "UPDATE USUARIO SET liberado = 0 WHERE numero_do_cartao = ? AND cpf = ?";
         boolean liberacaoSucesso = false;
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
@@ -236,9 +226,7 @@ public class UsuarioService {
             liberacaoSucesso = linhasAfetadas > 0;
 
             if (liberacaoSucesso) {
-                System.out.println(STR."Cartão liberado para o cliente com número \{numeroDoCartao}");
-            } else {
-                System.out.println("Nenhum cartão encontrado para liberar.");
+                System.out.println(STR."Cartão liberado com sucesso para o cliente com número \{numeroDoCartao}");
             }
 
         } catch (SQLException e) {

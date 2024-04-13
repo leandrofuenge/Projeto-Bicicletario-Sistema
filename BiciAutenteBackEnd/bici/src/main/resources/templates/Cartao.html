@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Operações de Cartão</h1>
+
+    <button onclick="desbloquearCartao()">Desbloquear Cartão</button>
+    <button onclick="liberarCartao()">Liberar Cartão</button>
+    <button onclick="cancelarCartao()">Cancelar Cartão</button>
+
+    <h1>Controle de Pedidos</h1>
+
+    <button onclick="solicitarCartao()">Solicitar Cartão</button>
+    <button onclick="cancelarPedido()">Cancelar Pedido</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const baseURL = 'http://192.168.1.17:1010/api';
+    const pedidoURL = 'http://192.168.1.17:1010/pedido';
+
+    async function desbloquearCartao() {
+        const numeroDoCartao = prompt("Digite o número do cartão:");
+        const cpf = prompt("Digite o CPF:");
+
+        try {
+            const response = await axios.put(`${baseURL}/usuarios/cartao/desbloquear?numeroDoCartao=${numeroDoCartao}&cpf=${cpf}`);
+            alert(response.data);
+        } catch (error) {
+            alert('Erro ao desbloquear o cartão: ' + error.response.data);
+        }
+    }
+
+    async function liberarCartao() {
+        const numeroDoCartao = prompt("Digite o número do cartão:");
+        const cpf = prompt("Digite o CPF:");
+
+        try {
+            const response = await axios.put(`${baseURL}/usuarios/cartao/liberar?numeroDoCartao=${numeroDoCartao}&cpf=${cpf}`);
+            alert(response.data);
+        } catch (error) {
+            alert('Erro ao liberar o cartão: ' + error.response.data);
+        }
+    }
+
+    async function cancelarCartao() {
+        const cpf = prompt("Digite o CPF:");
+        const numeroDoCartao = prompt("Digite o número do cartão:");
+
+        try {
+            const response = await axios.delete(`${baseURL}/cartao/cancelar/${cpf}/${numeroDoCartao}`);
+            alert(response.data);
+        } catch (error) {
+            alert('Erro ao cancelar o cartão: ' + error.response.data);
+        }
+    }
+
+    async function solicitarCartao() {
+        const cpf = prompt('Digite o CPF para solicitar o cartão:');
+        try {
+            const response = await axios.get(`${pedidoURL}/solicitar-cartao/${cpf}`);
+            document.getElementById('resultado').innerText = response.data;
+        } catch (error) {
+            document.getElementById('resultado').innerText = 'Erro ao solicitar cartão: ' + error.response.data;
+        }
+    }
+
+    async function cancelarPedido() {
+        const cpf = prompt('Digite o CPF para cancelar o pedido:');
+        try {
+            const response = await axios.delete(`${pedidoURL}/cancelar-pedido/${cpf}`);
+            document.getElementById('resultado').innerText = response.data;
+        } catch (error) {
+            document.getElementById('resultado').innerText = 'Erro ao cancelar pedido: ' + error.response.data;
+        }
+    }
+</script>
+</body>
+</html>
