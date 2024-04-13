@@ -93,7 +93,7 @@ bool verificarCreditos(String numeroDoCartao) {
 }
 
 bool utilizarCredito(String numeroDoCartao) {
-    Serial.println("Utilizando crédito...");
+    Serial.println("Verificando créditos...");
     
     // Construir os parâmetros da requisição POST
     String params = "numeroDoCartao=" + numeroDoCartao;

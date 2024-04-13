@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MyComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Cadastro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Cartao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MainScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/MainScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteAndroid/app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/templates/Cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Cadastro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +147,8 @@
       <workItem from="1712783385095" duration="3014000" />
       <workItem from="1712837089998" duration="1940000" />
       <workItem from="1712961336784" duration="147000" />
-      <workItem from="1712965590017" duration="5370000" />
+      <workItem from="1712965590017" duration="5914000" />
+      <workItem from="1712978289355" duration="1280000" />
     </task>
     <servers />
   </component>
