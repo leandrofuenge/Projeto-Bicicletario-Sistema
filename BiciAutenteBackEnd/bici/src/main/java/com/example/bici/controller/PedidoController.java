@@ -1,6 +1,8 @@
 package com.example.bici.controller;
 
 import com.example.bici.service.PedidoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,33 +19,47 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(PedidoController.class);
+
     @PostMapping("/salvar-estado")
     public String salvarEstadoPedido(@RequestBody int estadoPedido) {
-        return pedidoService.salvarEstadoPedido(estadoPedido);
+        logger.info("Pedido salvo com sucesso", estadoPedido);
+        return "Pedido salvo com sucesso";
     }
+
 
     @GetMapping("/solicitar-cartao/{cpf}")
     public ResponseEntity<String> solicitarCartaoPorCPF(@PathVariable String cpf) {
         String resultado = pedidoService.solicitarCartaoPedidoPorCPF(cpf);
         if (resultado.startsWith("Erro")) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resultado);
+
+            logger.error(STR."Erro ao solicitar cartao por CPF: \{resultado}");
+            return new ResponseEntity<>(resultado, HttpStatus.BAD_REQUEST);
+
         } else if (resultado.startsWith("O usuário")) {
+
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultado);
+
         } else {
-            return ResponseEntity.ok(resultado);
+            logger.info("Cartao solicitado com sucesso!", resultado);
+            return new ResponseEntity<>(resultado, HttpStatus.OK);
         }
     }
 
+
     @DeleteMapping("/cancelar-pedido/{cpf}")
-    public ResponseEntity<String> cancelarPedidoDeCartao(@PathVariable String cpf) {
+    public String cancelarPedidoDeCartao(@PathVariable String cpf) {
         String resultado = pedidoService.cancelarPedidoDeCartao(cpf);
         if (resultado.startsWith("Erro")) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resultado);
+            logger.error("Erro ao cancelar Cartao", resultado);
+            return "Erro ao cancelar cartao";
         } else if (resultado.startsWith("O usuário")) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resultado);
+
+            return "Erro ao cancelar cartao";
+
         } else {
-            return ResponseEntity.ok(resultado);
+            logger.info("Cartao cancelado com sucesso");
+            return "Cartao cancelado com sucesso";
         }
     }
 }
-

@@ -2,8 +2,8 @@ package com.example.bici.controller;
 
 import com.example.bici.entity.Usuario;
 import com.example.bici.service.UsuarioService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,94 +16,116 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
+
     @PostMapping("/usuarios/criar")
-    public ResponseEntity<?> criarUsuario(@RequestBody Usuario novoUsuario) {
+    public String criarUsuario(@RequestBody Usuario novoUsuario) {
         try {
             boolean sucesso = usuarioService.criarMeuCadastro(novoUsuario);
             if (sucesso) {
-                return ResponseEntity.status(HttpStatus.CREATED).body("Usuário criado com sucesso");
+                logger.info("Usuario criado com sucesso", true);
+                return "Usuario criado com sucesso";
             } else {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
+                logger.error("Erro ao criar usuario", false);
+                return "Erro ao criar o usuario";
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
+            return "Erro ao criar o usuario";
         }
     }
 
     @GetMapping("/usuarios/{id}")
-    public ResponseEntity<?> getUsuarioById(@PathVariable int id) {
+    public String getUsuarioById(@PathVariable int id) {
         try {
             Usuario usuario = usuarioService.getUsuarioPorId(id);
-            return ResponseEntity.ok(usuario);
+            logger.info("Usuario encontrado com sucesso", usuario);
+            return "Usuario encontrado com sucesso";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao obter os dados do usuário");
+
+            logger.error("Erro ao obter os dados do usuario");
         }
+        return null;
     }
 
     @PutMapping("/usuarios/{id}")
-    public ResponseEntity<?> modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public String modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
 
         try {
             boolean sucesso = usuarioService.modificarMeusDados(usuario);
             if (sucesso) {
-                return ResponseEntity.ok("Dados do usuário modificados com sucesso");
+                logger.info("Dados do usuário modificados com sucesso");
+                return "Dados do usuário modificados com sucesso";
             } else {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados do usuário");
+                logger.error("Erro ao modificar os dados do usuário");
+                return "Erro ao modificar os dados do usuário";
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar os dados do usuário");
+            return "Erro ao modificar os dados do usuário";
         }
     }
 
     @DeleteMapping("/usuarios/{id}")
-    public ResponseEntity<?> excluirUsuario(@PathVariable Long id) {
+    public String excluirUsuario(@PathVariable Long id) {
         try {
             boolean sucesso = usuarioService.excluirMeusDados(id);
             if (sucesso) {
-                return ResponseEntity.ok("Usuário excluído com sucesso");
+                logger.info("Usuário excluído com sucesso");
+                return "Usuário excluído com sucesso";
             } else {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir o usuário");
+                logger.error("Erro ao excluir o usuário");
+                return "Erro ao excluir o usuário";
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir o usuário");
+            return "Erro ao excluir o usuário";
         }
     }
 
 
     @PutMapping("/usuarios/cartao/bloquear")
-    public ResponseEntity<String> bloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+    public String bloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
         try {
             usuarioService.bloquearCartao(numeroDoCartao, cpf);
-            return ResponseEntity.ok("Cartão bloqueado com sucesso.");
+            logger.info("Cartão bloqueado com sucesso");
+            return "Cartão bloqueado com sucesso";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao bloquear o cartão: \{e.getMessage()}");
+            return "Erro ao bloquear o cartão";
         }
     }
 
     @PutMapping("/usuarios/cartao/desbloquear")
-    public ResponseEntity<String> desbloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+    public String desbloquearCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
         try {
             usuarioService.desbloquearCartao(numeroDoCartao, cpf);
-            return ResponseEntity.ok("Cartão desbloqueado com sucesso.");
+            logger.info("Cartão desbloqueado com sucesso.");
+            return "Cartão desbloqueado com sucesso.";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao desbloquear o cartão: \{e.getMessage()}");
+
+            return "Cartão desbloqueado com sucesso.";
+
         }
     }
 
     @PutMapping("/usuarios/cartao/liberar")
-    public ResponseEntity<String> liberarCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
+    public String liberarCartao(@RequestParam("numeroDoCartao") String numeroDoCartao, @RequestParam("cpf") String cpf) {
         boolean liberacaoSucesso = usuarioService.liberarCartao(numeroDoCartao, cpf);
         if (liberacaoSucesso) {
-            return ResponseEntity.ok("Cartão liberado com sucesso.");
+            logger.info("Cartão liberado com sucesso.");
+            return "Cartão liberado com sucesso.";
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Falha ao liberar o cartão.");
+            return "Falha ao liberar o cartão.";
         }
     }
 
     @DeleteMapping("/cartao/cancelar/{cpf}/{numeroDoCartao}")
-    public ResponseEntity<String> cancelarCartao(@PathVariable String cpf, @PathVariable String numeroDoCartao) {
-        String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
-        return ResponseEntity.ok(resultado);
+    public String cancelarCartao(@PathVariable String cpf, @PathVariable String numeroDoCartao) {
+
+        try {
+            String resultado = usuarioService.cancelarCartao(cpf, numeroDoCartao);
+            logger.info("Cartao cancelado", resultado);
+        } catch (Exception e){
+             return "Erro ao cancelar cartao";
+        }
+        return null;
     }
 }

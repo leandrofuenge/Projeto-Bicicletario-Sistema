@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Optional;
@@ -17,12 +19,15 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class LoginController {
 
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     private final LoginService loginService;
 
     @Autowired
     public LoginController(LoginService loginService) {
         this.loginService = loginService;
     }
+
 
     @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
@@ -39,6 +44,7 @@ public class LoginController {
             Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
             if (usuarioOptional.isPresent()) {
                 Usuario usuario = usuarioOptional.get();
+                logger.info("Login realizado com sucesso", usuario);
                 return ResponseEntity.ok(usuario);
             } else {
                 // Resposta para credenciais inválidas
@@ -46,7 +52,8 @@ public class LoginController {
             }
         } catch (Exception e) {
             // Tratamento de exceções
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar a solicitação");
+            logger.error("Erro ao processar login", e.getMessage());
         }
+        return null;
     }
 }
