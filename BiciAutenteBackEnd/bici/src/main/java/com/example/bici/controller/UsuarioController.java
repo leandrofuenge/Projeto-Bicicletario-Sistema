@@ -2,6 +2,7 @@ package com.example.bici.controller;
 
 import com.example.bici.entity.Usuario;
 import com.example.bici.service.UsuarioService;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +49,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/usuarios/{id}")
-    public String modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public String modificarUsuario(@PathVariable Long id, @RequestBody @NotNull Usuario usuario) {
         usuario.setId(id); // Definindo o ID do usuário a ser modificado
 
         try {

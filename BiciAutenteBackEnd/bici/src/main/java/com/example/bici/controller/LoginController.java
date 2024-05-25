@@ -17,6 +17,7 @@ import java.util.Optional;
 @RestController
 @Tag(name = "Login Controller", description = "Endpoints para autenticação de usuários")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/usuario")
 public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -28,7 +29,6 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-
     @Operation(summary = "Realiza login de usuário")
     @PostMapping("/login")
     public ResponseEntity<?> fazerLogin(@RequestBody Map<String, String> requestBody) {
@@ -36,6 +36,7 @@ public class LoginController {
         String cpf = requestBody.get("cpf");
         String senha = requestBody.get("senha");
         if (cpf == null || senha == null || cpf.isEmpty() || senha.isEmpty()) {
+            logger.warn("Tentativa de login com CPF ou senha vazios");
             return ResponseEntity.badRequest().body("CPF e senha são obrigatórios");
         }
 
@@ -44,16 +45,17 @@ public class LoginController {
             Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
             if (usuarioOptional.isPresent()) {
                 Usuario usuario = usuarioOptional.get();
-                logger.info("Login realizado com sucesso", usuario);
+                logger.info("Login realizado com sucesso para o usuário: {}", usuario.getCpf());
                 return ResponseEntity.ok(usuario);
             } else {
                 // Resposta para credenciais inválidas
+                logger.warn("Login falhou para CPF: {} - Credenciais inválidas", cpf);
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("CPF ou senha inválidos");
             }
         } catch (Exception e) {
             // Tratamento de exceções
-            logger.error("Erro ao processar login", e.getMessage());
+            logger.error("Erro ao processar login para CPF: {} - Erro: {}", cpf, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar login. Tente novamente mais target.");
         }
-        return null;
     }
 }

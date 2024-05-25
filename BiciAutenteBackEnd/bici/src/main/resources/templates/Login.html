@@ -83,7 +83,7 @@
         const senha = document.getElementById('senha').value;
 
         try {
-            const response = await axios.post('http://192.168.1.17:1010/login', { cpf, senha });
+            const response = await axios.post('http://192.168.1.15:8083/usuario/login', { cpf, senha });
             window.location.href = '/dashboard'; // Redirect to dashboard on successful login
         } catch (error) {
             errorMessage.innerText = error.response.data;

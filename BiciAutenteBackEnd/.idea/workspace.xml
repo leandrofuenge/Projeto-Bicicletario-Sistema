@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/tests/java/com/example/bici/BiciApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/tests/java/com/example/bici/controller/LoginControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/tests/java/com/example/bici/service/LoginServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Leandro.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/Login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +41,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -40,6 +52,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/bici/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -50,73 +66,143 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BiciApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "HTTP Request.generated-requests | #5.executor": "Run",
-    "HTTP Request.generated-requests | #6.executor": "Run",
-    "HTTP Request.generated-requests | #8.executor": "Run",
-    "JUnit.AdminControllerTest.executor": "Debug",
-    "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
-    "JUnit.BiciApplicationTests.executor": "Run",
-    "JUnit.CartaoControllerTest.executor": "Debug",
-    "JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor": "Debug",
-    "JUnit.PedidoServiceTest.executor": "Debug",
-    "JUnit.UsuarioServiceTest.executor": "Debug",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.BiciApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.preview.features.used": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/leandro/Documents/Projetos java/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.47044727",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BiciApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #8.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AdminControllerTest.testCriarUsuario.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.BiciApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartaoControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LoginControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LoginControllerTest.testFazerLogin_EmptyCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginControllerTest.testFazerLogin_Exception.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginControllerTest.testFazerLogin_InvalidCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginControllerTest.testFazerLogin_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PedidoServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UsuarioServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BiciApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/leandro/Documents/Projetos java/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47044727&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.spelling&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
-  <component name="RunManager" selected="Application.BiciApplication">
-    <configuration name="BiciApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.BiciApplication" />
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bici/src/test/java/com/example/bici" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BiciApplication">
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bici" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.bici.*" />
+          <option name="PATTERN" value="com.example.bici.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
-      <method v="2" />
+    <configuration name="LoginControllerTest.testFazerLogin_EmptyCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
+      <option name="METHOD_NAME" value="testFazerLogin_EmptyCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
-      <method v="2" />
+    <configuration name="LoginControllerTest.testFazerLogin_Exception" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
+      <option name="METHOD_NAME" value="testFazerLogin_Exception" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" requestIdentifier="#6" runType="Run single request">
-      <method v="2" />
+    <configuration name="LoginControllerTest.testFazerLogin_InvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
+      <option name="METHOD_NAME" value="testFazerLogin_InvalidCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="8" requestIdentifier="#8" runType="Run single request">
-      <method v="2" />
+    <configuration name="LoginControllerTest.testFazerLogin_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
+      <option name="METHOD_NAME" value="testFazerLogin_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bici" />
@@ -127,11 +213,23 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BiciApplication" />
+        <item itemvalue="JUnit.LoginControllerTest" />
+        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_Exception" />
+        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_EmptyCredentials" />
+        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_InvalidCredentials" />
+        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_Success" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="2" Folder0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" Folder1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" CustomDictionaries="2" CustomDictionary0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil_technical-terms.dic" CustomDictionary1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="3" Folder0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" Folder1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master" Folder2="$PROJECT_DIR$/../../../IntelliJ.Portuguese.Brazil.Dictionary-master" CustomDictionaries="3" CustomDictionary0="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil_technical-terms.dic" CustomDictionary1="C:\IntelliJ.Portuguese.Brazil.Dictionary-master\portuguese-brazil.dic" CustomDictionary2="$PROJECT_DIR$/../../../IntelliJ.Portuguese.Brazil.Dictionary-master/portuguese-brazil.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="" />
@@ -165,6 +263,12 @@
       <workItem from="1713971640699" duration="243000" />
       <workItem from="1715451477586" duration="2693000" />
       <workItem from="1715454209593" duration="18594000" />
+      <workItem from="1716432186271" duration="1877000" />
+      <workItem from="1716505588540" duration="1561000" />
+      <workItem from="1716517250032" duration="46000" />
+      <workItem from="1716517317222" duration="3253000" />
+      <workItem from="1716545697201" duration="2233000" />
+      <workItem from="1716594300799" duration="1893000" />
     </task>
     <servers />
   </component>

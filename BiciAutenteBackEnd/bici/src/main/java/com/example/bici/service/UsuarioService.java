@@ -14,9 +14,9 @@ public class UsuarioService {
 
     private static final Logger LOGGER = Logger.getLogger(UsuarioService.class.getName());
 
-    private static final String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.17:1521/XEPDB1";
-    private static final String DATABASE_USER = "LEANDRO";
-    private static final String DATABASE_PASSWORD = "8YxeV6wCA9H8";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/teste";
+    private static final String DATABASE_USER = "root";
+    private static final String DATABASE_PASSWORD = "5Q8[7Ie+uN7^";
 
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
