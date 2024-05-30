@@ -163,4 +163,94 @@ public class Usuario {
     public void setLiberado(String liberado) {
         this.liberado = liberado;
     }
+
+	public String getSexo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getCep() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getEndereco() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getNumero() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getCidade() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getBairro() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getEstado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getSenha() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getCelular() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setSexo(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCep(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEndereco(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNumero(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setBairro(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCidade(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEstado(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSenha(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCelular(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }
