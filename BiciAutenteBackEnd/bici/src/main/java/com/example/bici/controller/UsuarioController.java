@@ -67,6 +67,7 @@ public class UsuarioController {
         }
     }
 
+    
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<String> excluirUsuario(@PathVariable Long id) {
         try {
