@@ -18,14 +18,20 @@ public class CartaoService {
     }
 
     /**
-     * Verifica se um usuário com o número do cartão fornecido está autenticado no sistema.
+     * Autentica um usuário com base no número do cartão fornecido.
      *
      * @param numeroDoCartao O número do cartão do usuário a ser verificado.
-     * @return true se o usuário estiver autenticado, false caso contrário.
+     * @return true se o usuário com o número do cartão existir, false caso contrário.
      */
     public boolean autenticarUsuario(String numeroDoCartao) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
-        return optionalUsuario.isPresent(); // Retorna true se o usuário com o número do cartão existir
+        try {
+            Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
+            return optionalUsuario.isPresent(); // Retorna true se o usuário com o número do cartão existir
+        } catch (Exception e) {
+            // Log e tratamento de exceção
+            // logger.error("Erro ao autenticar usuário com o número do cartão: {}", numeroDoCartao, e);
+            throw new RuntimeException("Erro ao autenticar usuário", e);
+        }
     }
 
     /**
@@ -35,12 +41,18 @@ public class CartaoService {
      * @return O número de créditos restantes do usuário, ou -1 se o usuário não for encontrado.
      */
     public int verificarCreditos(String numeroDoCartao) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
-        if (optionalUsuario.isPresent()) {
-            Usuario usuario = optionalUsuario.get();
-            return usuario.getCreditosRestantes();
-        } else {
-            return -1; // Retorna -1 se o usuário não for encontrado
+        try {
+            Optional<Usuario> optionalUsuario = usuarioRepository.findByNumeroDoCartao(numeroDoCartao);
+            if (optionalUsuario.isPresent()) {
+                Usuario usuario = optionalUsuario.get();
+                return usuario.getCreditosRestantes();
+            } else {
+                return -1; // Retorna -1 se o usuário não for encontrado
+            }
+        } catch (Exception e) {
+            // Log e tratamento de exceção
+            // logger.error("Erro ao verificar créditos do usuário com o número do cartão: {}", numeroDoCartao, e);
+            throw new RuntimeException("Erro ao verificar créditos do usuário", e);
         }
     }
 }
