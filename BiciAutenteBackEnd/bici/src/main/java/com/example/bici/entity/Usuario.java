@@ -47,14 +47,17 @@ public class Usuario {
     @Column(name = "liberado")
     private String liberado;
 
+    // Novo atributo senha
+    @Column
+    private String senha;
+
     public Usuario() {
         // Construtor padrão necessário para JPA
     }
 
     public Usuario(Long id, String nomeCompleto, String numeroDoCartao, Integer creditosRestantes,
-                   String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
-                   String numero, String bairro, String cidade, String estado, String email,
-                   String numeroDeSerieBicicleta, String corDaBicicleta, String senha, String celular) {
+                   String cpf, String rg, String dataDeNascimento, String email,
+                   String numeroDeSerieBicicleta, String corDaBicicleta, String senha) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.numeroDoCartao = numeroDoCartao;
@@ -65,8 +68,14 @@ public class Usuario {
         this.email = email;
         this.numeroDeSerieBicicleta = numeroDeSerieBicicleta;
         this.corDaBicicleta = corDaBicicleta;
+        this.senha = senha;
     }
 
+    // Getters e Setters
+    // Os métodos getters e setters para o atributo senha já foram gerados automaticamente pelo Lombok
+
+    
+    
     // Getters and Setters
     public Long getId() {
         return id;
