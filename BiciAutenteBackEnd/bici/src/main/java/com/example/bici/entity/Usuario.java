@@ -108,4 +108,24 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
+
+	public Object getNomeCompleto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setNomeCompleto(Object nomeCompleto2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setEmail(Object email2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
