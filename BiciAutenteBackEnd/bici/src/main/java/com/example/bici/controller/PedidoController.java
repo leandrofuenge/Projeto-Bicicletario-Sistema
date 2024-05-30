@@ -23,40 +23,32 @@ public class PedidoController {
 
     @PostMapping("/salvar-estado")
     public String salvarEstadoPedido(@RequestBody int estadoPedido) {
-        logger.info("Pedido salvo com sucesso", estadoPedido);
+        logger.info("Pedido salvo com sucesso, estado: {}", estadoPedido);
         return "Pedido salvo com sucesso";
     }
-
 
     @GetMapping("/solicitar-cartao/{cpf}")
     public ResponseEntity<String> solicitarCartaoPorCPF(@PathVariable String cpf) {
         String resultado = pedidoService.solicitarCartaoPedidoPorCPF(cpf);
         if (resultado.startsWith("Erro")) {
-
-            logger.error(STR."Erro ao solicitar cartao por CPF: \{resultado}");
+            logger.error("Erro ao solicitar cartao por CPF: {}", resultado);
             return new ResponseEntity<>(resultado, HttpStatus.BAD_REQUEST);
-
         } else if (resultado.startsWith("O usuário")) {
-
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultado);
-
         } else {
-            logger.info("Cartao solicitado com sucesso!", resultado);
+            logger.info("Cartao solicitado com sucesso: {}", resultado);
             return new ResponseEntity<>(resultado, HttpStatus.OK);
         }
     }
-
 
     @DeleteMapping("/cancelar-pedido/{cpf}")
     public String cancelarPedidoDeCartao(@PathVariable String cpf) {
         String resultado = pedidoService.cancelarPedidoDeCartao(cpf);
         if (resultado.startsWith("Erro")) {
-            logger.error("Erro ao cancelar Cartao", resultado);
+            logger.error("Erro ao cancelar Cartao: {}", resultado);
             return "Erro ao cancelar cartao";
         } else if (resultado.startsWith("O usuário")) {
-
             return "Erro ao cancelar cartao";
-
         } else {
             logger.info("Cartao cancelado com sucesso");
             return "Cartao cancelado com sucesso";

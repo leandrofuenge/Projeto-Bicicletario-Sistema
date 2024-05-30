@@ -16,7 +16,7 @@ public class Usuario {
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-    //Documentos
+    // Documentos
 
     @Column(name = "nome_completo") // Mapeia o nome da coluna no banco de dados
     private String nomeCompleto; // Nome completo do usuário
@@ -30,7 +30,7 @@ public class Usuario {
     @Column(name = "data_de_nascimento") // Mapeia a data de nascimento
     private String dataDeNascimento; // Data de nascimento do usuário
 
-    private String sexo; // Sexo do usuário
+    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -44,20 +44,9 @@ public class Usuario {
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-
     // Endereço Completo
 
-    private String cep; // CEP do endereço do usuário
-
-    private String endereco; // Endereço do usuário
-
-    private String numero; // Número do endereço do usuário
-
-    private String bairro; // Bairro do endereço do usuário
-
-    private String cidade; // Cidade do endereço do usuário
-
-    private String estado; // Estado do endereço do usuário
+    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -66,7 +55,7 @@ public class Usuario {
     @Column(unique = true) // Mapeia o e-mail com a opção de ser único
     private String email; // E-mail do usuário
 
-    private String celular; // Número de celular do usuário
+    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -82,22 +71,17 @@ public class Usuario {
 
     // Senha de Login
 
-    private String senha; // Senha do usuário
+    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-    @Column(name = "BLOQUEADO_DESBLOQUEADO") // Mapeia a cor da bicicleta
-    private String BLOQUEADO_DESBLOQUEADO; // Cor da bicicleta associada ao usuário
+    @Column(name = "BLOQUEADO_DESBLOQUEADO") // Mapeia o status do cartão
+    private String bloqueadoDesbloqueado; // Status do cartão do usuário
 
+    @Column(name = "liberado") // Mapeia o status de liberação do cartão
+    private String liberado; // Status de liberação do cartão do usuário
 
-    @Column(name = "liberado")
-    private String liberado;
-
-
-
-
-
-
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
     public Usuario() {
         // Construtor padrão necessário para JPA
@@ -107,8 +91,7 @@ public class Usuario {
     public Usuario(Long id, String nomeCompleto, String numeroDoCartao, Integer creditosRestantes,
                    String cpf, String rg, String dataDeNascimento, String sexo, String cep, String endereco,
                    String numero, String bairro, String cidade, String estado, String email,
-                   String numeroDeSerieBicicleta, String corDaBicicleta, String senha,
-                   String celular) {
+                   String numeroDeSerieBicicleta, String corDaBicicleta, String senha, String celular) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.numeroDoCartao = numeroDoCartao;
@@ -116,17 +99,13 @@ public class Usuario {
         this.cpf = cpf;
         this.rg = rg;
         this.dataDeNascimento = dataDeNascimento;
-        this.sexo = sexo;
-        this.cep = cep;
-        this.endereco = endereco;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
         this.email = email;
         this.numeroDeSerieBicicleta = numeroDeSerieBicicleta;
         this.corDaBicicleta = corDaBicicleta;
-        this.senha = senha;
-        this.celular = celular;
+    }
+
+    // Método para definir o ID do usuário
+    public void setId(Long id) {
+        this.id = id;
     }
 }

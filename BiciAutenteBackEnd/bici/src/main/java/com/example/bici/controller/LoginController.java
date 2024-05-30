@@ -45,7 +45,7 @@ public class LoginController {
             Optional<Usuario> usuarioOptional = loginService.fazerLogin(cpf, senha);
             if (usuarioOptional.isPresent()) {
                 Usuario usuario = usuarioOptional.get();
-                logger.info("Login realizado com sucesso para o usuário: {}", usuario.getCpf());
+                logger.info("Login realizado com sucesso para o usuário: {}", usuario.getClass());
                 return ResponseEntity.ok(usuario);
             } else {
                 // Resposta para credenciais inválidas

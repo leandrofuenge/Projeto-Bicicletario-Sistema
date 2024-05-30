@@ -11,8 +11,16 @@ public class UsuarioDTO {
 
     // Construtor com argumento
     public UsuarioDTO(int creditosRestantes) {
-        this.creditosRestantes = creditosRestantes;
+        this.setCreditosRestantes(creditosRestantes);
     }
+
+	public int getCreditosRestantes() {
+		return creditosRestantes;
+	}
+
+	public void setCreditosRestantes(int creditosRestantes) {
+		this.creditosRestantes = creditosRestantes;
+	}
 }
 
 
