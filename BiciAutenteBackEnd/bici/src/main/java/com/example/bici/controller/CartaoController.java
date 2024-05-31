@@ -73,7 +73,7 @@ public class CartaoController {
 
     @GetMapping("/verificarcreditos")
     public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
-        try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste", "root", "5Q8[7Ie+uN7^")) {
             String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
             try (PreparedStatement statement = connection.prepareStatement(consulta)) {
                 statement.setString(1, numeroDoCartao);

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .login-form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <input type="text" id="cpf" placeholder="CPF">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="login()">Login</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function login() {
+            var cpf = document.getElementById('cpf').value;
+            var senha = document.getElementById('senha').value;
+            var message = document.getElementById('message');
+
+            // Limpa a mensagem anterior
+            message.innerHTML = '';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://192.168.1.2:9090/api/login', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Login bem-sucedido
+                        message.style.color = 'green';
+                        message.innerHTML = 'Login realizado com sucesso!';
+                        console.log('Usuário:', JSON.parse(xhr.responseText));
+                    } else if (xhr.status === 401) {
+                        // Credenciais inválidas
+                        message.style.color = 'red';
+                        message.innerHTML = 'CPF ou senha inválidos.';
+                    } else {
+                        // Outros erros
+                        message.style.color = 'red';
+                        message.innerHTML = 'Erro ao processar login. Tente novamente mais tarde.';
+                    }
+                }
+            };
+
+            var data = JSON.stringify({ cpf: cpf, senha: senha });
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>

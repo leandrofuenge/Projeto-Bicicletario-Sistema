@@ -1,24 +1,20 @@
 package com.example.bici.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
-@EnableWebSecurity
-public class SecurityConfig  {
+@Configuration
+public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @SuppressWarnings("deprecation")
+	@Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().authenticated()
-                        .anyRequest().permitAll())
-                .formLogin(login -> login
-                        .loginPage("/login")
-                        .permitAll())
-                .logout(LogoutConfigurer::permitAll);
-        return null;
+            .csrf(csrf -> csrf.disable()) // Desabilita CSRF
+            .authorizeRequests(auth -> auth
+                .anyRequest().permitAll()); // Permite todas as requisições
+        return http.build();
     }
 }

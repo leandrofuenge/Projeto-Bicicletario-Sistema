@@ -17,7 +17,7 @@ import java.util.Optional;
 @RestController
 @Tag(name = "Login Controller", description = "Endpoints para autenticação de usuários")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/usuario")
+@RequestMapping("/api")
 public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);

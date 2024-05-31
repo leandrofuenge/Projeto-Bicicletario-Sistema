@@ -18,6 +18,7 @@ public class AdminService {
     public AdminService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
+    
     // Criar um novo usuário
     public Usuario criarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
