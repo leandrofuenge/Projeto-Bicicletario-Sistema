@@ -7,8 +7,13 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint para servir a página de login
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+// Endpoint para o chat 
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
 });
 
 // Inicia o servidor

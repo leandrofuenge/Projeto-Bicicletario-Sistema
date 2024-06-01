@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        #messageForm {
+            display: flex;
+        }
+        #messageForm input {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        #messageForm button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chat Client</h1>
+
+    <div>
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+    </div>
+
+    <div id="messages"></div>
+
+    <form id="messageForm" onsubmit="sendMessage(event)">
+        <input type="text" id="messageInput" placeholder="Enter your message" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        function connect() {
+            const serverName = prompt("Enter server name:", "192.168.1.2");
+            const serverPort = prompt("Enter server port:", "8086");
+
+            if (serverName && serverPort) {
+                fetch(`/chat/connect?serverName=${serverName}&serverPort=${serverPort}`, {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    if (data.includes("Connected")) {
+                        document.getElementById('messages').innerText = "Connected to the server.\n";
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+
+        function disconnect() {
+            fetch(`/chat/disconnect`, {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                document.getElementById('messages').innerText += "Disconnected from the server.\n";
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function sendMessage(event) {
+            event.preventDefault();
+            const message = document.getElementById('messageInput').value;
+
+            fetch(`http://192.168.1.2:8086/chat/send?message=${encodeURIComponent(message)}`, {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('messageInput').value = '';
+                document.getElementById('messages').innerText += `You: ${message}\n`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
