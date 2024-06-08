@@ -1,0 +1,16 @@
+<div>
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" required>
+  
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" [(ngModel)]="senha" name="senha" required>
+  
+      <button type="submit">Login</button>
+    </form>
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

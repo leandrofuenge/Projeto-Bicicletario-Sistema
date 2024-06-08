@@ -80,7 +80,7 @@ public class CartaoController {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
                         int creditos = resultSet.getInt("CREDITOS_RESTANTES");
-                        return ResponseEntity.ok().body("Créditos restantes do usuário: " + creditos);
+                        return ResponseEntity.ok().body(STR."Créditos restantes do usuário: \{creditos}");
                     } else {
                         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
                     }
@@ -88,7 +88,7 @@ public class CartaoController {
             }
         } catch (SQLException e) {
             logger.error("Erro ao acessar o banco de dados.", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
         }
     }
 
@@ -122,7 +122,7 @@ public class CartaoController {
             }
         } catch (SQLException e) {
             logger.error("Erro ao acessar o banco de dados.", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
         }
     }
 }

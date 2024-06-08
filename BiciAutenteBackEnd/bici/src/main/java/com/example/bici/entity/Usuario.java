@@ -10,40 +10,63 @@ import lombok.Setter;
 @Table(name = "USUARIO")
 public class Usuario {
 
+    // Getters and Setters
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
+    @Getter
     @Column(name = "nome_completo")
     private String nomeCompleto;
 
+    @Setter
+    @Getter
     @Column(unique = true)
     private String cpf;
 
+    @Setter
+    @Getter
     @Column(unique = true)
     private String rg;
 
+    @Setter
+    @Getter
     @Column(name = "data_de_nascimento")
     private String dataDeNascimento;
 
+    @Setter
+    @Getter
     @Column(name = "numero_do_cartao", unique = true)
     private String numeroDoCartao;
 
+    @Getter
+    @Setter
     @Column(name = "creditos_restantes")
     private Integer creditosRestantes;
 
+    @Setter
+    @Getter
     @Column(unique = true)
     private String email;
 
+    @Setter
+    @Getter
     @Column(name = "numero_de_serie_bicicleta", unique = true)
     private String numeroDeSerieBicicleta;
 
+    @Getter
+    @Setter
     @Column(name = "cor_da_bicicleta")
     private String corDaBicicleta;
 
+    @Setter
     @Column(name = "BLOQUEADO_DESBLOQUEADO")
     private String bloqueadoDesbloqueado;
 
+    @Setter
     @Column(name = "liberado")
     private String liberado;
 
@@ -74,106 +97,9 @@ public class Usuario {
     // Getters e Setters
     // Os métodos getters e setters para o atributo senha já foram gerados automaticamente pelo Lombok
 
-    
-    
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getDataDeNascimento() {
-        return dataDeNascimento;
-    }
-
-    public void setDataDeNascimento(String dataDeNascimento) {
-        this.dataDeNascimento = dataDeNascimento;
-    }
-
-    public String getNumeroDoCartao() {
-        return numeroDoCartao;
-    }
-
-    public void setNumeroDoCartao(String numeroDoCartao) {
-        this.numeroDoCartao = numeroDoCartao;
-    }
-
-    public Integer getCreditosRestantes() {
-        return creditosRestantes;
-    }
-
-    public void setCreditosRestantes(Integer creditosRestantes) {
-        this.creditosRestantes = creditosRestantes;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNumeroDeSerieBicicleta() {
-        return numeroDeSerieBicicleta;
-    }
-
-    public void setNumeroDeSerieBicicleta(String numeroDeSerieBicicleta) {
-        this.numeroDeSerieBicicleta = numeroDeSerieBicicleta;
-    }
-
-    public String getCorDaBicicleta() {
-        return corDaBicicleta;
-    }
-
-    public void setCorDaBicicleta(String corDaBicicleta) {
-        this.corDaBicicleta = corDaBicicleta;
-    }
-
-    public String getBloqueadoDesbloqueado() {
-        return bloqueadoDesbloqueado;
-    }
-
-    public void setBloqueadoDesbloqueado(String bloqueadoDesbloqueado) {
-        this.bloqueadoDesbloqueado = bloqueadoDesbloqueado;
-    }
-
-    public String getLiberado() {
-        return liberado;
-    }
-
-    public void setLiberado(String liberado) {
-        this.liberado = liberado;
-    }
-
-	public String getSexo() {
+    public String getSexo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
