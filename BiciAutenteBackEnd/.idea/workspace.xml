@@ -5,7 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/app/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.config.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/auth.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/main.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.spec.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +75,8 @@
       <list>
         <option value="HTML File" />
         <option value="module-info" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,6 +85,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/bici/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="file:///private/var/folders/x7/7g1kdg7d63332xbxy93059j80000gn/T/whats-new-dir/whats-new.http" environment="test" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -59,6 +108,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.BiciApplication.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "HTTP Request.generated-requests | #1.executor": "Run",
@@ -92,16 +142,16 @@
     "git-widget-placeholder": "main",
     "ignore.preview.features.used": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/leandrocostamagalhaessilva/Documents/Projetos Java/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
+    "last_opened_file_path": "/Users/leandrocostamagalhaessilva/Documents/Projetos/Projeto-Bicicletario-Sistema/BiciAutenteBackEnd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.47044727",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -132,68 +182,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="LoginControllerTest.testFazerLogin_EmptyCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
-      <option name="METHOD_NAME" value="testFazerLogin_EmptyCredentials" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="LoginControllerTest.testFazerLogin_Exception" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
-      <option name="METHOD_NAME" value="testFazerLogin_Exception" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="LoginControllerTest.testFazerLogin_InvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.LoginControllerTest" />
-      <option name="METHOD_NAME" value="testFazerLogin_InvalidCredentials" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bici" />
@@ -204,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="Application.BiciApplication" />
-        <item itemvalue="JUnit.LoginControllerTest" />
-        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_Exception" />
-        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_EmptyCredentials" />
-        <item itemvalue="JUnit.LoginControllerTest.testFazerLogin_InvalidCredentials" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +267,9 @@
       <workItem from="1717349175130" duration="349000" />
       <workItem from="1717550527835" duration="27000" />
       <workItem from="1717585799209" duration="181000" />
-      <workItem from="1717863911476" duration="2019000" />
+      <workItem from="1717863911476" duration="3057000" />
+      <workItem from="1717884004404" duration="320000" />
+      <workItem from="1717884629336" duration="4168000" />
     </task>
     <servers />
   </component>

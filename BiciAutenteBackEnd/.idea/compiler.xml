@@ -15,7 +15,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="bici" options="-parameters --enable-preview" />
-      <module name="openapi-java-client" options="" />
+      <module name="openapi-java-client" options="-Xlint:all -J-Xss4m" />
     </option>
   </component>
 </project>
