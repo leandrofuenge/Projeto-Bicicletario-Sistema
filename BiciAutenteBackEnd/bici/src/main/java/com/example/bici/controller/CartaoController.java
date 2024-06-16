@@ -51,7 +51,7 @@ public class CartaoController {
                     }
 
                     if (cartaoLiberado) {
-                        return ResponseEntity.ok("Cartão Liberado.");
+                        return ResponseEntity.ok("Usuário Autenticado");
                     }
 
                     boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);

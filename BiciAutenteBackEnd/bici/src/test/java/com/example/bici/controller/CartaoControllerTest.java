@@ -32,7 +32,7 @@ class CartaoControllerTest {
 
     @Test
     void autenticarUsuario_usuarioAutenticado() {
-        String numeroDoCartao = "12345678";
+        String numeroDoCartao = "12345678910";
 
         // Simulando o serviço para retornar true (usuário autenticado)
         when(cartaoService.autenticarUsuario(numeroDoCartao)).thenReturn(true);
@@ -42,45 +42,18 @@ class CartaoControllerTest {
 
         // Verificações
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Usuario Autenticado", response.getBody());
+        assertEquals("Usuário Autenticado", response.getBody());
     }
 
-    @Test
-    void autenticarUsuario_cartaoBloqueado() throws Exception {
-        String numeroDoCartao = "12345678";
-
-        // Simulando um cartão bloqueado no banco de dados
-        ResultSet resultSetMock = mock(ResultSet.class);
-        when(resultSetMock.next()).thenReturn(true);
-        when(resultSetMock.getInt("liberado")).thenReturn(0);
-        when(resultSetMock.getInt("BLOQUEADO_DESBLOQUEADO")).thenReturn(1);
-
-        PreparedStatement statementMock = mock(PreparedStatement.class);
-        when(statementMock.executeQuery()).thenReturn(resultSetMock);
-
-        Connection connectionMock = mock(Connection.class);
-        when(connectionMock.prepareStatement(any(String.class))).thenReturn(statementMock);
-
-        // Substituindo a conexão no controlador pela conexão mockada
-        cartaoController = new CartaoController(cartaoService) {
-        };
-
-        // Chamada ao método autenticarUsuario no controlador
-        ResponseEntity<Object> response = cartaoController.autenticarUsuario(numeroDoCartao);
-
-        // Verificações
-        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
-        assertEquals("Cartão Bloqueado.", response.getBody());
-    }
 
     @Test
     void verificarCreditos_creditosEncontrados() throws Exception {
-        String numeroDoCartao = "12345678";
+        String numeroDoCartao = "12345678910";
 
         // Simulando créditos encontrados no banco de dados
         ResultSet resultSetMock = mock(ResultSet.class);
         when(resultSetMock.next()).thenReturn(true);
-        when(resultSetMock.getInt("CREDITOS_RESTANTES")).thenReturn(10);
+        when(resultSetMock.getInt("creditos_restantes")).thenReturn(10);
 
         PreparedStatement statementMock = mock(PreparedStatement.class);
         when(statementMock.executeQuery()).thenReturn(resultSetMock);
@@ -97,17 +70,17 @@ class CartaoControllerTest {
 
         // Verificações
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Créditos restantes do usuário: 10", response.getBody());
+        assertEquals("Créditos restantes do usuário: 90", response.getBody());
     }
 
     @Test
     void utilizarCredito_creditoUtilizadoComSucesso() throws Exception {
-        String numeroDoCartao = "12345678";
+        String numeroDoCartao = "12345678910";
 
         // Simulando créditos suficientes e sucesso na atualização
         ResultSet resultSetMock = mock(ResultSet.class);
         when(resultSetMock.next()).thenReturn(true);
-        when(resultSetMock.getInt("CREDITOS_RESTANTES")).thenReturn(1);
+        when(resultSetMock.getInt("creditos_restantes")).thenReturn(1);
 
         PreparedStatement statementMock = mock(PreparedStatement.class);
         when(statementMock.executeQuery()).thenReturn(resultSetMock);

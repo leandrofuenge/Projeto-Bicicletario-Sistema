@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CookieController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/AdminControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +78,12 @@
     "JUnit.AdminControllerTest.executor": "Run",
     "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
     "JUnit.BiciApplicationTests.executor": "Run",
+    "JUnit.CartaoControllerTest.autenticarUsuario_cartaoBloqueado.executor": "Run",
+    "JUnit.CartaoControllerTest.autenticarUsuario_cartaoDesbloqueado.executor": "Run",
     "JUnit.CartaoControllerTest.autenticarUsuario_usuarioAutenticado.executor": "Run",
     "JUnit.CartaoControllerTest.executor": "Run",
     "JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor": "Debug",
+    "JUnit.CartaoControllerTest.utilizarCredito_creditoUtilizadoComSucesso.executor": "Run",
     "JUnit.CartaoControllerTest.verificarCreditos_creditosEncontrados.executor": "Run",
     "JUnit.LoginControllerTest.executor": "Debug",
     "JUnit.LoginControllerTest.testFazerLogin_EmptyCredentials.executor": "Run",
@@ -133,21 +131,85 @@
       <recent name="$PROJECT_DIR$/bici/src/test/java/com/example/bici" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.BiciApplication">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
+  <component name="RunManager" selected="JUnit.CartaoControllerTest">
+    <configuration name="CartaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
+    <configuration name="CartaoControllerTest.autenticarUsuario_cartaoBloqueado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="METHOD_NAME" value="autenticarUsuario_cartaoBloqueado" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
+    <configuration name="CartaoControllerTest.autenticarUsuario_cartaoDesbloqueado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="METHOD_NAME" value="autenticarUsuario_cartaoDesbloqueado" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
-      <method v="2" />
+    <configuration name="CartaoControllerTest.utilizarCredito_creditoUtilizadoComSucesso" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="METHOD_NAME" value="utilizarCredito_creditoUtilizadoComSucesso" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
-      <method v="2" />
+    <configuration name="CartaoControllerTest.verificarCreditos_creditosEncontrados" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bici" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.bici.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.bici.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.bici.controller.CartaoControllerTest" />
+      <option name="METHOD_NAME" value="verificarCreditos_creditosEncontrados" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bici" />
@@ -158,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="HTTP Request.generated-requests | #5" />
-        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="JUnit.CartaoControllerTest" />
+        <item itemvalue="JUnit.CartaoControllerTest.autenticarUsuario_cartaoDesbloqueado" />
+        <item itemvalue="JUnit.CartaoControllerTest.utilizarCredito_creditoUtilizadoComSucesso" />
+        <item itemvalue="JUnit.CartaoControllerTest.verificarCreditos_creditosEncontrados" />
+        <item itemvalue="JUnit.CartaoControllerTest.autenticarUsuario_cartaoBloqueado" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +289,7 @@
       <workItem from="1717884629336" duration="6770000" />
       <workItem from="1717969550548" duration="552000" />
       <workItem from="1717974336854" duration="72000" />
-      <workItem from="1718519234506" duration="10668000" />
+      <workItem from="1718519234506" duration="12339000" />
     </task>
     <servers />
   </component>
