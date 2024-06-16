@@ -147,7 +147,7 @@ public class UsuarioService {
             bloquearDesbloquearCartao(numeroDoCartao, cpf, 1);
             ResponseEntity.ok("Cartão bloqueado com sucesso.");
         } catch (Exception e) {
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao bloquear o cartão: \{e.getMessage()}");
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao bloquear o cartão: " + e.getMessage());
         }
     }
 
@@ -156,12 +156,12 @@ public class UsuarioService {
             bloquearDesbloquearCartao(numeroDoCartao, cpf, 0);
             ResponseEntity.ok("Cartão desbloqueado com sucesso.");
         } catch (Exception e) {
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao desbloquear o cartão: \{e.getMessage()}");
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao desbloquear o cartão: " + e.getMessage());
         }
     }
 
     private void bloquearDesbloquearCartao(String numeroDoCartao, String cpf, int status) throws SQLException {
-        try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "LEANDRO", "8YxeV6wCA9H8")) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD)) {
             PreparedStatement stmt = connection.prepareStatement("SELECT BLOQUEADO_DESBLOQUEADO FROM USUARIO WHERE NUMERO_DO_CARTAO = ? AND CPF = ?");
             stmt.setString(1, numeroDoCartao);
             stmt.setString(2, cpf);
@@ -187,7 +187,7 @@ public class UsuarioService {
     }
 
     // Método para cancelar o pedido de cartão por CPF
-    public String cancelarCartao(String cpf, String numeroDoCartao) {
+    public String cancelarCartao(String cpf, String numeroDoCartao) throws SQLException {
         String sql = "UPDATE usuario SET NUMERO_DO_CARTAO = NULL WHERE CPF = ? AND NUMERO_DO_CARTAO = ?";
 
         try (Connection conn = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
@@ -196,24 +196,14 @@ public class UsuarioService {
             stmt.setString(1, cpf);
             stmt.setString(2, numeroDoCartao);
 
-            int linhasAfetadas = stmt.executeUpdate();
+            stmt.executeUpdate();
 
-            if (linhasAfetadas > 0) {
-                System.out.println(STR."Pedido de cartão cancelado com sucesso para o usuário com CPF \{cpf}");
-                return "Pedido de cartão cancelado com sucesso";
-            } else {
-                System.out.println(STR."O usuário com CPF \{cpf} não possui um pedido de cartão ativo.");
-                return "O usuário com CPF fornecido não possui um pedido de cartão ativo.";
-            }
-
-        } catch (SQLException e) {
-            System.out.println(STR."Erro ao cancelar pedido de cartão: \{e.getMessage()}");
-            return "Erro ao cancelar pedido de cartão";
         }
+        return sql;
     }
 
     public boolean liberarCartao(String numeroDoCartao, String cpf) {
-        String sql = "UPDATE USUARIO SET liberado = 0 WHERE numero_do_cartao = ? AND cpf = ?";
+        String sql = "UPDATE USUARIO SET liberado = 1 WHERE numero_do_cartao = ? AND cpf = ?";
         boolean liberacaoSucesso = false;
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
@@ -226,13 +216,16 @@ public class UsuarioService {
             liberacaoSucesso = linhasAfetadas > 0;
 
             if (liberacaoSucesso) {
-                System.out.println(STR."Cartão liberado com sucesso para o cliente com número \{numeroDoCartao}");
+                LOGGER.info("Cartão liberado com sucesso para o cliente com número: " + numeroDoCartao);
+            } else {
+                LOGGER.warning("Falha ao liberar o cartão para o cliente com número: " + numeroDoCartao);
             }
 
         } catch (SQLException e) {
-            System.out.println(STR."Erro ao liberar o cartão: \{e.getMessage()}");
+            LOGGER.log(Level.SEVERE, "Erro ao liberar o cartão: " + e.getMessage(), e);
         }
 
         return liberacaoSucesso;
     }
+
 }

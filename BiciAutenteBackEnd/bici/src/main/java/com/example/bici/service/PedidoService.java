@@ -27,11 +27,11 @@ public class PedidoService {
             if (usuarioOptional.isPresent()) {
                 Usuario usuario = usuarioOptional.get();
                 if (usuario.getNumeroDoCartao() != null) {
-                    LOGGER.info(STR."O usuário com CPF \{cpf} já possui um cartão registrado com o número: \{usuario.getNumeroDoCartao()}");
-                    return STR."O usuário já possui um cartão registrado com o número: \{usuario.getNumeroDoCartao()}";
+                    LOGGER.info("O usuário com CPF " + cpf + " já possui um cartão registrado com o número: " + usuario.getNumeroDoCartao());
+                    return "O usuário já possui um cartão registrado com o número: " + usuario.getNumeroDoCartao();
                 } else {
                     String numeroAleatorio = gerarNumeroAleatorio();
-                    LOGGER.info(STR."Número aleatório do tipo 7CD69460: \{numeroAleatorio}");
+                    LOGGER.info("Número aleatório do tipo 7CD69460: " + numeroAleatorio);
                     usuario.setNumeroDoCartao(numeroAleatorio);
                     usuarioRepository.save(usuario);
                     return numeroAleatorio;
@@ -46,7 +46,6 @@ public class PedidoService {
         }
     }
 
-
     // Função para gerar automaticamente um número aleatório do tipo 7CD69460
     private String gerarNumeroAleatorio() {
         Random random = new Random();
@@ -55,7 +54,7 @@ public class PedidoService {
             char c = (char) ('0' + random.nextInt(10));
             sb.append(c);
         }
-        return STR."7CD69460\{sb.toString()}";
+        return "7CD69460" + sb.toString();
     }
 
     // Método para cancelar o pedido de cartão por CPF
@@ -67,10 +66,10 @@ public class PedidoService {
                 if (usuario.getNumeroDoCartao() != null) {
                     usuario.setNumeroDoCartao(null); // Remover o número do cartão
                     usuarioRepository.save(usuario);
-                    LOGGER.info(STR."Pedido de cartão cancelado com sucesso para o usuário com CPF: \{cpf}");
+                    LOGGER.info("Pedido de cartão cancelado com sucesso para o usuário com CPF: " + cpf);
                     return "Pedido de cartão cancelado com sucesso";
                 } else {
-                    LOGGER.warning(STR."O usuário com CPF \{cpf} não possui um pedido de cartão ativo.");
+                    LOGGER.warning("O usuário com CPF " + cpf + " não possui um pedido de cartão ativo.");
                     return "O usuário com CPF fornecido não possui um pedido de cartão ativo.";
                 }
             } else {

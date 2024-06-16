@@ -36,7 +36,7 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.OK).body("Usuário criado com sucesso!");
         } catch (Exception e) {
             logger.error("Erro ao criar usuario: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao criar usuário: \{e.getMessage()}");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar usuário: " + e.getMessage());
         }
     }
 
@@ -61,7 +61,7 @@ public class AdminController {
                 return ResponseEntity.status(HttpStatus.OK).body("CPF obtido com sucesso");
             } catch (Exception e) {
                 logger.error("Erro ao obter CPF do usuário: {}", e.getMessage());
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao obter CPF do usuário: \{e.getMessage()}");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao obter CPF do usuário: " + e.getMessage());
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado com o CPF fornecido");
@@ -76,7 +76,7 @@ public class AdminController {
                 return ResponseEntity.status(HttpStatus.OK).body("Usuário modificado com sucesso!");
             } catch (Exception e) {
                 logger.error("Erro ao modificar usuário: {}", e.getMessage());
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao modificar usuário: \{e.getMessage()}");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao modificar usuário: " + e.getMessage());
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado com o CPF fornecido");
@@ -91,7 +91,7 @@ public class AdminController {
                 return ResponseEntity.status(HttpStatus.OK).body("Usuário excluído com sucesso!");
             } catch (Exception e) {
                 logger.error("Erro ao excluir usuário: {}", e.getMessage());
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao excluir usuário: \{e.getMessage()}");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir usuário: " + e.getMessage());
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado com o CPF fornecido");

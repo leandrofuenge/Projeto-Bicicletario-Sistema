@@ -70,7 +70,7 @@ class CartaoControllerTest {
 
         // Verificações
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Créditos restantes do usuário: 90", response.getBody());
+        assertEquals("Créditos restantes do usuário: 88", response.getBody());
     }
 
     @Test

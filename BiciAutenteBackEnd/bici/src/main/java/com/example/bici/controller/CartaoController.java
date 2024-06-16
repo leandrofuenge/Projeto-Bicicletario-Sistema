@@ -8,7 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/api/cartao")
@@ -37,11 +41,7 @@ public class CartaoController {
 
                         if (liberado == 0 && bloqueadoDesbloqueado == 0) {
                             cartaoLiberado = true;
-                        } else if (liberado == 0 && bloqueadoDesbloqueado == 1) {
-                            cartaoBloqueado = true;
-                        } else if (liberado == 1 && bloqueadoDesbloqueado == 1) {
-                            cartaoBloqueado = true;
-                        } else if (liberado == 1 && bloqueadoDesbloqueado == 0) {
+                        } else {
                             cartaoBloqueado = true;
                         }
                     }
@@ -50,22 +50,14 @@ public class CartaoController {
                         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Cartão Bloqueado.");
                     }
 
-                    if (cartaoLiberado) {
-                        return ResponseEntity.ok("Usuário Autenticado");
-                    }
-
-                    boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);
-                    if (usuarioAutenticado) {
+                    if (cartaoLiberado || cartaoService.autenticarUsuario(numeroDoCartao)) {
                         return ResponseEntity.ok("Usuário Autenticado");
                     }
 
                     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não Encontrado.");
                 }
             }
-        } catch (IllegalArgumentException e) {
-            logger.error("Argumento inválido ao autenticar usuário.", e);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Argumento inválido ao autenticar usuário.");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.error("Ocorreu um erro durante a autenticação.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro durante a autenticação.");
         }
@@ -80,7 +72,7 @@ public class CartaoController {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
                         int creditos = resultSet.getInt("creditos_restantes");
-                        return ResponseEntity.ok().body(STR."Créditos restantes do usuário: \{creditos}");
+                        return ResponseEntity.ok().body("Créditos restantes do usuário: " + creditos);
                     } else {
                         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
                     }
@@ -88,7 +80,7 @@ public class CartaoController {
             }
         } catch (SQLException e) {
             logger.error("Erro ao acessar o banco de dados.", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
         }
     }
 
@@ -122,7 +114,7 @@ public class CartaoController {
             }
         } catch (SQLException e) {
             logger.error("Erro ao acessar o banco de dados.", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(STR."Erro ao acessar o banco de dados: \{e.getMessage()}");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao acessar o banco de dados: " + e.getMessage());
         }
     }
 }
