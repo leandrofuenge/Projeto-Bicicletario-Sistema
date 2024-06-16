@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +287,7 @@
       <workItem from="1717884629336" duration="6770000" />
       <workItem from="1717969550548" duration="552000" />
       <workItem from="1717974336854" duration="72000" />
-      <workItem from="1718519234506" duration="14148000" />
+      <workItem from="1718519234506" duration="14831000" />
     </task>
     <servers />
   </component>
