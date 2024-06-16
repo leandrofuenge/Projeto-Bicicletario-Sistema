@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/AdminControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/FrontEnd/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/myapp/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.work" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.work.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/middleware/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/PedidoInterno.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/PedidoInterno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/CartaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/CartaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/test/java.com.example.bici/LoginControllerIntegrationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/app/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/PedidoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +221,7 @@
       <workItem from="1717884629336" duration="6770000" />
       <workItem from="1717969550548" duration="552000" />
       <workItem from="1717974336854" duration="72000" />
-      <workItem from="1718519234506" duration="8828000" />
+      <workItem from="1718519234506" duration="9073000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.*;
 
 @RestController
-@RequestMapping("/cartao")
+@RequestMapping("/api/cartao")
 public class CartaoController {
 
     private final CartaoService cartaoService;

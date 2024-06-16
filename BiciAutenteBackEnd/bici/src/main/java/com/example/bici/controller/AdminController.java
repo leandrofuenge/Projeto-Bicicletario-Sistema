@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/administrador")
+@RequestMapping("/api/administrador")
 @CrossOrigin(origins = "*", allowedHeaders = "*") // Adicionando suporte a CORS para todas as origens e cabeçalhos
 public class AdminController {
 
