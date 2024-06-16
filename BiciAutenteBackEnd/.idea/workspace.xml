@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/CartaoControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CartaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/CookieController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/AdminControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +83,10 @@
     "JUnit.AdminControllerTest.executor": "Run",
     "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
     "JUnit.BiciApplicationTests.executor": "Run",
-    "JUnit.CartaoControllerTest.executor": "Debug",
+    "JUnit.CartaoControllerTest.autenticarUsuario_usuarioAutenticado.executor": "Run",
+    "JUnit.CartaoControllerTest.executor": "Run",
     "JUnit.CartaoControllerTest.testAutenticarUsuario_UsuarioAutenticado.executor": "Debug",
+    "JUnit.CartaoControllerTest.verificarCreditos_creditosEncontrados.executor": "Run",
     "JUnit.LoginControllerTest.executor": "Debug",
     "JUnit.LoginControllerTest.testFazerLogin_EmptyCredentials.executor": "Run",
     "JUnit.LoginControllerTest.testFazerLogin_Exception.executor": "Run",
@@ -128,6 +134,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BiciApplication">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -140,9 +149,6 @@
     <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" requestIdentifier="#6" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bici" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bici.BiciApplication" />
@@ -152,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.generated-requests | #5" />
-        <item itemvalue="HTTP Request.generated-requests | #6" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +227,7 @@
       <workItem from="1717884629336" duration="6770000" />
       <workItem from="1717969550548" duration="552000" />
       <workItem from="1717974336854" duration="72000" />
-      <workItem from="1718519234506" duration="9073000" />
+      <workItem from="1718519234506" duration="10668000" />
     </task>
     <servers />
   </component>

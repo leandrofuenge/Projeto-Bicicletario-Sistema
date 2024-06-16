@@ -25,7 +25,7 @@ public class CartaoController {
     @GetMapping("/usuarios/autenticar")
     public ResponseEntity<Object> autenticarUsuario(@RequestParam("numeroDoCartao") String numeroDoCartao) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste", "root", "5Q8[7Ie+uN7^")) {
-            String consulta = "SELECT liberado, BLOQUEADO_DESBLOQUEADO FROM USUARIO WHERE numero_do_cartao = ?";
+            String consulta = "SELECT liberado, bloqueado_desbloqueado FROM usuario WHERE numero_do_cartao = ?";
             try (PreparedStatement statement = connection.prepareStatement(consulta)) {
                 statement.setString(1, numeroDoCartao);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -33,7 +33,7 @@ public class CartaoController {
                     boolean cartaoLiberado = false;
                     while (resultSet.next()) {
                         int liberado = resultSet.getInt("liberado");
-                        int bloqueadoDesbloqueado = resultSet.getInt("BLOQUEADO_DESBLOQUEADO");
+                        int bloqueadoDesbloqueado = resultSet.getInt("bloqueado_desbloqueado");
 
                         if (liberado == 0 && bloqueadoDesbloqueado == 0) {
                             cartaoLiberado = true;
@@ -56,7 +56,7 @@ public class CartaoController {
 
                     boolean usuarioAutenticado = cartaoService.autenticarUsuario(numeroDoCartao);
                     if (usuarioAutenticado) {
-                        return ResponseEntity.ok("Usuario Autenticado");
+                        return ResponseEntity.ok("Usuário Autenticado");
                     }
 
                     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não Encontrado.");
@@ -74,12 +74,12 @@ public class CartaoController {
     @GetMapping("/verificarcreditos")
     public ResponseEntity<Object> verificarCreditos(@RequestParam("numeroDoCartao") String numeroDoCartao) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste", "root", "5Q8[7Ie+uN7^")) {
-            String consulta = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
+            String consulta = "SELECT creditos_restantes FROM usuario WHERE numero_do_cartao = ?";
             try (PreparedStatement statement = connection.prepareStatement(consulta)) {
                 statement.setString(1, numeroDoCartao);
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
-                        int creditos = resultSet.getInt("CREDITOS_RESTANTES");
+                        int creditos = resultSet.getInt("creditos_restantes");
                         return ResponseEntity.ok().body(STR."Créditos restantes do usuário: \{creditos}");
                     } else {
                         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
@@ -95,14 +95,14 @@ public class CartaoController {
     @PostMapping("/usuarios/utilizarcredito")
     public ResponseEntity<Object> utilizarCredito(@RequestParam("numeroDoCartao") String numeroDoCartao) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste", "root", "5Q8[7Ie+uN7^")) {
-            String consultaCreditos = "SELECT CREDITOS_RESTANTES FROM USUARIO WHERE NUMERO_DO_CARTAO = ?";
+            String consultaCreditos = "SELECT creditos_restantes FROM usuario WHERE numero_do_cartao = ?";
             try (PreparedStatement statement = connection.prepareStatement(consultaCreditos)) {
                 statement.setString(1, numeroDoCartao);
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
-                        int creditos = resultSet.getInt("CREDITOS_RESTANTES");
+                        int creditos = resultSet.getInt("creditos_restantes");
                         if (creditos > 0) {
-                            String consultaAtualizacao = "UPDATE USUARIO SET CREDITOS_RESTANTES = CREDITOS_RESTANTES - 1 WHERE NUMERO_DO_CARTAO = ? AND CREDITOS_RESTANTES > 0";
+                            String consultaAtualizacao = "UPDATE usuario SET creditos_restantes = creditos_restantes - 1 WHERE numero_do_cartao = ? AND creditos_restantes > 0";
                             try (PreparedStatement updateStatement = connection.prepareStatement(consultaAtualizacao)) {
                                 updateStatement.setString(1, numeroDoCartao);
                                 int linhasAfetadas = updateStatement.executeUpdate();
