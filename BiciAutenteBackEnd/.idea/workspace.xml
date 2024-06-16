@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/bici/Jenkinsfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -287,7 +291,7 @@
       <workItem from="1717884629336" duration="6770000" />
       <workItem from="1717969550548" duration="552000" />
       <workItem from="1717974336854" duration="72000" />
-      <workItem from="1718519234506" duration="14831000" />
+      <workItem from="1718519234506" duration="16958000" />
     </task>
     <servers />
   </component>

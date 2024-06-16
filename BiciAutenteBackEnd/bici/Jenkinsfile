@@ -1,14 +1,45 @@
 pipeline {
-    agent any // Define que o pipeline pode ser executado em qualquer agente disponível
+    agent any
 
     stages {
-        stage('Compilar') { // Segundo estágio: Compilar o código
+        stage('Checkout') {
             steps {
-                script {
-                    // Comando para compilar o código usando Maven
-                    bat 'mvn clean compile'
+                // Faz o checkout do código fonte principal
+                git url: 'https://github.com/leandrofuenge/Projeto-Bicicletario-Sistema.git', branch: 'main'
+            }
+        }
+
+        stage('Build and Test') {
+            steps {
+                // Debug: imprimir o diretório atual
+                sh 'pwd'
+
+                // Debug: listar os arquivos no diretório atual
+                sh 'ls -la'
+
+                // Executa o build usando Maven
+                dir('BiciAutenteBackEnd/bici') {
+                      // Debug: imprimir o diretório atual
+                    sh 'pwd'
+
+                    // Debug: listar os arquivos no diretório atual
+                    sh 'ls -la'
+
+                    sh 'echo "Hello, Jenkins!"'
+
+
+                    sh 'mvn clean compile'
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build e testes concluídos com sucesso!'
+        }
+        failure {
+            echo 'Ocorreu um erro durante a build ou testes.'
         }
     }
 }
