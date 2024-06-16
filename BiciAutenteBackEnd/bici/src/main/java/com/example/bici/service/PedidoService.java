@@ -20,30 +20,6 @@ public class PedidoService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // Método para salvar o estado do pedido
-    public String salvarEstadoPedido(int estadoPedido) {
-        try {
-            switch (estadoPedido) {
-                case 1:
-                    LOGGER.info("Salvando o estado do pedido: Gerando Pedido");
-                    break;
-                case 2:
-                    LOGGER.info("Salvando o estado do pedido: Pedido Gerado Com Sucesso");
-                    break;
-                case 3:
-                    LOGGER.info("Salvando o estado do pedido: Pedido concluído com sucesso");
-                    break;
-                default:
-                    LOGGER.warning("Estado de salvamento de pedido inválido");
-                    return "Estado de salvamento de pedido inválido";
-            }
-            return "Estado do pedido salvo com sucesso.";
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Erro ao salvar estado do pedido", e);
-            return "Erro ao salvar estado do pedido";
-        }
-    }
-
     // Método para solicitar um cartão de pedido por CPF
     public String solicitarCartaoPedidoPorCPF(String cpf) {
         try {

@@ -3,6 +3,7 @@ package com.example.bici.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
@@ -17,17 +18,21 @@ public class PedidoInterno {
     @Column(name = "ESTADO_PEDIDO")
     private int estadoPedido;
 
+    @Getter @Setter
     @Column(name = "DESCRICAO_PEDIDO")
     private String descricaoPedido;
 
+    @Getter @Setter
     @Column(name = "DATA_HORA_RECEBIDO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraRecebido;
 
+    @Getter @Setter
     @Column(name = "DATA_HORA_ACEITO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraAceito;
 
+    @Getter @Setter
     @Column(name = "DATA_HORA_CONCLUIDO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraConcluido;

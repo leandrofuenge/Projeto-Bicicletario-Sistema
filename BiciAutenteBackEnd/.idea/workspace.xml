@@ -5,53 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedc1dce-6dbc-4d64-bdf0-be60a9300eb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/app/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bici/src/test/java/com/example/bici/controller/AdminControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/FrontEnd/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/myapp/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.work" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.work.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/middleware/middleware.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bici/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/PedidoInterno.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/PedidoInterno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/CartaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/CartaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/java/com/example/bici/service/PedidoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bici/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bici/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.config.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/auth.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/auth.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/app/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/main.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bici/src/test/java.com.example.bici/LoginControllerIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/cmd/app/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/api_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/internal/api/usuario_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" beforeDir="false" afterPath="$PROJECT_DIR$/../BiciAutenteFrontEnd/pkg/models/usuario.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +56,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="module-info" />
         <option value="AnnotationType" />
+        <option value="HTML File" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -118,7 +102,7 @@
     "HTTP Request.generated-requests | #5.executor": "Run",
     "HTTP Request.generated-requests | #6.executor": "Run",
     "HTTP Request.generated-requests | #8.executor": "Run",
-    "JUnit.AdminControllerTest.executor": "Debug",
+    "JUnit.AdminControllerTest.executor": "Run",
     "JUnit.AdminControllerTest.testCriarUsuario.executor": "Debug",
     "JUnit.BiciApplicationTests.executor": "Run",
     "JUnit.CartaoControllerTest.executor": "Debug",
@@ -165,26 +149,11 @@
       <recent name="com.example.bici" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bici/src/main/tests/controller" />
       <recent name="$PROJECT_DIR$/bici/src/test/java/com/example/bici" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BiciApplication">
-    <configuration name="BiciApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.bici.BiciApplication" />
-      <module name="bici" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bici.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -192,6 +161,12 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" requestIdentifier="#6" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="BiciApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -203,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #4" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="Application.BiciApplication" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.generated-requests | #5" />
+        <item itemvalue="HTTP Request.generated-requests | #6" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +244,10 @@
       <workItem from="1717585799209" duration="181000" />
       <workItem from="1717863911476" duration="3057000" />
       <workItem from="1717884004404" duration="320000" />
-      <workItem from="1717884629336" duration="4168000" />
+      <workItem from="1717884629336" duration="6770000" />
+      <workItem from="1717969550548" duration="552000" />
+      <workItem from="1717974336854" duration="72000" />
+      <workItem from="1718519234506" duration="8828000" />
     </task>
     <servers />
   </component>

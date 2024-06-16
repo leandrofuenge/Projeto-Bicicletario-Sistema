@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h1>Login</h1>
+    <div class="error-message" id="error-message"></div>
+    <label for="cpf"></label><input type="text" id="cpf" placeholder="CPF">
+    <label for="senha"></label><input type="password" id="senha" placeholder="Senha">
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+    async function login() {
+        const cpf = document.getElementById('cpf').value;
+        const senha = document.getElementById('senha').value;
+        const errorMessage = document.getElementById('error-message');
+
+        const response = await fetch('http://192.168.1.4:9090/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cpf, senha })
+        });
+
+        if (response.ok) {
+            const usuario = await response.json();
+            console.log('Usuário autenticado:', usuario);
+            alert('Login realizado com sucesso!');
+            // Redirecionar para outra página ou exibir informações do usuário
+        } else {
+            errorMessage.textContent = await response.text();
+        }
+    }
+</script>
+</body>
+</html>
